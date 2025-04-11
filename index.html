@@ -1,212 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOPO4D - Topografía y Fotogrametría</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    /* Estilos Generales */
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0; /* Gris claro de fondo */
-      color: #333; /* Color de texto principal */
-      line-height: 1.6;
-      scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces internos */
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px; /* Padding horizontal */
-    }
-    h1, h2, h3 {
-        color: #003366; /* Azul oscuro para títulos principales */
-    }
-    a {
-        text-decoration: none; /* Quitar subrayado por defecto */
-        color: #00B8D4; /* Turquesa para enlaces generales */
-    }
-    a:hover {
-        color: #00869e; /* Turquesa más oscuro al pasar el ratón */
-    }
-    img {
-        max-width: 100%; /* Asegura que las imágenes no se desborden */
-        height: auto; /* Mantiene la proporción */
-        display: block; /* Evita espacio extra debajo de las imágenes */
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOPO4D - Topografía y Fotogrametría</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      /* Estilos Generales */
+      body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f4f0; /* Verde muy claro de fondo */
+        color: #386641; /* Verde oscuro para texto principal */
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      h1, h2, h3 {
+          color: #1b4332; /* Verde muy oscuro para títulos */
+      }
+      a {
+          text-decoration: none;
+          color: #4CAF50; /* Verde claro para enlaces */
+      }
+      a:hover {
+          color: #388e3c; /* Verde un poco más oscuro al pasar el ratón */
+      }
+      img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+      }
 
-    /* Barra de Navegación */
-    .navbar {
-      background-color: #003366; /* Azul oscuro */
-      color: white;
-      padding: 10px 0; /* Un poco menos de padding vertical */
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 3px solid #00B8D4; /* Borde inferior turquesa */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .navbar-nav {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      flex-wrap: wrap; /* Permite que los items pasen a la siguiente línea si no caben */
-    }
-    .nav-item {
-      margin: 5px 15px; /* Ajuste de margen */
-    }
-    .nav-link {
-      color: white;
-      text-decoration: none;
-      font-size: 1em; /* Tamaño ajustado */
-      font-weight: 500;
-      padding: 8px 12px; /* Padding para hacer el área clickeable más grande */
-      border-radius: 5px;
-      transition: color 0.3s ease, background-color 0.3s ease;
-      display: inline-block; /* Asegura que el padding funcione bien */
-    }
-    .nav-link:hover {
-      color: #003366; /* Azul oscuro */
-      background-color: white; /* Fondo blanco al pasar el ratón */
-    }
-    .nav-link i {
-        margin-right: 6px; /* Espacio entre icono y texto */
-    }
+      /* Barra de Navegación */
+      .navbar {
+        background-color: #1b5e20; /* Verde oscuro */
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 3px solid #66bb6a; /* Verde claro de borde */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-nav {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap;
+      }
+      .nav-item {
+        margin: 5px 15px;
+      }
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 1em;
+        font-weight: 500;
+        padding: 8px 12px;
+        border-radius: 5px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        display: inline-block;
+      }
+      .nav-link:hover {
+        color: #1b5e20; /* Verde oscuro */
+        background-color: white;
+      }
+      .nav-link i {
+          margin-right: 6px;
+      }
 
-    /* Encabezado */
-    header {
-      background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://placehold.co/1920x600/003366/FFFFFF?text=Imagen+Fondo+Header') no-repeat center center/cover; /* ★ REEMPLAZAR URL con imagen de fondo relevante */
-      color: white;
-      padding: 60px 0; /* Más padding vertical */
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    header .logo {
-      width: 150px; /* Tamaño del logo */
-      margin-bottom: 25px;
-      /* background-color: rgba(255, 255, 255, 0.1);  Fondo sutil si el logo es transparente */
-      border-radius: 0%; /* Hacer el logo circular si es apropiado */
-      padding: 0px; /* Espacio interno si se usa fondo/borde */
-      /* box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); */
-    }
-    header h1 {
-      margin: 0 0 15px 0;
-      font-size: 3em; /* Título más grande */
-      font-weight: 700;
-      color: white; /* Asegurar color blanco */
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Sombra para legibilidad */
-    }
-    header p {
-      margin: 0;
-      font-size: 1.2em;
-      font-weight: 400;
-      opacity: 0.9;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    }
+      /* Encabezado */
+      header {
+        background: linear-gradient(rgba(27, 94, 32, 0.8), rgba(27, 94, 32, 0.8)), url('https://placehold.co/1920x600/1B5E20/FFFFFF?text=Imagen+Fondo+Header') no-repeat center center/cover;
+        color: white;
+        padding: 60px 0;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      header .logo {
+        width: 150px;
+        margin-bottom: 25px;
+      }
+      header h1 {
+        margin: 0 0 15px 0;
+        font-size: 3em;
+        font-weight: 700;
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+      }
+      header p {
+        margin: 0;
+        font-size: 1.2em;
+        font-weight: 400;
+        opacity: 0.9;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
 
-    /* Estilos de Secciones */
-    section {
-      padding: 60px 0; /* Padding vertical uniforme */
-      text-align: center;
-      opacity: 0; /* Inicialmente oculto para animación */
-      transform: translateY(30px); /* Desplazado para animación */
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      overflow: hidden; /* Evita barras de scroll inesperadas durante la animación */
-    }
-    section:nth-of-type(odd) {
-        background-color: #ffffff; /* Fondo blanco para secciones impares */
-    }
-    section:nth-of-type(even) {
-        background-color: #f8f9fa; /* Gris muy claro para secciones pares */
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    section h2 {
-      margin: 0 auto 40px auto; /* Centrado y margen inferior */
-      font-size: 2.4em; /* Títulos de sección más grandes */
-      font-weight: 600;
-      position: relative;
-      padding-bottom: 15px; /* Espacio para la línea decorativa */
-      max-width: 600px; /* Limita el ancho del título */
-    }
-    /* Línea decorativa debajo de títulos H2 */
-    section h2::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px; /* Ancho de la línea */
-        height: 4px; /* Grosor de la línea */
-        background-color: #00B8D4; /* Color turquesa */
-        border-radius: 2px;
-    }
-    .section-intro { /* Párrafo introductorio para secciones */
-        max-width: 800px;
+      /* Estilos de Secciones */
+      section {
+        padding: 60px 0;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        overflow: hidden;
+      }
+      section:nth-of-type(odd) {
+          background-color: #f8f8f8; /* Verde muy claro */
+      }
+      section:nth-of-type(even) {
+          background-color: #f0f4f0; /* Verde aún más claro */
+      }
+      section.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      section h2 {
         margin: 0 auto 40px auto;
-        font-size: 1.1em;
-        color: #555;
-    }
+        font-size: 2.4em;
+        font-weight: 600;
+        position: relative;
+        padding-bottom: 15px;
+        max-width: 600px;
+      }
+      section h2::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 4px;
+          background-color: #4CAF50;
+          border-radius: 2px;
+      }
+      .section-intro {
+          max-width: 800px;
+          margin: 0 auto 40px auto;
+          font-size: 1.1em;
+          color: #444;
+      }
 
-    /* Cuadrícula de Servicios */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajuste de tamaño mínimo */
-      gap: 30px;
-      margin-top: 20px;
-      text-align: left;
-    }
-    .service-card {
-      background-color: white;
-      padding: 30px 25px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Sombra suave */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Centra contenido */
-      text-align: center; /* Centra texto */
-      border-top: 5px solid #00B8D4; /* Borde superior turquesa */
-    }
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-    }
-    .service-card i {
-      font-size: 2.8em; /* Icono más grande */
-      margin-bottom: 20px;
-      color: #003366; /* Azul oscuro para iconos */
-      background-color: #e0f7fa; /* Fondo celeste muy claro para el icono */
-      border-radius: 50%;
-      width: 70px; /* Tamaño fijo para el círculo */
-      height: 70px;
-      line-height: 70px; /* Centrar icono verticalmente */
-      text-align: center;
-    }
-    .service-card h3 {
-      margin: 0 0 15px 0;
-      font-size: 1.4em;
-      font-weight: 600;
-      color: #003366;
-    }
-    .service-card p {
-      margin: 0;
-      font-size: 1em;
-      color: #555;
-      flex-grow: 1; /* Asegura que las tarjetas tengan altura similar */
-    }
+      /* Cuadrícula de Servicios */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 20px;
+        text-align: left;
+      }
+      .service-card {
+        background-color: white;
+        padding: 30px 25px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border-top: 5px solid #4CAF50;
+      }
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      }
+      .service-card i {
+        font-size: 2.8em;
+        margin-bottom: 20px;
+        color: #1b5e20;
+        background-color: #e6f4e5;
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+      }
+      .service-card h3 {
+        margin: 0 0 15px 0;
+        font-size: 1.4em;
+        font-weight: 600;
+        color: #1b5e20;
+      }
+      .service-card p {
+        margin: 0;
+        font-size: 1em;
+        color: #555;
+        flex-grow: 1;
+      }
 
     /* Cuadrícula de Proyectos */
     .projects-grid {
@@ -223,13 +218,13 @@
       text-align: left;
       display: flex;
       flex-direction: column;
-      overflow: hidden; /* Clave para bordes redondeados en imagen */
+      overflow: hidden;
     }
     .project-card:hover {
       transform: translateY(-10px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
     }
-    .project-card .project-image-container {
+     .project-card .project-image-container {
         position: relative;
         height: 220px;
         overflow: hidden;
@@ -238,116 +233,116 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease; /* Transición para zoom */
+      transition: transform 0.4s ease;
     }
     .project-card:hover img {
-        transform: scale(1.05); /* Efecto zoom suave en la imagen */
+        transform: scale(1.05);
     }
     .project-card-content {
         padding: 25px;
         display: flex;
         flex-direction: column;
-        flex-grow: 1; /* Ocupa espacio disponible */
+        flex-grow: 1;
     }
     .project-card h3 {
       margin: 0 0 10px 0;
       font-size: 1.4em;
       font-weight: 600;
-      color: #003366;
+      color: #1b5e20;
     }
     .project-card p {
       margin: 0 0 20px 0;
       font-size: 1em;
       color: #555;
-      flex-grow: 1; /* Empuja el botón hacia abajo */
+      flex-grow: 1;
     }
     .project-card a.details-button {
-      display: inline-block; /* Permite centrar si es necesario */
+      display: inline-block;
       padding: 10px 20px;
-      background-color: #00B8D4;
+      background-color: #4CAF50;
       color: white;
       text-decoration: none;
       border-radius: 5px;
       transition: background-color 0.3s ease, transform 0.2s ease;
       font-weight: 500;
       text-align: center;
-      margin-top: auto; /* Asegura que esté al final */
-      align-self: flex-start; /* Alinea a la izquierda */
+      margin-top: auto;
+      align-self: flex-start;
     }
     .project-card a.details-button:hover {
-      background-color: #00869e;
+      background-color: #388e3c;
       transform: scale(1.03);
     }
      .project-card a.details-button i {
-         margin-left: 8px; /* Espacio para icono en botón */
+         margin-left: 8px;
      }
 
     /* Sección Equipamiento */
     #equipment {
-        background-color: #e9ecef; /* Fondo ligeramente diferente */
+        background-color: #f1f7ed;
     }
     .equipment-list {
       list-style: none;
       padding: 0;
       margin-top: 30px;
-      text-align: left; /* Alineación izquierda */
-      max-width: 700px; /* Ancho máximo para la lista */
+      text-align: left;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
     .equipment-list li {
       font-size: 1.1em;
       color: #333;
-      margin-bottom: 18px; /* Más espacio entre items */
-      padding-left: 40px; /* Espacio para el icono */
-      position: relative; /* Para posicionar el icono */
-      border-bottom: 1px dashed #ccc; /* Línea separadora sutil */
+      margin-bottom: 18px;
+      padding-left: 40px;
+      position: relative;
+      border-bottom: 1px dashed #ccc;
       padding-bottom: 15px;
     }
-     .equipment-list li:last-child {
-         border-bottom: none; /* Sin línea en el último */
+    .equipment-list li:last-child {
+         border-bottom: none;
      }
     .equipment-list li i {
         position: absolute;
         left: 0;
         top: 50%;
         transform: translateY(-50%);
-        font-size: 1.5em; /* Tamaño del icono */
-        color: #00B8D4; /* Turquesa */
+        font-size: 1.5em;
+        color: #4CAF50;
         width: 25px;
         text-align: center;
     }
     .equipment-list li strong {
-      color: #002147; /* Azul más oscuro */
+      color: #1b5e20;
       font-weight: 600;
-      display: block; /* Nombre en línea separada (opcional) */
+      display: block;
       margin-bottom: 3px;
     }
 
     /* Sección Contacto */
     #contact {
-        background: linear-gradient(to bottom, #ffffff 50%, #f0f0f0 50%); /* Fondo dividido */
+        background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%);
     }
-    .contact-container { /* Contenedor para el formulario y la info */
+    .contact-container {
         display: flex;
         flex-wrap: wrap;
         gap: 40px;
-        align-items: flex-start; /* Alinea arriba */
-        max-width: 1100px; /* Ancho máximo del contenedor de contacto */
-        margin: 0 auto; /* Centrar */
+        align-items: flex-start;
+        max-width: 1100px;
+        margin: 0 auto;
     }
     #contact-form {
-      flex: 1 1 500px; /* Flexible, base 500px */
-      max-width: 600px; /* Máximo */
+      flex: 1 1 500px;
+      max-width: 600px;
       text-align: left;
       background-color: #ffffff;
       padding: 35px;
       border-radius: 10px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      margin: 0; /* Quitar margen auto si está en flex */
-      border-top: 5px solid #003366; /* Borde superior azul */
+      margin: 0;
+      border-top: 5px solid #1b5e20;
     }
-    .contact-form-label { /* Clase para labels */
+    .contact-form-label {
       display: block;
       margin-top: 15px;
       margin-bottom: 5px;
@@ -355,7 +350,7 @@
       color: #444;
       font-size: 1em;
     }
-    .contact-form-input, .contact-form-textarea { /* Clase para inputs/textarea */
+    .contact-form-input, .contact-form-textarea {
       width: 100%;
       box-sizing: border-box;
       padding: 12px;
@@ -368,17 +363,17 @@
     }
     .contact-form-input:focus, .contact-form-textarea:focus {
       outline: none;
-      border-color: #00B8D4;
-      box-shadow: 0 0 8px rgba(0, 184, 212, 0.3);
+      border-color: #4CAF50;
+      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
     }
     .contact-form-textarea {
       resize: vertical;
       min-height: 140px;
     }
-    .contact-form-button { /* Clase para botón */
+    .contact-form-button {
       margin-top: 25px;
       padding: 12px 25px;
-      background-color: #00B8D4;
+      background-color: #4CAF50;
       color: white;
       border: none;
       border-radius: 5px;
@@ -389,37 +384,35 @@
       width: 100%;
     }
     .contact-form-button:hover {
-      background-color: #00869e;
+      background-color: #388e3c;
       transform: scale(1.02);
     }
 
-    .contact-details { /* Contenedor para la info de contacto */
-        flex: 1 1 300px; /* Flexible, base 300px */
+    .contact-details {
+        flex: 1 1 300px;
         text-align: left;
         padding: 20px;
-        /* background-color: #f8f9fa; Opcional: fondo diferente */
-        /* border-radius: 10px; */
     }
      .contact-details h3 {
          font-size: 1.6em;
          margin-bottom: 20px;
-         color: #003366;
+         color: #1b5e20;
      }
     .contact-info p {
       font-size: 1.1em;
       color: #333;
       margin-bottom: 18px;
-      display: flex; /* Para alinear icono y texto */
+      display: flex;
       align-items: center;
     }
     .contact-info p i {
         font-size: 1.3em;
         margin-right: 15px;
-        color: #003366;
-        width: 25px; /* Ancho fijo para alinear */
+        color: #1b5e20;
+        width: 25px;
         text-align: center;
     }
-    .whatsapp-button { /* Clase específica para el botón WA */
+    .whatsapp-button {
       display: inline-block;
       padding: 12px 25px;
       background-color: #25d366;
@@ -441,7 +434,7 @@
 
     .social-icons {
       margin-top: 30px;
-      text-align: left; /* Alineado a la izquierda en detalles */
+      text-align: left;
     }
      .social-icons h4 {
          font-size: 1.2em;
@@ -450,13 +443,13 @@
      }
     .social-icons a {
       display: inline-block;
-      margin-right: 15px; /* Solo margen derecho */
+      margin-right: 15px;
       font-size: 1.8em;
-      color: #003366;
+      color: #1b5e20;
       transition: color 0.3s ease, transform 0.3s ease;
     }
     .social-icons a:hover {
-      color: #00B8D4;
+      color: #4CAF50;
       transform: scale(1.2);
     }
     .social-icons a i {
@@ -465,19 +458,19 @@
 
     /* Pie de Página */
     footer {
-      background-color: #002147; /* Azul más oscuro */
-      color: #adb5bd; /* Gris claro para texto */
+      background-color: #1a4d2e;
+      color: #e0f2f1;
       padding: 40px 0;
       text-align: center;
-      margin-top: 0; /* El fondo dividido de contacto elimina la necesidad de margen */
+      margin-top: 0;
     }
     footer p {
-      margin: 5px 0; /* Espacio entre párrafos del footer */
+      margin: 5px 0;
       font-size: 0.95em;
       opacity: 0.8;
     }
     footer a {
-        color: #e0f7fa; /* Color claro para enlaces en footer */
+        color: #f1f7ed;
     }
      footer a:hover {
          color: white;
@@ -486,36 +479,36 @@
     /* Media Queries para Responsividad */
     @media (max-width: 992px) {
         .contact-container {
-            flex-direction: column; /* Apilar formulario e info */
-            align-items: center; /* Centrar items apilados */
+            flex-direction: column;
+            align-items: center;
         }
         #contact-form {
-            max-width: 100%; /* Ancho completo en pantallas medianas/pequeñas */
+            max-width: 100%;
         }
         .contact-details {
-            text-align: center; /* Centrar texto de detalles */
-            max-width: 500px; /* Limitar ancho */
+            text-align: center;
+            max-width: 500px;
         }
         .contact-info p {
-            justify-content: center; /* Centrar items de info */
+            justify-content: center;
         }
-        .social-icons {
-            text-align: center; /* Centrar iconos sociales */
+         .social-icons {
+            text-align: center;
         }
-         .social-icons a {
-             margin: 0 10px; /* Margen a ambos lados */
+        .social-icons a {
+             margin: 0 10px;
          }
     }
 
     @media (max-width: 768px) {
       .container {
-        padding: 0 15px; /* Menos padding horizontal */
+        padding: 0 15px;
       }
       header {
           padding: 40px 0;
       }
       header h1 {
-        font-size: 2.2em; /* Ajuste de tamaño */
+        font-size: 2.2em;
       }
       header p {
           font-size: 1em;
@@ -530,7 +523,7 @@
         font-size: 2em;
       }
       .services-grid, .projects-grid {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
         gap: 25px;
       }
       .service-card h3, .project-card h3 {
@@ -548,21 +541,21 @@
       }
       #about-us p, .history-section p, #equipment p.intro-text {
         font-size: 1em;
-        text-align: left; /* Mejor en móvil */
+        text-align: left;
       }
       .equipment-list {
-           padding-left: 10px; /* Menos indentación */
+           padding-left: 10px;
            max-width: 100%;
        }
        .equipment-list li {
-padding-left: 35px; /* Ajustede padding para icono */
+            padding-left: 35px;
            font-size: 1em;
        }
        .equipment-list li i {
            font-size: 1.3em;
        }
     }
-  </style>
+    </style>
 </head>
 <body>
 
@@ -581,7 +574,7 @@ padding-left: 35px; /* Ajustede padding para icono */
 
   <header>
     <div class="container">
-      <img src="https://placehold.co/150x150/FFFFFF/003366?text=TOPO4D" alt="TOPO4D Logo" class="logo">
+      <img src="images/logo.png" alt="TOPO4D Logo" class="logo">
       <h1>TOPO4D</h1>
       <p>Soluciones Precisas en Topografía y Fotogrametría</p>
     </div>
@@ -625,7 +618,7 @@ padding-left: 35px; /* Ajustede padding para icono */
             <i class="fas fa-ruler-combined"></i>
             <h3>Relevamientos Topográficos</h3>
             <p>
-              Planimetría y altimetría detallada con Estaciones Totales y GNSS RTK para obras, caminos, proyectos urbanos y rurales. Generación de curvas de nivel y perfiles.
+              Planimetría y altimetría detalladacon Estaciones Totales y GNSS RTK para obras, caminos, proyectos urbanos y rurales. Generación de curvas de nivel y perfiles.
             </p>
           </div>
           <div class="service-card">
@@ -655,7 +648,7 @@ padding-left: 35px; /* Ajustede padding para icono */
               Cálculo preciso de volúmenes para excavaciones, terraplenes y acopios. Modelado 3D para optimizar el movimiento de suelo en proyectos constructivos.
             </p>
           </div>
-          <div class="service-card">
+           <div class="service-card">
             <i class="fas fa-balance-scale"></i>
             <h3>Asesoramiento Legal Inmobiliario</h3>
             <p>
@@ -672,10 +665,10 @@ padding-left: 35px; /* Ajustede padding para icono */
         <p class="section-intro">Hemos tenido el privilegio de participar en diversos proyectos, aportando nuestra experiencia y tecnología. Aquí algunos ejemplos:</p>
         <div class="projects-grid">
           <div class="project-card">
-            <div class="project-image-container">
+             <div class="project-image-container">
                 <img src="https://placehold.co/600x400/cccccc/FFFFFF?text=Construccion+Nave+Industrial" alt="Construcción de Nave Industrial">
             </div>
-             <div class="project-card-content">
+            <div class="project-card-content">
                 <h3>Proyecto para la Industria</h3>
                 <p>
                 Construcción de una nave industrial, desde el replanteo integral hasta la implantación final de estructuras metálicas y fundaciones.
@@ -684,10 +677,10 @@ padding-left: 35px; /* Ajustede padding para icono */
             </div>
           </div>
           <div class="project-card">
-             <div class="project-image-container">
+            <div class="project-image-container">
                 <img src="https://placehold.co/600x400/dddddd/FFFFFF?text=Diseno+Fruta+Dos+Carriles" alt="Diseño de Fruta de Dos Carriles">
              </div>
-             <div class="project-card-content">
+            <div class="project-card-content">
                 <h3>Proyectos Viales</h3>
                 <p>
                 Diseño de apertura de calle, incluyendo carriles de aceleración/desaceleración y conexión a rotonda principal.
@@ -696,10 +689,10 @@ padding-left: 35px; /* Ajustede padding para icono */
             </div>
           </div>
           <div class="project-card">
-             <div class="project-image-container">
+            <div class="project-image-container">
                 <img src="https://placehold.co/600x400/eeeeee/FFFFFF?text=Imagenes+Aereas+Puna" alt="Imágenes Aéreas de la Puna">
-             </div>
-             <div class="project-card-content">
+            </div>
+            <div class="project-card-content">
                 <h3>Trabajos para el Sector Minero</h3>
                 <p>
                 Colaboración técnica para Albemarle: vuelos fotogramétricos, topografía de detalle y procesamiento de datos en zonas de alta sensibilidad ambiental.
@@ -711,7 +704,7 @@ padding-left: 35px; /* Ajustede padding para icono */
              <div class="project-image-container">
                 <img src="https://placehold.co/600x400/f0f0f0/FFFFFF?text=Turbinas+Eolicas" alt="Instalación de Turbinas Eólicas">
              </div>
-             <div class="project-card-content">
+            <div class="project-card-content">
                 <h3>Estudios para el Sector Industrial</h3>
                 <p>
                 Trabajos de campo en lote >360 ha: replanteo de puntos de medición, determinación de coordenadas precisas, estudio de títulos, situación parcelaria e instalación de turbinas eólicas.
@@ -829,17 +822,14 @@ padding-left: 35px; /* Ajustede padding para icono */
       const windowHeight = window.innerHeight;
       sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top;
-        // Revelar cuando la parte superior de la sección esté a un 85% de la altura de la ventana
         if (sectionTop < windowHeight * 0.85) {
           section.classList.add('visible');
         } else {
-          // Opcional: Ocultar de nuevo si sale completamente por arriba (requiere ajustar la condición)
-          // if (sectionTop > windowHeight) section.classList.remove('visible');
         }
       });
     }
-    window.addEventListener('load', revealSections); // Revelar secciones visibles al cargar
-    window.addEventListener('scroll', revealSections); // Revelar al hacer scroll
+    window.addEventListener('load', revealSections);
+    window.addEventListener('scroll', revealSections);
 
     // Script para actualizar año del footer
     const yearSpan = document.getElementById('current-year');
