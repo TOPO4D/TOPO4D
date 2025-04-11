@@ -59,6 +59,37 @@
         padding: 0;
         margin: 0;
         flex-wrap: wrap;
+      .header {
+        background-image: url("images/logo.png"); /* Cambiá por otra imagen si querés */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: white;
+        text-align: center;
+      }
+
+      .header .overlay {
+        background-color: rgba(0, 0, 0, 0.5); /* Oscurece el fondo para que se vea el texto */
+        padding: 40px;
+        border-radius: 10px;
+      }
+
+      .header h1 {
+        font-size: 3em;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+      }
+
+      .header p {
+       font-size: 1.3em;
+       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+      }
+
       }
       .nav-item {
         margin: 5px 15px;
@@ -572,9 +603,8 @@
     </div>
   </nav>
 
-  <header>
-    <div class="container">
-      <img src="images/logo.png" alt="TOPO4D Logo" class="logo">
+  <header class="header">
+    <div class="overlay">
       <h1>TOPO4D</h1>
       <p>Soluciones Precisas en Topografía y Fotogrametría</p>
     </div>
