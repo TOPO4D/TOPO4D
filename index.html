@@ -45,7 +45,7 @@
         background-color: #1b5e20; /* Verde oscuro */
         color: white;
         padding: 10px 0;
-        text-align: center;
+        /* text-align: center; -- quitado para que el menu hamburguesa funcione bien */
         position: sticky;
         top: 0;
         z-index: 1000;
@@ -302,7 +302,7 @@
     }
     .equipment-list li:last-child {
          border-bottom: none;
-     }
+    }
     .equipment-list li i {
         position: absolute;
         left: 0;
@@ -475,7 +475,35 @@
     }
      footer a:hover {
          color: white;
-     }
+    }
+
+    /* NUEVO: Botón hamburguesa */
+    .hamburger {
+      display: none; /* Oculto por defecto */
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 50%; /* Centrar verticalmente */
+      transform: translateY(-50%); /* Ajuste fino vertical */
+      z-index: 1100; /* Asegurar que esté por encima del contenido del navbar */
+    }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    .hamburger.active div:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active div:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active div:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
 
     /* Media Queries para Responsividad */
     @media (max-width: 992px) {
@@ -495,7 +523,7 @@
         }
          .social-icons {
             text-align: center;
-        }
+         }
         .social-icons a {
              margin: 0 10px;
          }
@@ -533,14 +561,32 @@
       .service-card p, .project-card p {
         font-size: 0.95em;
       }
+      /* Reglas del menú hamburguesa para pantallas pequeñas */
       .navbar-nav {
+        /* Ocultar por defecto y preparar para animación */
+        display: none;
         flex-direction: column;
-        align-items: center;
+        background-color: #1b5e20; /* Mismo color que navbar */
+        position: absolute; /* Posicionar respecto al navbar */
+        top: 63px; /* Ajustar justo debajo del navbar (altura navbar + borde) */
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1000; /* Debajo del hamburguesa pero encima de otro contenido */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para destacar */
+        text-align: center; /* Centrar items del menú */
+        /* quitamos transition: max-height para usar display */
+      }
+      .navbar-nav.active {
+        display: flex; /* Mostrar cuando esté activo */
+      }
+      .hamburger {
+        display: flex; /* Mostrar el botón hamburguesa */
       }
       .nav-item {
-        margin: 8px 0;
+        margin: 10px 0; /* Espacio vertical entre items */
       }
-      #about-us p, .history-section p, #equipment p.intro-text {
+       #about-us p, .history-section p, #equipment p.intro-text {
         font-size: 1em;
         text-align: left;
       }
@@ -550,7 +596,7 @@
        }
        .equipment-list li {
             padding-left: 35px;
-           font-size: 1em;
+            font-size: 1em;
        }
        .equipment-list li i {
            font-size: 1.3em;
@@ -561,8 +607,13 @@
 <body>
 
   <nav class="navbar">
-    <div class="container">
-      <ul class="navbar-nav">
+    <div class="container" style="position: relative;">
+      <div class="hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-nav" id="navbarNav">
         <li class="nav-item"><a class="nav-link" href="#about-us"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
         <li class="nav-item"><a class="nav-link" href="#our-history"><i class="fas fa-history"></i> Nuestra Historia</a></li>
         <li class="nav-item"><a class="nav-link" href="#services"><i class="fas fa-cogs"></i> Servicios</a></li>
@@ -575,8 +626,6 @@
 
   <header class="header">
     <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header">
-  </header>
-
   </header>
 
   <main>
@@ -600,7 +649,7 @@
          </p>
         <div class="history-section"> <p>
             Desde nuestros inicios, hemos crecido rápidamente, consolidándonos como referentes en Catamarca gracias a la fusión de métodos tradicionales probados y las últimas herramientas digitales. Hemos participado en proyectos de diversa escala, desde mensuras urbanas hasta complejos relevamientos mineros.
-          </p>
+         </p>
           <p>
             Miramos hacia el futuro con la visión de ser una consultora técnica líder, especializada en la integración de topografía, geología, SIG y procesos industriales, aportando valor a proyectos de infraestructura, minería y ordenamiento territorial en toda la región.
           </p>
@@ -659,69 +708,69 @@
     </section>
 
     <section id="projects">
-  <div class="container">
-    <h2>Proyectos Destacados</h2>
-    <p class="section-intro">Hemos tenido el privilegio de participar en diversos proyectos, aportando nuestra experiencia y tecnología. Aquí algunos ejemplos:</p>
-    <div class="projects-grid">
+      <div class="container">
+        <h2>Proyectos Destacados</h2>
+        <p class="section-intro">Hemos tenido el privilegio de participar en diversos proyectos, aportando nuestra experiencia y tecnología. Aquí algunos ejemplos:</p>
+        <div class="projects-grid">
 
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="images/nave.jpg" alt="Construcción de Nave Industrial">
-        </div>
-        <div class="project-card-content">
-          <h3>Proyecto para la Industria</h3>
-          <p>Construcción de una nave industrial, desde el replanteo integral hasta la implantación final de estructuras metálicas y fundaciones.</p>
-          <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="images/nave.jpg" alt="Construcción de Nave Industrial">
+            </div>
+            <div class="project-card-content">
+              <h3>Proyecto para la Industria</h3>
+              <p>Construcción de una nave industrial, desde el replanteo integral hasta la implantación final de estructuras metálicas y fundaciones.</p>
+               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="images/vial.png" alt="Proyecto Vial">
+            </div>
+            <div class="project-card-content">
+              <h3>Proyectos Viales</h3>
+              <p>Diseño de apertura de calle, incluyendo carriles de aceleración/desaceleración y conexión a rotonda principal.</p>
+              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="images/minera.jpg" alt="Proyecto Minero">
+            </div>
+            <div class="project-card-content">
+              <h3>Trabajos para el Sector Minero</h3>
+               <p>Vuelos fotogramétricos, topografía de detalle y procesamiento de datos en zonas de alta sensibilidad ambiental.</p>
+              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="images/eolico.jpg" alt="Turbinas Eólicas">
+            </div>
+            <div class="project-card-content">
+               <h3>Estudios para el Sector Industrial</h3>
+              <p>Trabajos de campo en lote &gt;360 ha: replanteo de puntos de medición, determinación de coordenadas precisas, estudio de títulos, situación parcelaria e instalación de turbinas eólicas.</p>
+              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="images/catastro.jpg" alt="Relevamiento Catastral">
+            </div>
+            <div class="project-card-content">
+              <h3>Relevamiento Catastral</h3>
+              <p>Relevamiento catastral para el levantamiento de mejoras e inclusión en el catastro provincial, optimizando la gestión de la propiedad.</p>
+              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="images/vial.png" alt="Proyecto Vial">
-        </div>
-        <div class="project-card-content">
-          <h3>Proyectos Viales</h3>
-          <p>Diseño de apertura de calle, incluyendo carriles de aceleración/desaceleración y conexión a rotonda principal.</p>
-          <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="images/minera.jpg" alt="Proyecto Minero">
-        </div>
-        <div class="project-card-content">
-          <h3>Trabajos para el Sector Minero</h3>
-          <p>Vuelos fotogramétricos, topografía de detalle y procesamiento de datos en zonas de alta sensibilidad ambiental.</p>
-          <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="images/eolico.jpg" alt="Turbinas Eólicas">
-        </div>
-        <div class="project-card-content">
-          <h3>Estudios para el Sector Industrial</h3>
-          <p>Trabajos de campo en lote &gt;360 ha: replanteo de puntos de medición, determinación de coordenadas precisas, estudio de títulos, situación parcelaria e instalación de turbinas eólicas.</p>
-          <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-image-container">
-          <img src="images/catastro.jpg" alt="Relevamiento Catastral">
-        </div>
-        <div class="project-card-content">
-          <h3>Relevamiento Catastral</h3>
-          <p>Relevamiento catastral para el levantamiento de mejoras e inclusión en el catastro provincial, optimizando la gestión de la propiedad.</p>
-          <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+    </section>
 
 
     <section id="equipment">
@@ -752,7 +801,7 @@
               <input type="text" id="name" name="name" class="contact-form-input" placeholder="Tu nombre" required>
 
               <label for="email" class="contact-form-label">Correo Electrónico:</label>
-              <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
+               <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
 
               <label for="phone" class="contact-form-label">Teléfono (Opcional):</label>
               <input type="tel" id="phone" name="phone" class="contact-form-input" placeholder="+54 9 383 ...">
@@ -760,7 +809,7 @@
               <label for="subject" class="contact-form-label">Asunto:</label>
               <input type="text" id="subject" name="subject" class="contact-form-input" placeholder="Ej: Consulta sobre mensura" required>
 
-              <label for="message" class="contact-form-label">Mensaje:</label>
+               <label for="message" class="contact-form-label">Mensaje:</label>
               <textarea id="message" name="message" class="contact-form-textarea" placeholder="Describe brevemente tu necesidad o consulta aquí..." required></textarea>
 
               <button type="submit" class="contact-form-button">Enviar Consulta</button>
@@ -768,17 +817,17 @@
 
             <div class="contact-details">
                 <h3>Información Directa</h3>
-                <div class="contact-info">
+                 <div class="contact-info">
                     <p><i class="fas fa-phone"></i>+54 9 383 493 1888</p>
                     <p><i class="fas fa-envelope"></i><a href="mailto:info@topo4d.com.ar">info@topo4d.com.ar</a></p> <p><i class="fas fa-map-marker-alt"></i>San F. del Valle de Catamarca, Argentina</p>
                     <p><i class="fas fa-clock"></i>Lunes a Viernes: 8:00 - 18:00 hs</p>
-                </div>
+                 </div>
                  <a href="https://wa.me/5493834931888?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." target="_blank" class="whatsapp-button">
                     <i class="fab fa-whatsapp"></i> Chatea por WhatsApp
                  </a>
                 <div class="social-icons">
                     <h4>Síguenos:</h4>
-                    <a href="https://www.instagram.com/topo.4d/?hl=es-la" target="_blank" aria-label="Instagram">
+                     <a href="https://www.instagram.com/topo.4d/?hl=es-la" target="_blank" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
                     </div>
@@ -786,7 +835,7 @@
         </div>
       </div>
     </section>
-  </main>
+   </main>
 
   <footer>
     <div class="container">
@@ -806,7 +855,7 @@
         if(submitButton) {
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
-        }
+         }
         // Formspree redirige a una página de agradecimiento por defecto.
         // Si se maneja con JS (AJAX), aquí iría la lógica fetch() y el preventDefault().
       });
@@ -821,16 +870,40 @@
         if (sectionTop < windowHeight * 0.85) {
           section.classList.add('visible');
         } else {
+          // Opcional: quitar la clase si se vuelve a scrollear hacia arriba
+          // section.classList.remove('visible');
         }
       });
     }
-    window.addEventListener('load', revealSections);
-    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections); // Ejecutar al cargar
+    window.addEventListener('scroll', revealSections); // Ejecutar al hacer scroll
 
     // Script para actualizar año del footer
     const yearSpan = document.getElementById('current-year');
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
+    }
+
+    // NUEVO: hamburguesa toggle animado
+    const hamburger = document.getElementById('hamburger');
+    const navbarNav = document.getElementById('navbarNav');
+
+    if (hamburger && navbarNav) { // Asegurarse que ambos elementos existen
+        hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active'); // Anima el botón
+          navbarNav.classList.toggle('active'); // Muestra/oculta el menú
+        });
+
+        // Opcional: Cerrar el menú al hacer clic en un enlace (para SPAs o si quieres esa funcionalidad)
+        const navLinks = navbarNav.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarNav.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navbarNav.classList.remove('active');
+                }
+            });
+        });
     }
 
   </script>
