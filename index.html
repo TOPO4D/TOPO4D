@@ -9,30 +9,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-      /* Estilos Generales (Mantenidos de index.txt original) */
+      /* Estilos Generales */
       body {
         font-family: 'Inter', sans-serif;
-        margin: 0; /* Asegurado desde agregar.txt */
-        padding: 0; /* Asegurado desde agregar.txt */
-        background-color: #f0f4f0; /* Verde muy claro de fondo */
-        color: #386641; /* Verde oscuro para texto principal */
+        margin: 0;
+        padding: 0;
+        background-color: #f0f4f0;
+        color: #386641;
         line-height: 1.6;
-        scroll-behavior: smooth; /* Asegurado desde agregar.txt */
+        scroll-behavior: smooth;
       }
       .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 20px; /* Padding general del contenedor */
       }
       h1, h2, h3 {
-          color: #1b4332; /* Verde muy oscuro para títulos */
+          color: #1b4332;
       }
       a {
           text-decoration: none;
-          color: #4CAF50; /* Verde claro para enlaces */
+          color: #4CAF50;
       }
       a:hover {
-          color: #388e3c; /* Verde un poco más oscuro al pasar el ratón */
+          color: #388e3c;
       }
       img {
           max-width: 100%;
@@ -40,124 +40,125 @@
           display: block;
       }
 
-      /* --- Estilos de Navbar, Header y Hamburguesa (de agregar.txt) --- */
+      /* --- Barra de Navegación (Estilos Escritorio por defecto) --- */
       .navbar {
-        background-color: transparent; /* De agregar.txt */
-        position: fixed; /* De agregar.txt */
-        top: 0; /* De agregar.txt */
-        width: 100%; /* De agregar.txt */
-        z-index: 1000; /* De agregar.txt */
-        border: none; /* De agregar.txt */
-        box-shadow: none; /* De agregar.txt */
-        /* padding: 10px 0; quitado */
-        /* color: white; quitado */
-        /* border-bottom: 3px solid #66bb6a; quitado */
-        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); quitado */
+        background-color: #1b5e20; /* Verde oscuro original */
+        color: white;
+        padding: 10px 0; /* Padding original */
+        position: sticky; /* Sticky original */
+        top: 0;
+        z-index: 1000;
+        border-bottom: 3px solid #66bb6a; /* Borde original */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra original */
       }
-
-      .hamburger {
-        display: none; /* De agregar.txt */
-        flex-direction: column; /* De agregar.txt */
-        cursor: pointer; /* De agregar.txt */
-        position: absolute; /* De agregar.txt */
-        right: 20px; /* De agregar.txt */
-        top: 15px; /* De agregar.txt */
-        z-index: 1100; /* De agregar.txt */
-        background-color: #1b5e20; /* De agregar.txt */
-        padding: 10px; /* De agregar.txt */
-        border-radius: 10px; /* De agregar.txt */
+      /* Contenedor dentro de la navbar para alinear elementos */
+      .navbar .container {
+        display: flex;
+        justify-content: center; /* Centra los items de navegación en escritorio */
+        align-items: center;
+        position: relative; /* Necesario para posicionar hamburguesa en móvil */
       }
-      .hamburger div {
-        width: 25px; /* De agregar.txt */
-        height: 3px; /* De agregar.txt */
-        background-color: white; /* De agregar.txt */
-        margin: 3px 0; /* De agregar.txt */
-        transition: 0.4s; /* De agregar.txt */
-      }
-      .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px); /* De agregar.txt */
-      }
-      .hamburger.active div:nth-child(2) {
-        opacity: 0; /* De agregar.txt */
-      }
-      .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px); /* De agregar.txt */
-      }
-
       .navbar-nav {
-        display: none; /* De agregar.txt */
-        flex-direction: column; /* De agregar.txt */
-        background-color: #1b5e20; /* De agregar.txt */
-        position: absolute; /* De agregar.txt */
-        top: 60px; /* De agregar.txt */
-        left: 0; /* De agregar.txt */
-        width: 100%; /* De agregar.txt */
-        padding: 0; /* De agregar.txt */
-        margin: 0; /* De agregar.txt */
-        text-align: center; /* De agregar.txt */
-        list-style: none; /* Mantenido de index.txt */
-        /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); Podría agregarse si se desea */
-      }
-      .navbar-nav.active {
-        display: flex; /* De agregar.txt */
+        display: flex; /* Mostrar horizontalmente por defecto */
+        flex-direction: row; /* Dirección horizontal */
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-wrap: wrap; /* Permitir que los items se envuelvan si no caben */
+        /* Quitar estilos de menú desplegable */
+        position: static;
+        width: auto;
+        background-color: transparent;
       }
       .nav-item {
-        margin: 10px 0; /* De agregar.txt (ajustado para menú vertical) */
+        margin: 5px 15px; /* Margen horizontal original */
       }
-       /* Estilo para los enlaces dentro de la nueva navbar */
       .nav-link {
-        color: white; /* Color blanco para el texto del menú desplegable */
+        color: white; /* Color original */
         text-decoration: none;
         font-size: 1em;
         font-weight: 500;
-        padding: 8px 12px;
+        padding: 8px 12px; /* Padding original */
         border-radius: 5px;
         transition: color 0.3s ease, background-color 0.3s ease;
         display: inline-block;
       }
-      /* Hover effect for mobile menu links */
       .nav-link:hover {
-         color: #1b5e20; /* Texto verde oscuro */
-         background-color: white; /* Fondo blanco */
+        color: #1b5e20; /* Hover original */
+        background-color: white;
       }
-       .nav-link i {
-          margin-right: 6px; /* Mantener espacio para iconos */
+      .nav-link i {
+          margin-right: 6px; /* Espacio icono */
       }
 
-      /* Header ajustado (de agregar.txt) */
+      /* --- Icono Hamburguesa (Oculto por defecto, visible en móvil) --- */
+      .hamburger {
+        display: none; /* Oculto en escritorio */
+        flex-direction: column;
+        cursor: pointer;
+        position: absolute; /* Posición absoluta respecto a .navbar .container */
+        right: 20px; /* A la derecha del contenedor */
+        top: 50%; /* Centrado verticalmente */
+        transform: translateY(-50%); /* Ajuste fino vertical */
+        z-index: 1100; /* Encima de otros elementos de la navbar */
+        background-color: #f0f4f0; /* Fondo claro para contraste */
+        padding: 8px; /* Padding reducido */
+        border-radius: 5px; /* Bordes más suaves */
+      }
+      .hamburger div {
+        width: 20px; /* Ancho reducido */
+        height: 2px; /* Altura reducida */
+        background-color: #1b5e20; /* Color de las barras (verde oscuro) */
+        margin: 3px 0; /* Margen reducido entre barras */
+        transition: 0.4s;
+      }
+      /* Animación 'X' para hamburguesa activa */
+      .hamburger.active div {
+         background-color: #1b5e20; /* Mantener color al activar */
+      }
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(3.5px, 3.5px); /* Ajustado para nuevo tamaño */
+      }
+      .hamburger.active div:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(3.5px, -3.5px); /* Ajustado para nuevo tamaño */
+      }
+
+      /* --- Header (Estilos Escritorio por defecto) --- */
       .header {
-        background-image: url("images/aaa.jpg"); /* De agregar.txt */
-        background-size: cover; /* De agregar.txt */
-        background-position: center; /* De agregar.txt */
-        background-repeat: no-repeat; /* De agregar.txt */
-        height: 250px; /* De agregar.txt */
-        display: flex; /* De agregar.txt */
-        align-items: center; /* De agregar.txt */
-        justify-content: center; /* De agregar.txt */
-        position: relative; /* De agregar.txt */
-        margin-top: 60px; /* De agregar.txt - compensar navbar fija */
-        /* overflow: hidden; quitado */
+        background-image: url("images/aaa.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 400px; /* Altura original escritorio */
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        /* margin-top: 60px; ELIMINADO - Causaba espacio en blanco */
       }
-
       .header::before {
-        content: ""; /* De agregar.txt */
-        position: absolute; /* De agregar.txt */
-        inset: 0; /* De agregar.txt */
-        background-color: rgba(0, 0, 0, 0.4); /* De agregar.txt */
-        z-index: 1; /* De agregar.txt */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.4); /* Sombra oscura */
+        z-index: 1;
       }
-
       .logo-header {
-        width: 300px; /* De agregar.txt */
-        height: auto; /* De agregar.txt */
-        z-index: 2; /* De agregar.txt */
-        /* background-color: transparent; quitado */
-        /* position: relative; quitado */
+        width: 468px; /* Ancho original escritorio */
+        height: auto;
+        position: relative;
+        z-index: 2;
+        background-color: transparent;
       }
-      /* --- Fin Estilos de Navbar, Header y Hamburguesa --- */
+      /* --- Fin estilos Escritorio --- */
 
 
-      /* Estilos de Secciones (Mantenidos de index.txt original) */
+      /* Estilos de Secciones (Sin cambios) */
       section {
         padding: 60px 0;
         text-align: center;
@@ -167,10 +168,10 @@
         overflow: hidden;
       }
       section:nth-of-type(odd) {
-          background-color: #f8f8f8; /* Verde muy claro */
+          background-color: #f8f8f8;
       }
       section:nth-of-type(even) {
-          background-color: #f0f4f0; /* Verde aún más claro */
+          background-color: #f0f4f0;
       }
       section.visible {
         opacity: 1;
@@ -202,7 +203,7 @@
           color: #444;
       }
 
-      /* Cuadrícula de Servicios (Mantenida de index.txt original) */
+      /* Cuadrícula de Servicios (Sin cambios) */
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -250,7 +251,7 @@
         flex-grow: 1;
       }
 
-    /* Cuadrícula de Proyectos (Mantenida de index.txt original) */
+    /* Cuadrícula de Proyectos (Sin cambios) */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -324,7 +325,7 @@
          margin-left: 8px;
      }
 
-    /* Sección Equipamiento (Mantenida de index.txt original) */
+    /* Sección Equipamiento (Sin cambios) */
     #equipment {
         background-color: #f1f7ed;
     }
@@ -366,7 +367,7 @@
       margin-bottom: 3px;
     }
 
-    /* Sección Contacto (Mantenida de index.txt original) */
+    /* Sección Contacto (Sin cambios) */
     #contact {
         background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%);
     }
@@ -503,7 +504,7 @@
       vertical-align: middle;
     }
 
-    /* Pie de Página (Mantenido de index.txt original) */
+    /* Pie de Página (Sin cambios) */
     footer {
       background-color: #1a4d2e;
       color: #e0f2f1;
@@ -521,11 +522,14 @@
     }
      footer a:hover {
          color: white;
-    }
+     }
 
-    /* Media Queries para Responsividad */
+
+    /* --- Media Queries para Responsividad --- */
+
+    /* Ajustes para tablets y pantallas medianas (si es necesario) */
     @media (max-width: 992px) {
-        /* Ajustes generales responsivos (Mantenidos) */
+        /* Ajustes generales responsivos (Sin cambios) */
         .contact-container {
             flex-direction: column;
             align-items: center;
@@ -548,23 +552,12 @@
         }
     }
 
+    /* Ajustes para Móviles */
     @media (max-width: 768px) {
-      /* Ajustes generales responsivos (Mantenidos) */
+      /* Ajustes generales responsivos (Sin cambios) */
       .container {
         padding: 0 15px;
       }
-      /* header { Ya no aplica el padding aquí por el nuevo header */
-          /* padding: 40px 0; */
-      /* } */
-      /* header h1 { Ya no aplica */
-        /* font-size: 2.2em; */
-      /* } */
-      /* header p { Ya no aplica */
-          /* font-size: 1em; */
-      /* } */
-      /* header .logo { Ya no aplica */
-          /* width: 120px; */
-      /* } */
       section {
           padding: 40px 0;
       }
@@ -581,34 +574,68 @@
       .service-card p, .project-card p {
         font-size: 0.95em;
       }
-       #about-us p, .history-section p, #equipment p.intro-text { /* Ajustes de texto mantenidos */
+       #about-us p, .history-section p, #equipment p.intro-text {
         font-size: 1em;
         text-align: left;
       }
-      .equipment-list { /* Ajustes de equipamiento mantenidos */
+      .equipment-list {
            padding-left: 10px;
            max-width: 100%;
        }
-       .equipment-list li { /* Ajustes de equipamiento mantenidos */
+       .equipment-list li {
             padding-left: 35px;
             font-size: 1em;
        }
-       .equipment-list li i { /* Ajustes de equipamiento mantenidos */
+       .equipment-list li i {
            font-size: 1.3em;
        }
 
-      /* Mostrar botón hamburguesa (De agregar.txt) */
-       .hamburger {
-          display: flex;
-       }
-       /* Ya no necesitamos las reglas .navbar-nav y .navbar-nav.active aquí porque están definidas globalmente */
-    }
+      /* --- Estilos Móviles Navbar --- */
+      .navbar .container {
+         justify-content: flex-end; /* Alinea hamburguesa a la derecha */
+      }
+      .navbar-nav {
+        display: none; /* Ocultar menú horizontal */
+        flex-direction: column; /* Menú vertical */
+        background-color: #1b5e20; /* Fondo para menú desplegable */
+        position: absolute; /* Posición absoluta */
+        top: calc(100% + 3px); /* Justo debajo de la navbar (altura + borde) */
+        left: 0;
+        width: 100%;
+        padding: 10px 0; /* Padding vertical */
+        z-index: 1000; /* Debajo de la hamburguesa */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
+        text-align: center; /* Texto centrado */
+      }
+      .navbar-nav.active {
+        display: flex; /* Mostrar menú al activar */
+      }
+      .hamburger {
+        display: flex; /* Mostrar botón hamburguesa */
+      }
+      .nav-item {
+        margin: 10px 0; /* Espacio vertical entre items */
+      }
+      .nav-link {
+         /* Estilos de enlace móvil si difieren (ej. padding) */
+         padding: 10px 15px;
+      }
+
+      /* --- Estilos Móviles Header --- */
+      .header {
+        height: 250px; /* Altura reducida para móvil */
+      }
+      .logo-header {
+        width: 300px; /* Ancho reducido para móvil */
+      }
+    } /* Fin de @media (max-width: 768px) */
+
     </style>
 </head>
 <body>
 
   <nav class="navbar">
-    <div class="container" style="position: relative;">
+    <div class="container">
       <div class="hamburger" id="hamburger">
         <div></div>
         <div></div>
@@ -846,23 +873,19 @@
   </footer>
 
   <script>
-    // Script para el formulario (Mantenido de index.txt original)
+    // Script para el formulario (Sin cambios)
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', (event) => {
-        // Si se usa Formspree o similar, el 'action' se encarga.
-        // Se podría añadir lógica aquí para mostrar "Enviando..."
         const submitButton = contactForm.querySelector('.contact-form-button');
         if(submitButton) {
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
         }
-        // Formspree redirige a una página de agradecimiento por defecto.
-        // Si se maneja con JS (AJAX), aquí iría la lógica fetch() y el preventDefault().
       });
     }
 
-    // Script para animación de secciones al hacer scroll (Mantenido de index.txt original)
+    // Script para animación de secciones al hacer scroll (Sin cambios)
     function revealSections() {
       const sections = document.querySelectorAll('section');
       const windowHeight = window.innerHeight;
@@ -870,25 +893,21 @@
         const sectionTop = section.getBoundingClientRect().top;
         if (sectionTop < windowHeight * 0.85) {
           section.classList.add('visible');
-        } else {
-          // Opcional: quitar la clase si se vuelve a scrollear hacia arriba
-          // section.classList.remove('visible');
         }
       });
     }
-    window.addEventListener('load', revealSections); // Ejecutar al cargar
-    window.addEventListener('scroll', revealSections); // Ejecutar al hacer scroll
+    window.addEventListener('load', revealSections);
+    window.addEventListener('scroll', revealSections);
 
-    // Script para actualizar año del footer (Mantenido de index.txt original)
+    // Script para actualizar año del footer (Sin cambios)
     const yearSpan = document.getElementById('current-year');
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Script de hamburguesa (De agregar.txt)
+    // Script de hamburguesa (Sin cambios en lógica, CSS controla la apariencia)
     const hamburger = document.getElementById('hamburger');
     const navbarNav = document.getElementById('navbarNav');
-    // Asegurarse que ambos elementos existen antes de añadir listeners
     if (hamburger && navbarNav) {
         hamburger.addEventListener('click', () => {
           hamburger.classList.toggle('active');
@@ -899,7 +918,6 @@
         const navLinks = navbarNav.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
-            // Solo cerrar si el menú está activo (visible)
             if (navbarNav.classList.contains('active')) {
                 hamburger.classList.remove('active');
                 navbarNav.classList.remove('active');
