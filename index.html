@@ -56,7 +56,7 @@
         display: flex;
         justify-content: center; /* Centra los items de navegación en escritorio */
         align-items: center;
-        position: relative; /* Necesario para posicionar hamburguesa en móvil */
+        position: relative; /* Necesario para posicionar hamburguesa en móvil (aunque ahora sea fixed) */
       }
       .navbar-nav {
         display: flex; /* Mostrar horizontalmente por defecto */
@@ -97,34 +97,36 @@
         display: none; /* Oculto en escritorio */
         flex-direction: column;
         cursor: pointer;
-        position: absolute; /* Posición absoluta respecto a .navbar .container */
-        right: 20px; /* A la derecha del contenedor (valor por defecto) */
-        top: 50%; /* Centrado verticalmente (valor por defecto) */
-        transform: translateY(-50%); /* Ajuste fino vertical (valor por defecto) */
-        z-index: 1100; /* Encima de otros elementos de la navbar */
-        background-color: #f0f4f0; /* Fondo claro para contraste (valor por defecto) */
-        padding: 8px; /* Padding reducido (valor por defecto) */
-        border-radius: 5px; /* Bordes más suaves (valor por defecto) */
+        position: absolute; /* Posición por defecto (será fixed en móvil) */
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1100; /* Encima de otros elementos */
+        background-color: #f0f4f0;
+        padding: 8px;
+        border-radius: 5px;
       }
       .hamburger div {
-        width: 20px; /* Ancho reducido */
-        height: 2px; /* Altura reducida */
-        background-color: #1b5e20; /* Color de las barras (verde oscuro por defecto) */
-        margin: 3px 0; /* Margen reducido entre barras */
+        width: 20px;
+        height: 2px;
+        background-color: #1b5e20;
+        margin: 3px 0;
         transition: 0.4s;
       }
       /* Animación 'X' para hamburguesa activa */
       .hamburger.active div {
-         background-color: #1b5e20; /* Mantener color al activar (valor por defecto) */
+         background-color: #1b5e20; /* Color por defecto */
       }
       .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translate(3.5px, 3.5px); /* Ajustado para nuevo tamaño */
+        /* Transformación por defecto - se sobreescribirá en móvil */
+        transform: rotate(45deg) translate(3.5px, 3.5px);
       }
       .hamburger.active div:nth-child(2) {
         opacity: 0;
       }
       .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(3.5px, -3.5px); /* Ajustado para nuevo tamaño */
+         /* Transformación por defecto - se sobreescribirá en móvil */
+        transform: rotate(-45deg) translate(3.5px, -3.5px);
       }
 
       /* --- Header (Estilos Escritorio por defecto) --- */
@@ -139,7 +141,6 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
-        /* margin-top: 60px; ELIMINADO - Causaba espacio en blanco */
       }
       .header::before {
         content: "";
@@ -594,33 +595,41 @@
 
       /* --- MODIFICACIONES Navbar Móvil --- */
       .navbar {
-        background-color: transparent; /* << MODIFICADO: Sin fondo verde */
-        border-bottom: none;          /* << MODIFICADO: Sin borde inferior */
-        box-shadow: none;             /* << MODIFICADO: Sin sombra */
-        position: absolute;           /* << MODIFICADO: No fija, para que no reserve espacio */
+        /* La navbar original (barra verde) sigue siendo absoluta y transparente */
+        background-color: transparent;
+        border-bottom: none;
+        box-shadow: none;
+        position: absolute; /* No ocupa espacio, permite al header estar arriba */
         top: 0;
         left: 0;
         width: 100%;
-        padding: 0;                   /* << MODIFICADO: Sin padding vertical */
-        z-index: 1050;                /* << MODIFICADO: Asegurar que esté sobre el header pero debajo de la hamburguesa */
+        padding: 0;
+        z-index: 999; /* Debajo del menú y del botón fijo */
       }
       .navbar .container {
-         justify-content: flex-end; /* Alinea hamburguesa a la derecha */
-         padding: 10px 15px;        /* << AÑADIDO: Padding para que la hamburguesa no pegue al borde */
+         justify-content: flex-end;
+         padding: 10px 15px; /* Mantenemos padding por si acaso */
+         /* Ya no necesita position:relative porque el botón es fixed */
       }
+
+      /* --- MODIFICACIONES Menú Desplegable Móvil --- */
       .navbar-nav {
-        display: none; /* Ocultar menú horizontal */
+        display: none; /* Ocultar menú horizontal por defecto */
         flex-direction: column; /* Menú vertical */
-        background-color: #1b5e20; /* Fondo para menú desplegable */
-        position: absolute; /* Posición absoluta */
-        /* << MODIFICADO: Ajustar posición top del menú desplegable >> */
-        top: 60px; /* Estimado, ajustar si es necesario */
+        background-color: #1b5e20; /* Fondo oscuro para menú desplegable */
+        text-align: center; /* Texto centrado */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
+
+        /* << MODIFICADO: Posición fija para cubrir pantalla >> */
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        padding: 10px 0; /* Padding vertical */
-        z-index: 1000; /* Debajo de la hamburguesa */
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
-        text-align: center; /* Texto centrado */
+        height: 100vh; /* Cubrir toda la altura de la ventana */
+        z-index: 1000; /* Por debajo del botón hamburguesa */
+        padding: 70px 0 20px 0; /* << MODIFICADO: Padding superior para no tapar con botón, inferior por si acaso */
+        box-sizing: border-box; /* Para que padding no aumente el tamaño total */
+        overflow-y: auto; /* << AÑADIDO: Permitir scroll si el menú es largo */
       }
       .navbar-nav.active {
         display: flex; /* Mostrar menú al activar */
@@ -628,46 +637,56 @@
 
       /* --- MODIFICACIONES Hamburguesa Móvil --- */
       .hamburger {
-        display: flex; /* Mostrar botón hamburguesa */
-        /* << MODIFICADO: Ajustar posición y apariencia >> */
-        position: absolute; /* Ya estaba, pero confirmar */
-        top: 15px;          /* << MODIFICADO: Bajar el botón */
-        right: 15px;         /* << MODIFICADO: Alinear con padding del container */
-        transform: none;    /* << MODIFICADO: Eliminar centrado vertical */
-        background-color: #4CAF50; /* << MODIFICADO: Fondo verde */
-        padding: 10px;      /* << AJUSTADO: Padding ligeramente mayor */
+        display: flex;
+        /* << MODIFICADO: Posición fija >> */
+        position: fixed;
+        top: 15px;
+        right: 15px;
+        transform: none; /* Eliminar transformaciones previas */
+        background-color: #4CAF50; /* Fondo verde */
+        padding: 10px;
         border-radius: 5px;
-        z-index: 1100;      /* Ya estaba, pero confirmar que sea alto */
+        z-index: 1100; /* << Mantenido alto para estar sobre todo */
       }
       .hamburger div {
-        background-color: white; /* << MODIFICADO: Líneas blancas para contraste */
-        width: 22px;           /* << AJUSTADO: Ligeramente más anchas */
-        height: 3px;           /* << AJUSTADO: Ligeramente más gruesas */
+        background-color: white; /* Líneas blancas */
+        width: 22px;
+        height: 3px;
         margin: 3px 0;
+        transition: 0.4s; /* Mantener transición */
       }
-      /* << MODIFICADO: Asegurar que las líneas del 'X' también sean blancas >> */
       .hamburger.active div {
-         background-color: white;
+         background-color: white; /* Líneas blancas también en estado activo */
       }
-      /* << AJUSTADO: La transformación 'X' podría necesitar leve ajuste por tamaño/posición */
+      /* << MODIFICADO: Ajustar transformación 'X' para que sea más pequeña >> */
        .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translate(4.5px, 4.5px); /* Ajustado */
+        transform: rotate(45deg) translate(3.5px, 3.5px); /* << Reducido translate */
+      }
+       .hamburger.active div:nth-child(2) {
+        opacity: 0; /* La línea del medio desaparece */
       }
       .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(4.5px, -4.5px); /* Ajustado */
+        transform: rotate(-45deg) translate(3.5px, -3.5px); /* << Reducido translate */
       }
 
       .nav-item {
-        margin: 10px 0; /* Espacio vertical entre items */
+        margin: 12px 0; /* Ajustar margen vertical si es necesario */
       }
       .nav-link {
          padding: 10px 15px;
+         display: block; /* Asegurar que ocupen todo el ancho disponible */
+         width: auto;
+         margin: 0 20px; /* Márgenes laterales dentro del menú */
       }
+       .nav-link:hover {
+         /* Mantener o ajustar hover si es necesario para menú fijo */
+         background-color: rgba(255, 255, 255, 0.1); /* Ligero hover */
+         color: white;
+       }
 
-      /* --- Estilos Móviles Header (Sin cambios aquí, afectados por navbar) --- */
+      /* --- Estilos Móviles Header (Sin cambios aquí) --- */
       .header {
         height: 250px; /* Altura reducida para móvil */
-        /* Ahora debería empezar desde el borde superior de la ventana */
       }
       .logo-header {
         width: 300px; /* Ancho reducido para móvil */
@@ -949,7 +968,7 @@
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Script de hamburguesa (Sin cambios en lógica, CSS controla la apariencia)
+    // Script de hamburguesa (Sin cambios en lógica)
     const hamburger = document.getElementById('hamburger');
     const navbarNav = document.getElementById('navbarNav');
     if (hamburger && navbarNav) {
@@ -962,7 +981,8 @@
         const navLinks = navbarNav.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
-            if (navbarNav.classList.contains('active')) {
+            // Solo cerrar si el menú está activo y el enlace es interno (#)
+            if (navbarNav.classList.contains('active') && link.getAttribute('href').startsWith('#')) {
                 hamburger.classList.remove('active');
                 navbarNav.classList.remove('active');
             }
