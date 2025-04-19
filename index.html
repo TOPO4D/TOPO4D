@@ -98,24 +98,24 @@
         flex-direction: column;
         cursor: pointer;
         position: absolute; /* Posición absoluta respecto a .navbar .container */
-        right: 20px; /* A la derecha del contenedor */
-        top: 50%; /* Centrado verticalmente */
-        transform: translateY(-50%); /* Ajuste fino vertical */
+        right: 20px; /* A la derecha del contenedor (valor por defecto) */
+        top: 50%; /* Centrado verticalmente (valor por defecto) */
+        transform: translateY(-50%); /* Ajuste fino vertical (valor por defecto) */
         z-index: 1100; /* Encima de otros elementos de la navbar */
-        background-color: #f0f4f0; /* Fondo claro para contraste */
-        padding: 8px; /* Padding reducido */
-        border-radius: 5px; /* Bordes más suaves */
+        background-color: #f0f4f0; /* Fondo claro para contraste (valor por defecto) */
+        padding: 8px; /* Padding reducido (valor por defecto) */
+        border-radius: 5px; /* Bordes más suaves (valor por defecto) */
       }
       .hamburger div {
         width: 20px; /* Ancho reducido */
         height: 2px; /* Altura reducida */
-        background-color: #1b5e20; /* Color de las barras (verde oscuro) */
+        background-color: #1b5e20; /* Color de las barras (verde oscuro por defecto) */
         margin: 3px 0; /* Margen reducido entre barras */
         transition: 0.4s;
       }
       /* Animación 'X' para hamburguesa activa */
       .hamburger.active div {
-         background-color: #1b5e20; /* Mantener color al activar */
+         background-color: #1b5e20; /* Mantener color al activar (valor por defecto) */
       }
       .hamburger.active div:nth-child(1) {
         transform: rotate(45deg) translate(3.5px, 3.5px); /* Ajustado para nuevo tamaño */
@@ -546,13 +546,15 @@
         }
          .social-icons {
             text-align: center;
-        }
+         }
         .social-icons a {
              margin: 0 10px;
-        }
+         }
     }
 
-    /* Ajustes para Móviles */
+    /* ============================================== */
+    /* ========== AJUSTES PARA MÓVILES ============ */
+    /* ============================================== */
     @media (max-width: 768px) {
       /* Ajustes generales responsivos (Sin cambios) */
       .container {
@@ -590,16 +592,29 @@
            font-size: 1.3em;
        }
 
-      /* --- Estilos Móviles Navbar --- */
+      /* --- MODIFICACIONES Navbar Móvil --- */
+      .navbar {
+        background-color: transparent; /* << MODIFICADO: Sin fondo verde */
+        border-bottom: none;          /* << MODIFICADO: Sin borde inferior */
+        box-shadow: none;             /* << MODIFICADO: Sin sombra */
+        position: absolute;           /* << MODIFICADO: No fija, para que no reserve espacio */
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0;                   /* << MODIFICADO: Sin padding vertical */
+        z-index: 1050;                /* << MODIFICADO: Asegurar que esté sobre el header pero debajo de la hamburguesa */
+      }
       .navbar .container {
          justify-content: flex-end; /* Alinea hamburguesa a la derecha */
+         padding: 10px 15px;        /* << AÑADIDO: Padding para que la hamburguesa no pegue al borde */
       }
       .navbar-nav {
         display: none; /* Ocultar menú horizontal */
         flex-direction: column; /* Menú vertical */
         background-color: #1b5e20; /* Fondo para menú desplegable */
         position: absolute; /* Posición absoluta */
-        top: calc(100% + 3px); /* Justo debajo de la navbar (altura + borde) */
+        /* << MODIFICADO: Ajustar posición top del menú desplegable >> */
+        top: 60px; /* Estimado, ajustar si es necesario */
         left: 0;
         width: 100%;
         padding: 10px 0; /* Padding vertical */
@@ -610,20 +625,49 @@
       .navbar-nav.active {
         display: flex; /* Mostrar menú al activar */
       }
+
+      /* --- MODIFICACIONES Hamburguesa Móvil --- */
       .hamburger {
         display: flex; /* Mostrar botón hamburguesa */
+        /* << MODIFICADO: Ajustar posición y apariencia >> */
+        position: absolute; /* Ya estaba, pero confirmar */
+        top: 15px;          /* << MODIFICADO: Bajar el botón */
+        right: 15px;         /* << MODIFICADO: Alinear con padding del container */
+        transform: none;    /* << MODIFICADO: Eliminar centrado vertical */
+        background-color: #4CAF50; /* << MODIFICADO: Fondo verde */
+        padding: 10px;      /* << AJUSTADO: Padding ligeramente mayor */
+        border-radius: 5px;
+        z-index: 1100;      /* Ya estaba, pero confirmar que sea alto */
       }
+      .hamburger div {
+        background-color: white; /* << MODIFICADO: Líneas blancas para contraste */
+        width: 22px;           /* << AJUSTADO: Ligeramente más anchas */
+        height: 3px;           /* << AJUSTADO: Ligeramente más gruesas */
+        margin: 3px 0;
+      }
+      /* << MODIFICADO: Asegurar que las líneas del 'X' también sean blancas >> */
+      .hamburger.active div {
+         background-color: white;
+      }
+      /* << AJUSTADO: La transformación 'X' podría necesitar leve ajuste por tamaño/posición */
+       .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(4.5px, 4.5px); /* Ajustado */
+      }
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(4.5px, -4.5px); /* Ajustado */
+      }
+
       .nav-item {
         margin: 10px 0; /* Espacio vertical entre items */
       }
       .nav-link {
-         /* Estilos de enlace móvil si difieren (ej. padding) */
          padding: 10px 15px;
       }
 
-      /* --- Estilos Móviles Header --- */
+      /* --- Estilos Móviles Header (Sin cambios aquí, afectados por navbar) --- */
       .header {
         height: 250px; /* Altura reducida para móvil */
+        /* Ahora debería empezar desde el borde superior de la ventana */
       }
       .logo-header {
         width: 300px; /* Ancho reducido para móvil */
@@ -677,7 +721,7 @@
          </p>
         <div class="history-section"> <p>
             Desde nuestros inicios, hemos crecido rápidamente, consolidándonos como referentes en Catamarca gracias a la fusión de métodos tradicionales probados y las últimas herramientas digitales. Hemos participado en proyectos de diversa escala, desde mensuras urbanas hasta complejos relevamientos mineros.
-         </p>
+          </p>
           <p>
             Miramos hacia el futuro con la visión de ser una consultora técnica líder, especializada en la integración de topografía, geología, SIG y procesos industriales, aportando valor a proyectos de infraestructura, minería y ordenamiento territorial en toda la región.
           </p>
@@ -754,7 +798,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-               <img src="images/vial.png" alt="Proyecto Vial">
+              <img src="images/vial.png" alt="Proyecto Vial">
             </div>
             <div class="project-card-content">
               <h3>Proyectos Viales</h3>
@@ -768,7 +812,7 @@
               <img src="images/minera.jpg" alt="Proyecto Minero">
             </div>
             <div class="project-card-content">
-              <h3>Trabajos para el Sector Minero</h3>
+               <h3>Trabajos para el Sector Minero</h3>
                <p>Vuelos fotogramétricos, topografía de detalle y procesamiento de datos en zonas de alta sensibilidad ambiental.</p>
               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -789,7 +833,7 @@
             <div class="project-image-container">
               <img src="images/catastro.jpg" alt="Relevamiento Catastral">
             </div>
-            <div class="project-card-content">
+             <div class="project-card-content">
               <h3>Relevamiento Catastral</h3>
               <p>Relevamiento catastral para el levantamiento de mejoras e inclusión en el catastro provincial, optimizando la gestión de la propiedad.</p>
               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
@@ -829,7 +873,7 @@
               <input type="text" id="name" name="name" class="contact-form-input" placeholder="Tu nombre" required>
 
               <label for="email" class="contact-form-label">Correo Electrónico:</label>
-              <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
+               <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
 
               <label for="phone" class="contact-form-label">Teléfono (Opcional):</label>
               <input type="tel" id="phone" name="phone" class="contact-form-input" placeholder="+54 9 383 ...">
@@ -837,7 +881,7 @@
               <label for="subject" class="contact-form-label">Asunto:</label>
               <input type="text" id="subject" name="subject" class="contact-form-input" placeholder="Ej: Consulta sobre mensura" required>
 
-              <label for="message" class="contact-form-label">Mensaje:</label>
+               <label for="message" class="contact-form-label">Mensaje:</label>
               <textarea id="message" name="message" class="contact-form-textarea" placeholder="Describe brevemente tu necesidad o consulta aquí..." required></textarea>
 
               <button type="submit" class="contact-form-button">Enviar Consulta</button>
@@ -845,11 +889,11 @@
 
             <div class="contact-details">
                 <h3>Información Directa</h3>
-                <div class="contact-info">
+                 <div class="contact-info">
                     <p><i class="fas fa-phone"></i>+54 9 383 493 1888</p>
                     <p><i class="fas fa-envelope"></i><a href="mailto:info@topo4d.com.ar">info@topo4d.com.ar</a></p> <p><i class="fas fa-map-marker-alt"></i>San F. del Valle de Catamarca, Argentina</p>
                     <p><i class="fas fa-clock"></i>Lunes a Viernes: 8:00 - 18:00 hs</p>
-                 </div>
+                </div>
                  <a href="https://wa.me/5493834931888?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." target="_blank" class="whatsapp-button">
                     <i class="fab fa-whatsapp"></i> Chatea por WhatsApp
                  </a>
@@ -863,7 +907,7 @@
         </div>
       </div>
     </section>
-   </main>
+    </main>
 
   <footer>
     <div class="container">
