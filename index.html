@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-      /* Estilos Generales */
+      /* Estilos Generales (Mantenidos de index.txt original) */
       body {
         font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
+        margin: 0; /* Asegurado desde agregar.txt */
+        padding: 0; /* Asegurado desde agregar.txt */
         background-color: #f0f4f0; /* Verde muy claro de fondo */
         color: #386641; /* Verde oscuro para texto principal */
         line-height: 1.6;
-        scroll-behavior: smooth;
+        scroll-behavior: smooth; /* Asegurado desde agregar.txt */
       }
       .container {
         max-width: 1200px;
@@ -40,61 +40,73 @@
           display: block;
       }
 
-      /* Barra de Navegación */
+      /* --- Estilos de Navbar, Header y Hamburguesa (de agregar.txt) --- */
       .navbar {
-        background-color: #1b5e20; /* Verde oscuro */
-        color: white;
-        padding: 10px 0;
-        /* text-align: center; -- quitado para que el menu hamburguesa funcione bien */
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 3px solid #66bb6a; /* Verde claro de borde */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        background-color: transparent; /* De agregar.txt */
+        position: fixed; /* De agregar.txt */
+        top: 0; /* De agregar.txt */
+        width: 100%; /* De agregar.txt */
+        z-index: 1000; /* De agregar.txt */
+        border: none; /* De agregar.txt */
+        box-shadow: none; /* De agregar.txt */
+        /* padding: 10px 0; quitado */
+        /* color: white; quitado */
+        /* border-bottom: 3px solid #66bb6a; quitado */
+        /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); quitado */
       }
+
+      .hamburger {
+        display: none; /* De agregar.txt */
+        flex-direction: column; /* De agregar.txt */
+        cursor: pointer; /* De agregar.txt */
+        position: absolute; /* De agregar.txt */
+        right: 20px; /* De agregar.txt */
+        top: 15px; /* De agregar.txt */
+        z-index: 1100; /* De agregar.txt */
+        background-color: #1b5e20; /* De agregar.txt */
+        padding: 10px; /* De agregar.txt */
+        border-radius: 10px; /* De agregar.txt */
+      }
+      .hamburger div {
+        width: 25px; /* De agregar.txt */
+        height: 3px; /* De agregar.txt */
+        background-color: white; /* De agregar.txt */
+        margin: 3px 0; /* De agregar.txt */
+        transition: 0.4s; /* De agregar.txt */
+      }
+      .hamburger.active div:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px); /* De agregar.txt */
+      }
+      .hamburger.active div:nth-child(2) {
+        opacity: 0; /* De agregar.txt */
+      }
+      .hamburger.active div:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px); /* De agregar.txt */
+      }
+
       .navbar-nav {
-        display: flex;
-        justify-content: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        flex-wrap: wrap;
+        display: none; /* De agregar.txt */
+        flex-direction: column; /* De agregar.txt */
+        background-color: #1b5e20; /* De agregar.txt */
+        position: absolute; /* De agregar.txt */
+        top: 60px; /* De agregar.txt */
+        left: 0; /* De agregar.txt */
+        width: 100%; /* De agregar.txt */
+        padding: 0; /* De agregar.txt */
+        margin: 0; /* De agregar.txt */
+        text-align: center; /* De agregar.txt */
+        list-style: none; /* Mantenido de index.txt */
+        /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); Podría agregarse si se desea */
       }
-
-      .header {
-        background-image: url("images/aaa.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 400px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
+      .navbar-nav.active {
+        display: flex; /* De agregar.txt */
       }
-
-      .header::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.4); /* sombra oscura encima del fondo */
-        z-index: 1;
-      }
-
-      .logo-header {
-        width: 468px;
-        height: auto;
-        position: relative;
-        z-index: 2;
-        background-color: transparent;
-      }
-
       .nav-item {
-        margin: 5px 15px;
+        margin: 10px 0; /* De agregar.txt (ajustado para menú vertical) */
       }
+       /* Estilo para los enlaces dentro de la nueva navbar */
       .nav-link {
-        color: white;
+        color: white; /* Color blanco para el texto del menú desplegable */
         text-decoration: none;
         font-size: 1em;
         font-weight: 500;
@@ -103,15 +115,49 @@
         transition: color 0.3s ease, background-color 0.3s ease;
         display: inline-block;
       }
+      /* Hover effect for mobile menu links */
       .nav-link:hover {
-        color: #1b5e20; /* Verde oscuro */
-        background-color: white;
+         color: #1b5e20; /* Texto verde oscuro */
+         background-color: white; /* Fondo blanco */
       }
-      .nav-link i {
-          margin-right: 6px;
+       .nav-link i {
+          margin-right: 6px; /* Mantener espacio para iconos */
       }
 
-      /* Estilos de Secciones */
+      /* Header ajustado (de agregar.txt) */
+      .header {
+        background-image: url("images/aaa.jpg"); /* De agregar.txt */
+        background-size: cover; /* De agregar.txt */
+        background-position: center; /* De agregar.txt */
+        background-repeat: no-repeat; /* De agregar.txt */
+        height: 250px; /* De agregar.txt */
+        display: flex; /* De agregar.txt */
+        align-items: center; /* De agregar.txt */
+        justify-content: center; /* De agregar.txt */
+        position: relative; /* De agregar.txt */
+        margin-top: 60px; /* De agregar.txt - compensar navbar fija */
+        /* overflow: hidden; quitado */
+      }
+
+      .header::before {
+        content: ""; /* De agregar.txt */
+        position: absolute; /* De agregar.txt */
+        inset: 0; /* De agregar.txt */
+        background-color: rgba(0, 0, 0, 0.4); /* De agregar.txt */
+        z-index: 1; /* De agregar.txt */
+      }
+
+      .logo-header {
+        width: 300px; /* De agregar.txt */
+        height: auto; /* De agregar.txt */
+        z-index: 2; /* De agregar.txt */
+        /* background-color: transparent; quitado */
+        /* position: relative; quitado */
+      }
+      /* --- Fin Estilos de Navbar, Header y Hamburguesa --- */
+
+
+      /* Estilos de Secciones (Mantenidos de index.txt original) */
       section {
         padding: 60px 0;
         text-align: center;
@@ -156,7 +202,7 @@
           color: #444;
       }
 
-      /* Cuadrícula de Servicios */
+      /* Cuadrícula de Servicios (Mantenida de index.txt original) */
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -204,7 +250,7 @@
         flex-grow: 1;
       }
 
-    /* Cuadrícula de Proyectos */
+    /* Cuadrícula de Proyectos (Mantenida de index.txt original) */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -278,7 +324,7 @@
          margin-left: 8px;
      }
 
-    /* Sección Equipamiento */
+    /* Sección Equipamiento (Mantenida de index.txt original) */
     #equipment {
         background-color: #f1f7ed;
     }
@@ -320,7 +366,7 @@
       margin-bottom: 3px;
     }
 
-    /* Sección Contacto */
+    /* Sección Contacto (Mantenida de index.txt original) */
     #contact {
         background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%);
     }
@@ -457,7 +503,7 @@
       vertical-align: middle;
     }
 
-    /* Pie de Página */
+    /* Pie de Página (Mantenido de index.txt original) */
     footer {
       background-color: #1a4d2e;
       color: #e0f2f1;
@@ -477,36 +523,9 @@
          color: white;
     }
 
-    /* NUEVO: Botón hamburguesa */
-    .hamburger {
-      display: none; /* Oculto por defecto */
-      flex-direction: column;
-      cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 50%; /* Centrar verticalmente */
-      transform: translateY(-50%); /* Ajuste fino vertical */
-      z-index: 1100; /* Asegurar que esté por encima del contenido del navbar */
-    }
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 4px 0;
-      transition: 0.4s;
-    }
-    .hamburger.active div:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.active div:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active div:nth-child(3) {
-      transform: rotate(-45deg) translate(5px, -5px);
-    }
-
     /* Media Queries para Responsividad */
     @media (max-width: 992px) {
+        /* Ajustes generales responsivos (Mantenidos) */
         .contact-container {
             flex-direction: column;
             align-items: center;
@@ -523,28 +542,29 @@
         }
          .social-icons {
             text-align: center;
-         }
+        }
         .social-icons a {
              margin: 0 10px;
-         }
+        }
     }
 
     @media (max-width: 768px) {
+      /* Ajustes generales responsivos (Mantenidos) */
       .container {
         padding: 0 15px;
       }
-      header {
-          padding: 40px 0;
-      }
-      header h1 {
-        font-size: 2.2em;
-      }
-      header p {
-          font-size: 1em;
-      }
-      header .logo {
-          width: 120px;
-      }
+      /* header { Ya no aplica el padding aquí por el nuevo header */
+          /* padding: 40px 0; */
+      /* } */
+      /* header h1 { Ya no aplica */
+        /* font-size: 2.2em; */
+      /* } */
+      /* header p { Ya no aplica */
+          /* font-size: 1em; */
+      /* } */
+      /* header .logo { Ya no aplica */
+          /* width: 120px; */
+      /* } */
       section {
           padding: 40px 0;
       }
@@ -561,46 +581,27 @@
       .service-card p, .project-card p {
         font-size: 0.95em;
       }
-      /* Reglas del menú hamburguesa para pantallas pequeñas */
-      .navbar-nav {
-        /* Ocultar por defecto y preparar para animación */
-        display: none;
-        flex-direction: column;
-        background-color: #1b5e20; /* Mismo color que navbar */
-        position: absolute; /* Posicionar respecto al navbar */
-        top: 63px; /* Ajustar justo debajo del navbar (altura navbar + borde) */
-        left: 0;
-        width: 100%;
-        padding: 10px 0;
-        z-index: 1000; /* Debajo del hamburguesa pero encima de otro contenido */
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra para destacar */
-        text-align: center; /* Centrar items del menú */
-        /* quitamos transition: max-height para usar display */
-      }
-      .navbar-nav.active {
-        display: flex; /* Mostrar cuando esté activo */
-      }
-      .hamburger {
-        display: flex; /* Mostrar el botón hamburguesa */
-      }
-      .nav-item {
-        margin: 10px 0; /* Espacio vertical entre items */
-      }
-       #about-us p, .history-section p, #equipment p.intro-text {
+       #about-us p, .history-section p, #equipment p.intro-text { /* Ajustes de texto mantenidos */
         font-size: 1em;
         text-align: left;
       }
-      .equipment-list {
+      .equipment-list { /* Ajustes de equipamiento mantenidos */
            padding-left: 10px;
            max-width: 100%;
        }
-       .equipment-list li {
+       .equipment-list li { /* Ajustes de equipamiento mantenidos */
             padding-left: 35px;
             font-size: 1em;
        }
-       .equipment-list li i {
+       .equipment-list li i { /* Ajustes de equipamiento mantenidos */
            font-size: 1.3em;
        }
+
+      /* Mostrar botón hamburguesa (De agregar.txt) */
+       .hamburger {
+          display: flex;
+       }
+       /* Ya no necesitamos las reglas .navbar-nav y .navbar-nav.active aquí porque están definidas globalmente */
     }
     </style>
 </head>
@@ -726,7 +727,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-              <img src="images/vial.png" alt="Proyecto Vial">
+               <img src="images/vial.png" alt="Proyecto Vial">
             </div>
             <div class="project-card-content">
               <h3>Proyectos Viales</h3>
@@ -748,12 +749,12 @@
 
           <div class="project-card">
             <div class="project-image-container">
-              <img src="images/eolico.jpg" alt="Turbinas Eólicas">
+               <img src="images/eolico.jpg" alt="Turbinas Eólicas">
             </div>
             <div class="project-card-content">
                <h3>Estudios para el Sector Industrial</h3>
               <p>Trabajos de campo en lote &gt;360 ha: replanteo de puntos de medición, determinación de coordenadas precisas, estudio de títulos, situación parcelaria e instalación de turbinas eólicas.</p>
-              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
 
@@ -801,7 +802,7 @@
               <input type="text" id="name" name="name" class="contact-form-input" placeholder="Tu nombre" required>
 
               <label for="email" class="contact-form-label">Correo Electrónico:</label>
-               <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
+              <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
 
               <label for="phone" class="contact-form-label">Teléfono (Opcional):</label>
               <input type="tel" id="phone" name="phone" class="contact-form-input" placeholder="+54 9 383 ...">
@@ -809,7 +810,7 @@
               <label for="subject" class="contact-form-label">Asunto:</label>
               <input type="text" id="subject" name="subject" class="contact-form-input" placeholder="Ej: Consulta sobre mensura" required>
 
-               <label for="message" class="contact-form-label">Mensaje:</label>
+              <label for="message" class="contact-form-label">Mensaje:</label>
               <textarea id="message" name="message" class="contact-form-textarea" placeholder="Describe brevemente tu necesidad o consulta aquí..." required></textarea>
 
               <button type="submit" class="contact-form-button">Enviar Consulta</button>
@@ -817,7 +818,7 @@
 
             <div class="contact-details">
                 <h3>Información Directa</h3>
-                 <div class="contact-info">
+                <div class="contact-info">
                     <p><i class="fas fa-phone"></i>+54 9 383 493 1888</p>
                     <p><i class="fas fa-envelope"></i><a href="mailto:info@topo4d.com.ar">info@topo4d.com.ar</a></p> <p><i class="fas fa-map-marker-alt"></i>San F. del Valle de Catamarca, Argentina</p>
                     <p><i class="fas fa-clock"></i>Lunes a Viernes: 8:00 - 18:00 hs</p>
@@ -827,7 +828,7 @@
                  </a>
                 <div class="social-icons">
                     <h4>Síguenos:</h4>
-                     <a href="https://www.instagram.com/topo.4d/?hl=es-la" target="_blank" aria-label="Instagram">
+                   <a href="https://www.instagram.com/topo.4d/?hl=es-la" target="_blank" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
                     </div>
@@ -845,7 +846,7 @@
   </footer>
 
   <script>
-    // Script para el formulario (básico, asume envío por 'action')
+    // Script para el formulario (Mantenido de index.txt original)
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', (event) => {
@@ -855,13 +856,13 @@
         if(submitButton) {
             submitButton.textContent = 'Enviando...';
             submitButton.disabled = true;
-         }
+        }
         // Formspree redirige a una página de agradecimiento por defecto.
         // Si se maneja con JS (AJAX), aquí iría la lógica fetch() y el preventDefault().
       });
     }
 
-    // Script para animación de secciones al hacer scroll
+    // Script para animación de secciones al hacer scroll (Mantenido de index.txt original)
     function revealSections() {
       const sections = document.querySelectorAll('section');
       const windowHeight = window.innerHeight;
@@ -878,31 +879,32 @@
     window.addEventListener('load', revealSections); // Ejecutar al cargar
     window.addEventListener('scroll', revealSections); // Ejecutar al hacer scroll
 
-    // Script para actualizar año del footer
+    // Script para actualizar año del footer (Mantenido de index.txt original)
     const yearSpan = document.getElementById('current-year');
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // NUEVO: hamburguesa toggle animado
+    // Script de hamburguesa (De agregar.txt)
     const hamburger = document.getElementById('hamburger');
     const navbarNav = document.getElementById('navbarNav');
-
-    if (hamburger && navbarNav) { // Asegurarse que ambos elementos existen
+    // Asegurarse que ambos elementos existen antes de añadir listeners
+    if (hamburger && navbarNav) {
         hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active'); // Anima el botón
-          navbarNav.classList.toggle('active'); // Muestra/oculta el menú
+          hamburger.classList.toggle('active');
+          navbarNav.classList.toggle('active');
         });
 
-        // Opcional: Cerrar el menú al hacer clic en un enlace (para SPAs o si quieres esa funcionalidad)
+        // Cerrar el menú al hacer clic en un enlace
         const navLinks = navbarNav.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (navbarNav.classList.contains('active')) {
-                    hamburger.classList.remove('active');
-                    navbarNav.classList.remove('active');
-                }
-            });
+          link.addEventListener('click', () => {
+            // Solo cerrar si el menú está activo (visible)
+            if (navbarNav.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navbarNav.classList.remove('active');
+            }
+          });
         });
     }
 
