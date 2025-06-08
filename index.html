@@ -12,7 +12,6 @@
     <style>
       /* Estilos Generales */
       body {
-        /* Se aplica Space Grotesk como fuente principal */
         font-family: 'Space Grotesk', sans-serif;
         margin: 0;
         padding: 0;
@@ -27,12 +26,11 @@
         margin: 0 auto;
         padding: 0 20px; /* Padding general del contenedor */
       }
-      /* Se aplica Bai Jamjuree a los títulos para crear contraste */
       h1, h2, h3 {
           font-family: 'Bai Jamjuree', sans-serif;
           color: #1b4332;
           font-weight: 700;
-          letter-spacing: 0.5px; /* Espaciado para un look más moderno */
+          letter-spacing: 0.5px;
       }
       a {
           text-decoration: none;
@@ -51,7 +49,7 @@
         color: #1b4332;
       }
 
-      /* --- Barra de Navegación (Estado inicial transparente) --- */
+      /* --- Barra de Navegación --- */
       .navbar {
         color: white;
         padding: 10px 0;
@@ -110,7 +108,7 @@
           margin-right: 6px;
       }
 
-      /* --- Icono Hamburguesa (Oculto por defecto, visible en móvil) --- */
+      /* --- Icono Hamburguesa --- */
       .hamburger {
         display: none;
         flex-direction: column;
@@ -131,89 +129,97 @@
         margin: 3px 0;
         transition: 0.4s;
       }
-      .hamburger.active div {
-         background-color: #1b5e20;
-      }
       .hamburger.active div:nth-child(1) {
         transform: rotate(45deg) translate(3.5px, 3.5px);
       }
-      .hamburger.active div:nth-child(2) {
-        opacity: 0;
-      }
+      .hamburger.active div:nth-child(2) { opacity: 0; }
       .hamburger.active div:nth-child(3) {
         transform: rotate(-45deg) translate(3.5px, -3.5px);
       }
 
-      /* --- Contenedor Hero (Header + Sobre Nosotros) --- */
-      .hero-block {
-        position: relative;
-        z-index: 0;
-      }
-      
-      /* --- Header (Dentro del Hero Block) --- */
+      /* --- Header --- */
       .header {
-        background-color: transparent;
-        height: 400px;
+        height: 550px; /* Header más alto */
         position: relative;
         display: flex;
+        flex-direction: column; /* Para apilar logo y leyenda */
         align-items: center;
         justify-content: center;
         overflow: hidden;
+        text-align: center;
       }
       .logo-header {
         width: 468px;
         height: auto;
         position: relative;
         z-index: 2;
-        background-color: transparent;
+        opacity: 0;
+        animation: fadeInLogo 1.2s ease-out 0.5s forwards;
+      }
+      .header-slogan {
+        color: white; /* Color que contraste con el fondo */
+        font-family: 'Bai Jamjuree', sans-serif;
+        font-size: 1.8em;
+        font-weight: 600;
+        letter-spacing: 3px; /* Efecto de letra ancha */
+        text-transform: uppercase;
+        margin-top: 25px;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+        opacity: 0;
+        animation: fadeInSlogan 1.2s ease-out 1s forwards; /* Aparece después del logo */
+        max-width: 90%;
       }
       
+      @keyframes fadeInLogo {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeInSlogan {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
       .header-background {
-        background-image: url('images/fondo1.png');
+        background-image: url('images/fondo1.jpg');
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
+        position: relative;
+        z-index: 0;
       }
       .header-background::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(240, 244, 240, 0.3);
+        background-color: rgba(27, 94, 32, 0.5); /* Overlay más oscuro */
         z-index: -1;
       }
 
-      .history-background {
-        background-image: url('images/fondo2.jpg');
+      /* Fondos de otras secciones */
+      .history-background, .services-background, .about-us-background {
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
         position: relative;
         z-index: 0;
       }
-      .history-background::before {
+      .history-background { background-image: url('images/fondo2.jpg'); }
+      .services-background { background-image: url('images/fondo3.jpg'); }
+      .about-us-background { background-image: url('images/fondo4.jpg'); } /* Nuevo fondo */
+
+      .history-background::before, .services-background::before, .about-us-background::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(248, 248, 248, 0.4);
         z-index: -1;
+      }
+      .history-background::before, .services-background::before {
+        background-color: rgba(248, 248, 248, 0.4);
+      }
+      .about-us-background::before {
+        background-color: rgba(15, 30, 15, 0.75); /* Overlay oscuro para contraste */
       }
       
-      .services-background {
-        background-image: url('images/fondo3.jpg');
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        position: relative;
-        z-index: 0;
-      }
-      .services-background::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(248, 248, 248, 0.4);
-        z-index: -1;
-      }
-
       /* Estilos de Secciones */
       section {
         padding: 60px 0;
@@ -223,17 +229,14 @@
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         overflow: hidden;
       }
-      #about-us {
-          padding-top: 0;
-      }
       
-      #our-history, #services {
+      #our-history, #services, #about-us {
           background-color: transparent !important;
       }
-      section:nth-of-type(odd):not(.services-background) {
+      section:not([class*="-background"]) {
           background-color: #f8f8f8;
       }
-      section:nth-of-type(even):not(.history-background) {
+       section:nth-of-type(even):not([class*="-background"]) {
           background-color: #f0f4f0;
       }
 
@@ -243,7 +246,7 @@
       }
       section h2 {
         margin: 0 auto 40px auto;
-        font-size: 2.8em; /* Título más grande */
+        font-size: 2.8em;
         font-weight: 700;
         position: relative;
         padding-bottom: 15px;
@@ -268,6 +271,20 @@
           font-weight: 500;
       }
       
+      /* --- Estilos para la sección "Sobre Nosotros" con fondo --- */
+      #about-us {
+        color: #fff;
+      }
+      #about-us h2, #about-us strong {
+        color: #fff;
+      }
+      #about-us .section-intro, #about-us p {
+        color: #e0f2f1; /* Un blanco un poco más suave */
+      }
+       #about-us strong {
+        font-weight: 700;
+      }
+
       .two-column-layout {
         display: flex;
         flex-direction: column;
@@ -287,523 +304,104 @@
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       }
 
-      .services-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        margin-top: 20px;
-        text-align: left;
-      }
-      .service-card {
-        background-color: white;
-        padding: 30px 25px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        border-top: 5px solid #4CAF50;
-      }
-      .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-      }
-      .service-card i {
-        font-size: 2.8em;
-        margin-bottom: 20px;
-        color: #1b5e20;
-        background-color: #e6f4e5;
-        border-radius: 50%;
-        width: 70px;
-        height: 70px;
-        line-height: 70px;
-        text-align: center;
-      }
-      .service-card h3 {
-        margin: 0 0 15px 0;
-        font-size: 1.5em;
-        font-weight: 700;
-        color: #1b5e20;
-      }
-      .service-card p {
-        margin: 0;
-        font-size: 1em;
-        color: #555;
-        flex-grow: 1;
-      }
+      /* --- Resto de los estilos (sin cambios) --- */
+      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; text-align: left; }
+      .service-card { background-color: white; padding: 30px 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #4CAF50; }
+      .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); }
+      .service-card i { font-size: 2.8em; margin-bottom: 20px; color: #1b5e20; background-color: #e6f4e5; border-radius: 50%; width: 70px; height: 70px; line-height: 70px; text-align: center; }
+      .service-card h3 { margin: 0 0 15px 0; font-size: 1.5em; font-weight: 700; color: #1b5e20; }
+      .service-card p { margin: 0; font-size: 1em; color: #555; flex-grow: 1; }
+      .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
+      .project-card { background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left; display: flex; flex-direction: column; overflow: hidden; }
+      .project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); }
+      .project-card .project-image-container { position: relative; height: 220px; overflow: hidden; }
+      .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+      .project-card:hover img { transform: scale(1.05); }
+      .project-card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
+      .project-card h3 { margin: 0 0 10px 0; font-size: 1.4em; font-weight: 700; color: #1b5e20; }
+      .project-card p { margin: 0 0 20px 0; font-size: 1em; color: #555; flex-grow: 1; }
+      .project-card a.details-button { display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease, transform 0.2s ease; font-weight: 500; text-align: center; margin-top: auto; align-self: flex-start; }
+      .project-card a.details-button:hover { background-color: #388e3c; transform: scale(1.03); }
+      .project-card a.details-button i { margin-left: 8px; }
+      #equipment { background-color: #f1f7ed; }
+      .equipment-list { list-style: none; padding: 0; margin: 0; text-align: left; }
+      .equipment-list li { font-size: 1.1em; color: #333; margin-bottom: 18px; padding-left: 40px; position: relative; border-bottom: 1px dashed #ccc; padding-bottom: 15px; }
+      .equipment-list li:last-child { border-bottom: none; }
+      .equipment-list li i { position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 1.5em; color: #4CAF50; width: 25px; text-align: center; }
+      .equipment-list li strong { color: #1b5e20; font-weight: 700; display: block; margin-bottom: 3px; font-family: 'Space Grotesk', sans-serif; }
+      .equipment-image-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+      .equipment-image-grid img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); object-fit: cover; height: 200px; }
+      #contact { background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%); }
+      .contact-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; max-width: 1100px; margin: 0 auto; }
+      #contact-form { flex: 1 1 500px; max-width: 600px; text-align: left; background-color: #ffffff; padding: 35px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); margin: 0; border-top: 5px solid #1b5e20; }
+      .contact-form-label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: 700; color: #444; font-size: 1em; }
+      .contact-form-input, .contact-form-textarea { width: 100%; box-sizing: border-box; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; transition: border-color 0.3s ease, box-shadow 0.3s ease; font-size: 1em; font-family: 'Space Grotesk', sans-serif; }
+      .contact-form-input:focus, .contact-form-textarea:focus { outline: none; border-color: #4CAF50; box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); }
+      .contact-form-textarea { resize: vertical; min-height: 140px; }
+      .contact-form-button { margin-top: 25px; padding: 12px 25px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 1.1em; font-weight: 700; width: 100%; font-family: 'Bai Jamjuree', sans-serif; }
+      .contact-form-button:hover { background-color: #388e3c; transform: scale(1.02); }
+      .contact-details { flex: 1 1 300px; text-align: left; padding: 20px; }
+      .contact-details h3 { font-size: 1.6em; margin-bottom: 20px; color: #1b5e20; }
+      .contact-info p { font-size: 1.1em; color: #333; margin-bottom: 18px; display: flex; align-items: center; }
+      .contact-info p i { font-size: 1.3em; margin-right: 15px; color: #1b5e20; width: 25px; text-align: center; }
+      .whatsapp-button { display: inline-block; padding: 12px 25px; background-color: #25d366; color: white; text-decoration: none; border-radius: 25px; transition: background-color 0.3s ease, transform 0.2s ease; font-weight: 500; margin-top: 15px; }
+      .whatsapp-button:hover { background-color: #128c7e; transform: scale(1.05); }
+      .whatsapp-button i { margin-right: 8px; vertical-align: middle; }
+      .social-icons { margin-top: 30px; text-align: left; }
+      .social-icons h4 { font-size: 1.2em; margin-bottom: 10px; color: #555; }
+      .social-icons a { display: inline-block; margin-right: 15px; font-size: 1.8em; color: #1b5e20; transition: color 0.3s ease, transform 0.3s ease; }
+      .social-icons a:hover { color: #4CAF50; transform: scale(1.2); }
+      .social-icons a i { vertical-align: middle; }
+      footer { background-color: #1a4d2e; color: #e0f2f1; padding: 40px 0; text-align: center; margin-top: 0; }
+      footer p { margin: 5px 0; font-size: 0.95em; opacity: 0.8; }
+      footer a { color: #f1f7ed; }
+      footer a:hover { color: white; }
+      .whatsapp-flotante { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25D366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; justify-content: center; align-items: center; transition: transform 0.3s ease, background-color 0.3s ease; }
+      .whatsapp-flotante:hover { background-color: #128C7E; transform: scale(1.1); color: white; }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-top: 20px;
-    }
-    .project-card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-    }
-     .project-card .project-image-container {
-        position: relative;
-        height: 220px;
-        overflow: hidden;
-    }
-    .project-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-    .project-card:hover img {
-        transform: scale(1.05);
-    }
-    .project-card-content {
-        padding: 25px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-    }
-    .project-card h3 {
-      margin: 0 0 10px 0;
-      font-size: 1.4em;
-      font-weight: 700;
-      color: #1b5e20;
-    }
-    .project-card p {
-      margin: 0 0 20px 0;
-      font-size: 1em;
-      color: #555;
-      flex-grow: 1;
-    }
-    .project-card a.details-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-weight: 500;
-      text-align: center;
-      margin-top: auto;
-      align-self: flex-start;
-    }
-    .project-card a.details-button:hover {
-      background-color: #388e3c;
-      transform: scale(1.03);
-    }
-     .project-card a.details-button i {
-         margin-left: 8px;
-     }
-
-    #equipment {
-        background-color: #f1f7ed;
-    }
-    .equipment-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-    .equipment-list li {
-      font-size: 1.1em;
-      color: #333;
-      margin-bottom: 18px;
-      padding-left: 40px;
-      position: relative;
-      border-bottom: 1px dashed #ccc;
-      padding-bottom: 15px;
-    }
-    .equipment-list li:last-child {
-         border-bottom: none;
-    }
-    .equipment-list li i {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.5em;
-        color: #4CAF50;
-        width: 25px;
-        text-align: center;
-    }
-    .equipment-list li strong {
-      color: #1b5e20;
-      font-weight: 700; /* Usamos el peso bold de Space Grotesk */
-      display: block;
-      margin-bottom: 3px;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    
-    .equipment-image-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .equipment-image-grid img {
-        width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        object-fit: cover;
-        height: 200px;
-    }
-
-    #contact {
-        background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%);
-    }
-    .contact-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-        align-items: flex-start;
-        max-width: 1100px;
-        margin: 0 auto;
-    }
-    #contact-form {
-      flex: 1 1 500px;
-      max-width: 600px;
-      text-align: left;
-      background-color: #ffffff;
-      padding: 35px;
-      border-radius: 10px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      margin: 0;
-      border-top: 5px solid #1b5e20;
-    }
-    .contact-form-label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 5px;
-      font-weight: 700;
-      color: #444;
-      font-size: 1em;
-    }
-    .contact-form-input, .contact-form-textarea {
-      width: 100%;
-      box-sizing: border-box;
-      padding: 12px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      font-size: 1em;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    .contact-form-input:focus, .contact-form-textarea:focus {
-      outline: none;
-      border-color: #4CAF50;
-      box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
-    }
-    .contact-form-textarea {
-      resize: vertical;
-      min-height: 140px;
-    }
-    .contact-form-button {
-      margin-top: 25px;
-      padding: 12px 25px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-size: 1.1em;
-      font-weight: 700;
-      width: 100%;
-      font-family: 'Bai Jamjuree', sans-serif;
-    }
-    .contact-form-button:hover {
-      background-color: #388e3c;
-      transform: scale(1.02);
-    }
-
-    .contact-details {
-        flex: 1 1 300px;
-        text-align: left;
-        padding: 20px;
-    }
-     .contact-details h3 {
-         font-size: 1.6em;
-         margin-bottom: 20px;
-         color: #1b5e20;
-     }
-    .contact-info p {
-      font-size: 1.1em;
-      color: #333;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-    }
-    .contact-info p i {
-        font-size: 1.3em;
-        margin-right: 15px;
-        color: #1b5e20;
-        width: 25px;
-        text-align: center;
-    }
-    .whatsapp-button {
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: #25d366;
-      color: white;
-      text-decoration: none;
-      border-radius: 25px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-weight: 500;
-      margin-top: 15px;
-    }
-    .whatsapp-button:hover {
-      background-color: #128c7e;
-      transform: scale(1.05);
-    }
-     .whatsapp-button i {
-         margin-right: 8px;
-         vertical-align: middle;
-     }
-
-    .social-icons {
-      margin-top: 30px;
-      text-align: left;
-    }
-     .social-icons h4 {
-         font-size: 1.2em;
-         margin-bottom: 10px;
-         color: #555;
-     }
-    .social-icons a {
-      display: inline-block;
-      margin-right: 15px;
-      font-size: 1.8em;
-      color: #1b5e20;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    .social-icons a:hover {
-      color: #4CAF50;
-      transform: scale(1.2);
-    }
-    .social-icons a i {
-      vertical-align: middle;
-    }
-
-    footer {
-      background-color: #1a4d2e;
-      color: #e0f2f1;
-      padding: 40px 0;
-      text-align: center;
-      margin-top: 0;
-    }
-    footer p {
-      margin: 5px 0;
-      font-size: 0.95em;
-      opacity: 0.8;
-    }
-    footer a {
-        color: #f1f7ed;
-    }
-     footer a:hover {
-         color: white;
-     }
-
-    .whatsapp-flotante {
-        position: fixed;
-        width: 60px;
-        height: 60px;
-        bottom: 30px;
-        right: 30px;
-        background-color: #25D366;
-        color: #FFF;
-        border-radius: 50px;
-        text-align: center;
-        font-size: 30px;
-        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-        z-index: 1000;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-    .whatsapp-flotante:hover {
-        background-color: #128C7E;
-        transform: scale(1.1);
-        color: white;
-    }
-
-
-    /* --- Media Queries para Responsividad --- */
-    @media (min-width: 769px) {
-      .two-column-layout {
-        flex-direction: row;
-        text-align: left;
-        gap: 50px;
-        align-items: flex-start;
+      /* --- Media Queries --- */
+      @media (min-width: 769px) {
+        .two-column-layout { flex-direction: row; text-align: left; gap: 50px; align-items: flex-start; }
+        .two-column-layout .text-column, .two-column-layout .image-column { flex-basis: 50%; }
+        .two-column-layout.reverse { flex-direction: row-reverse; }
       }
-      .two-column-layout .text-column,
-      .two-column-layout .image-column {
-        flex-basis: 50%;
+      @media (max-width: 992px) {
+        .contact-container { flex-direction: column; align-items: center; }
+        #contact-form { max-width: 100%; }
+        .contact-details { text-align: center; max-width: 500px; }
+        .contact-info p { justify-content: center; }
+        .social-icons { text-align: center; }
+        .social-icons a { margin: 0 10px; }
       }
-      .two-column-layout.reverse {
-        flex-direction: row-reverse;
+      @media (max-width: 768px) {
+        .header-background, .history-background, .services-background, .about-us-background { background-attachment: scroll; }
+        .container { padding: 0 15px; }
+        section { padding: 40px 0; }
+        section h2 { font-size: 2.2em; }
+        .services-grid, .projects-grid { grid-template-columns: 1fr; gap: 25px; }
+        .service-card h3, .project-card h3 { font-size: 1.3em; }
+        .service-card p, .project-card p { font-size: 0.95em; }
+        .equipment-list { padding-left: 10px; max-width: 100%; }
+        .equipment-list li { padding-left: 35px; font-size: 1em; }
+        .equipment-list li i { font-size: 1.3em; }
+        .navbar { padding: 0; }
+        .navbar .container { justify-content: flex-end; padding: 10px 15px; }
+        .navbar-nav { display: none; flex-direction: column; background-color: #1b5e20; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; padding: 70px 0 20px 0; box-sizing: border-box; overflow-y: auto; }
+        .navbar-nav.active { display: flex; }
+        .hamburger { display: flex; position: fixed; top: 15px; right: 15px; transform: none; background-color: #4CAF50; padding: 10px; border-radius: 5px; z-index: 1100; }
+        .hamburger div { background-color: white; width: 22px; height: 3px; margin: 3px 0; transition: 0.4s; }
+        .hamburger.active div { background-color: white; }
+        .hamburger.active div:nth-child(1) { transform: rotate(45deg) translate(3.5px, 3.5px); }
+        .hamburger.active div:nth-child(2) { opacity: 0; }
+        .hamburger.active div:nth-child(3) { transform: rotate(-45deg) translate(3.5px, -3.5px); }
+        .nav-item { margin: 12px 0; }
+        .nav-link { padding: 10px 15px; display: block; width: auto; margin: 0 20px; }
+        .nav-link:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
+        .header { height: 450px; /* Altura ajustada para móvil */ }
+        .logo-header { width: 300px; }
+        .header-slogan { font-size: 1.2em; letter-spacing: 2px; }
+        .whatsapp-flotante { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
       }
-    }
-
-    @media (max-width: 992px) {
-        .contact-container {
-            flex-direction: column;
-            align-items: center;
-        }
-        #contact-form {
-            max-width: 100%;
-        }
-        .contact-details {
-            text-align: center;
-            max-width: 500px;
-        }
-        .contact-info p {
-            justify-content: center;
-        }
-         .social-icons {
-            text-align: center;
-         }
-        .social-icons a {
-             margin: 0 10px;
-         }
-    }
-
-    @media (max-width: 768px) {
-      .header-background, .history-background, .services-background {
-          background-attachment: scroll;
-      }
-      
-      .container {
-        padding: 0 15px;
-      }
-      section {
-          padding: 40px 0;
-      }
-      section h2 {
-        font-size: 2.2em;
-      }
-      .services-grid, .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-      }
-      .service-card h3, .project-card h3 {
-        font-size: 1.3em;
-      }
-      .service-card p, .project-card p {
-        font-size: 0.95em;
-      }
-      .equipment-list {
-           padding-left: 10px;
-           max-width: 100%;
-       }
-       .equipment-list li {
-            padding-left: 35px;
-            font-size: 1em;
-       }
-       .equipment-list li i {
-           font-size: 1.3em;
-       }
-
-      .navbar {
-        padding: 0;
-      }
-      .navbar .container {
-         justify-content: flex-end;
-         padding: 10px 15px;
-      }
-
-      .navbar-nav {
-        display: none;
-        flex-direction: column;
-        background-color: #1b5e20;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        z-index: 1000;
-        padding: 70px 0 20px 0;
-        box-sizing: border-box;
-        overflow-y: auto;
-      }
-      .navbar-nav.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        transform: none;
-        background-color: #4CAF50;
-        padding: 10px;
-        border-radius: 5px;
-        z-index: 1100;
-      }
-      .hamburger div {
-        background-color: white;
-        width: 22px;
-        height: 3px;
-        margin: 3px 0;
-        transition: 0.4s;
-      }
-      .hamburger.active div {
-         background-color: white;
-      }
-       .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translate(3.5px, 3.5px);
-      }
-       .hamburger.active div:nth-child(2) {
-        opacity: 0;
-      }
-      .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(3.5px, -3.5px);
-      }
-
-      .nav-item {
-        margin: 12px 0;
-      }
-      .nav-link {
-         padding: 10px 15px;
-         display: block;
-         width: auto;
-         margin: 0 20px;
-      }
-       .nav-link:hover {
-         background-color: rgba(255, 255, 255, 0.1);
-         color: white;
-       }
-
-      .header {
-        height: 250px;
-      }
-      .logo-header {
-        width: 300px;
-      }
-
-      .whatsapp-flotante {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-        font-size: 24px;
-      }
-    }
     </style>
 </head>
 <body>
@@ -826,11 +424,13 @@
     </div>
   </nav>
 
-  <div class="hero-block header-background">
-    <header class="header">
-      <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header" onerror="this.onerror=null;this.src='https://placehold.co/468x150/ffffff/386641?text=TOPO4D+Logo';">
-    </header>
-    <section id="about-us">
+  <header class="header header-background">
+    <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header" onerror="this.onerror=null;this.src='https://placehold.co/468x150/ffffff/386641?text=TOPO4D+Logo';">
+    <p class="header-slogan">Agrimensura, Topografía y Fotogrametría de Precisión</p>
+  </header>
+  
+  <main>
+    <section id="about-us" class="about-us-background">
       <div class="container">
         <h2>Sobre Nosotros</h2>
         <div class="two-column-layout">
@@ -848,14 +448,12 @@
         </div>
       </div>
     </section>
-  </div>
 
-  <main>
     <section id="our-history" class="history-background">
       <div class="container">
         <h2>Nuestra Trayectoria</h2>
         <div class="two-column-layout reverse">
-          <div class="text-column">
+          <div class="text-column" style="background-color: rgba(255,255,255,0.8); padding: 20px; border-radius: 8px;">
             <p class="section-intro" style="text-align: left; margin-left: 0; max-width: 100%;">
                 Impulsados por un <strong>legado familiar</strong> en agrimensura y el deseo de innovar, fundamos TOPO4D para aplicar <strong>tecnología avanzada</strong> al estudio del territorio.
             </p>
@@ -876,7 +474,7 @@
     <section id="services" class="services-background">
       <div class="container">
         <h2>Nuestros Servicios</h2>
-         <p class="section-intro">Ofrecemos una amplia gama de servicios adaptados a las necesidades específicas de cada proyecto, garantizando <strong>precisión</strong> y <strong>resultados confiables</strong>.</p>
+         <p class="section-intro" style="color: #333; background-color: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">Ofrecemos una amplia gama de servicios adaptados a las necesidades específicas de cada proyecto, garantizando <strong>precisión</strong> y <strong>resultados confiables</strong>.</p>
         <div class="services-grid">
           <div class="service-card">
             <i class="fas fa-ruler-combined"></i>
@@ -928,7 +526,6 @@
         <h2>Proyectos Destacados</h2>
         <p class="section-intro">Hemos tenido el privilegio de participar en diversos proyectos, aportando nuestra <strong>experiencia y tecnología</strong>. Aquí algunos ejemplos:</p>
         <div class="projects-grid">
-
           <div class="project-card">
             <div class="project-image-container">
               <img src="images/nave.jpg" alt="[Imagen de Construcción de Nave Industrial]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Nave+Industrial';">
@@ -939,7 +536,6 @@
                <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-
           <div class="project-card">
             <div class="project-image-container">
               <img src="images/vial.png" alt="[Imagen de Proyecto Vial]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Proyecto+Vial';">
@@ -950,7 +546,6 @@
               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-
           <div class="project-card">
             <div class="project-image-container">
               <img src="images/minera.jpg" alt="[Imagen de Proyecto Minero]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Proyecto+Minero';">
@@ -961,7 +556,6 @@
               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-
           <div class="project-card">
             <div class="project-image-container">
                <img src="images/eolico.jpg" alt="[Imagen de Turbinas Eólicas]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Parque+Eólico';">
@@ -972,7 +566,6 @@
                <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-
           <div class="project-card">
             <div class="project-image-container">
               <img src="images/catastro.jpg" alt="[Imagen de Relevamiento Catastral]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Catastro';">
@@ -983,7 +576,6 @@
               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-          
           <div class="project-card">
             <div class="project-image-container">
               <img src="images/loteo.jpg" alt="[Imagen de Diseño de Loteo]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Diseño+Loteo';">
@@ -994,7 +586,6 @@
               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -1035,25 +626,18 @@
             <form id="contact-form" class="contact-form" action="https://formsubmit.co/topo4darg@gmail.com" method="POST">
               <label for="name" class="contact-form-label">Nombre Completo:</label>
               <input type="text" id="name" name="name" class="contact-form-input" placeholder="Tu nombre" required>
-            
               <label for="email" class="contact-form-label">Correo Electrónico:</label>
               <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
-            
               <label for="phone" class="contact-form-label">Teléfono (Opcional):</label>
               <input type="tel" id="phone" name="phone" class="contact-form-input" placeholder="+54 9 383 ...">
-            
               <label for="subject" class="contact-form-label">Asunto:</label>
               <input type="text" id="subject" name="subject" class="contact-form-input" placeholder="Ej: Consulta sobre mensura" required>
-            
               <label for="message" class="contact-form-label">Mensaje:</label>
               <textarea id="message" name="message" class="contact-form-textarea" placeholder="Describe brevemente tu necesidad o consulta aquí..." required></textarea>
-
               <input type="hidden" name="_next" value="https://TOPO4D.github.io/TOPO4D/gracias.html">
               <input type="text" name="_honey" style="display:none">
-            
               <button type="submit" class="contact-form-button">Enviar Consulta</button>
             </form>
-
             <div class="contact-details">
                 <h3>Información Directa</h3>
                  <div class="contact-info">
@@ -1069,7 +653,7 @@
                    <a href="https://www.instagram.com/topo.4d/?hl=es-la" target="_blank" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    </div>
+                </div>
             </div>
         </div>
       </div>
@@ -1088,7 +672,6 @@
   </a>
   
   <script>
-    // Script para la barra de navegación con efecto de scroll
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
@@ -1098,10 +681,9 @@
         }
     });
 
-    // Script para el formulario
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      contactForm.addEventListener('submit', (event) => {
+      contactForm.addEventListener('submit', () => {
         const submitButton = contactForm.querySelector('.contact-form-button');
         if(submitButton) {
             submitButton.textContent = 'Enviando...';
@@ -1110,7 +692,6 @@
       });
     }
 
-    // Script para animación de secciones al hacer scroll
     function revealSections() {
       const sections = document.querySelectorAll('section');
       const windowHeight = window.innerHeight;
@@ -1124,13 +705,11 @@
     window.addEventListener('load', revealSections);
     window.addEventListener('scroll', revealSections);
 
-    // Script para actualizar año del footer
     const yearSpan = document.getElementById('current-year');
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Script de hamburguesa
     const hamburger = document.getElementById('hamburger');
     const navbarNav = document.getElementById('navbarNav');
     if (hamburger && navbarNav) {
@@ -1139,7 +718,6 @@
           navbarNav.classList.toggle('active');
         });
 
-        // Cerrar el menú al hacer clic en un enlace
         const navLinks = navbarNav.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
@@ -1150,7 +728,6 @@
           });
         });
     }
-
   </script>
 </body>
 </html>
