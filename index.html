@@ -157,16 +157,16 @@
         animation: fadeInLogo 1.2s ease-out 0.5s forwards;
       }
       .header-slogan {
-        color: white; /* Color que contraste con el fondo */
+        color: white;
         font-family: 'Bai Jamjuree', sans-serif;
         font-size: 1.8em;
         font-weight: 600;
-        letter-spacing: 3px; /* Efecto de letra ancha */
+        letter-spacing: 3px;
         text-transform: uppercase;
         margin-top: 25px;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Sombra para legibilidad */
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
         opacity: 0;
-        animation: fadeInSlogan 1.2s ease-out 1s forwards; /* Aparece después del logo */
+        animation: fadeInSlogan 1.2s ease-out 1s forwards;
         max-width: 90%;
       }
       
@@ -180,7 +180,7 @@
       }
 
       .header-background {
-        background-image: url('images/fondo1.png');
+        background-image: url('images/fondo1.jpg');
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
@@ -191,7 +191,7 @@
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(27, 94, 32, 0.2); /* Overlay más oscuro */
+        background-color: rgba(27, 94, 32, 0.5);
         z-index: -1;
       }
 
@@ -205,7 +205,7 @@
       }
       .history-background { background-image: url('images/fondo2.jpg'); }
       .services-background { background-image: url('images/fondo3.jpg'); }
-      .about-us-background { background-image: url('images/aaa.jpg'); } /* Nuevo fondo */
+      .about-us-background { background-image: url('images/fondo4.jpg'); }
 
       .history-background::before, .services-background::before, .about-us-background::before {
         content: '';
@@ -213,10 +213,7 @@
         top: 0; left: 0; right: 0; bottom: 0;
         z-index: -1;
       }
-      .history-background::before, .services-background::before {
-        background-color: rgba(248, 248, 248, 0.4);
-      }
-      .about-us-background::before {
+      .about-us-background::before, .history-background::before, .services-background::before {
         background-color: rgba(15, 30, 15, 0.75); /* Overlay oscuro para contraste */
       }
       
@@ -271,15 +268,20 @@
           font-weight: 500;
       }
       
-      /* --- Estilos para la sección "Sobre Nosotros" con fondo --- */
-      #about-us {
+      /* Estilos para secciones con fondo oscuro */
+      #about-us, #our-history, #services {
         color: #fff;
       }
-      #about-us h2, #about-us strong {
+      #about-us h2, #about-us strong, 
+      #our-history h2, #our-history strong, 
+      #services h2, #services strong {
         color: #fff;
       }
-      #about-us .section-intro, #about-us p {
-        color: #e0f2f1; /* Un blanco un poco más suave */
+      #about-us .section-intro, #about-us p, 
+      #our-history .text-column p, 
+      #services .section-intro {
+        color: #e0f2f1;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
       }
        #about-us strong {
         font-weight: 700;
@@ -297,15 +299,24 @@
       }
       .text-column p {
         font-size: 1.05em;
-        color: #333;
+        /* El color se define arriba para las secciones con fondo */
       }
       .image-column img {
         border-radius: 10px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       }
+      
+      #our-history .text-column p {
+          color: #e0f2f1;
+      }
+      #our-history .image-column {
+        flex-grow: 1;
+      }
+      #our-history .text-column {
+        flex-basis: 50%;
+      }
 
-      /* --- Resto de los estilos (sin cambios) --- */
-      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; text-align: left; }
+      .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; text-align: left; }
       .service-card { background-color: white; padding: 30px 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #4CAF50; }
       .service-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); }
       .service-card i { font-size: 2.8em; margin-bottom: 20px; color: #1b5e20; background-color: #e6f4e5; border-radius: 50%; width: 70px; height: 70px; line-height: 70px; text-align: center; }
@@ -361,7 +372,7 @@
 
       /* --- Media Queries --- */
       @media (min-width: 769px) {
-        .two-column-layout { flex-direction: row; text-align: left; gap: 50px; align-items: flex-start; }
+        .two-column-layout { flex-direction: row; text-align: left; gap: 50px; align-items: center; }
         .two-column-layout .text-column, .two-column-layout .image-column { flex-basis: 50%; }
         .two-column-layout.reverse { flex-direction: row-reverse; }
       }
@@ -397,7 +408,7 @@
         .nav-item { margin: 12px 0; }
         .nav-link { padding: 10px 15px; display: block; width: auto; margin: 0 20px; }
         .nav-link:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
-        .header { height: 450px; /* Altura ajustada para móvil */ }
+        .header { height: 450px; }
         .logo-header { width: 300px; }
         .header-slogan { font-size: 1.2em; letter-spacing: 2px; }
         .whatsapp-flotante { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
@@ -453,7 +464,7 @@
       <div class="container">
         <h2>Nuestra Trayectoria</h2>
         <div class="two-column-layout reverse">
-          <div class="text-column" style="background-color: rgba(255,255,255,0.8); padding: 20px; border-radius: 8px;">
+          <div class="text-column">
             <p class="section-intro" style="text-align: left; margin-left: 0; max-width: 100%;">
                 Impulsados por un <strong>legado familiar</strong> en agrimensura y el deseo de innovar, fundamos TOPO4D para aplicar <strong>tecnología avanzada</strong> al estudio del territorio.
             </p>
@@ -474,7 +485,7 @@
     <section id="services" class="services-background">
       <div class="container">
         <h2>Nuestros Servicios</h2>
-         <p class="section-intro" style="color: #333; background-color: rgba(255,255,255,0.8); padding: 15px; border-radius: 8px;">Ofrecemos una amplia gama de servicios adaptados a las necesidades específicas de cada proyecto, garantizando <strong>precisión</strong> y <strong>resultados confiables</strong>.</p>
+         <p class="section-intro">Ofrecemos una amplia gama de servicios adaptados a las necesidades específicas de cada proyecto, garantizando <strong>precisión</strong> y <strong>resultados confiables</strong>.</p>
         <div class="services-grid">
           <div class="service-card">
             <i class="fas fa-ruler-combined"></i>
