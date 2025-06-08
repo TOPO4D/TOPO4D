@@ -131,7 +131,7 @@
 
       /* --- Header (Estilos Escritorio por defecto) --- */
       .header {
-        background-image: url("images/aaa.jpg");
+        /* Se elimina la imagen de fondo de aquí para usar la clase compartida */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -142,22 +142,49 @@
         justify-content: center;
         overflow: hidden;
       }
-      .header::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.4); /* Sombra oscura */
-        z-index: 1;
-      }
+      /* Se elimina .header::before ya que ahora se gestiona con las nuevas clases de fondo */
       .logo-header {
         width: 468px; /* Ancho original escritorio */
         height: auto;
         position: relative;
-        z-index: 2;
+        z-index: 2; /* Se mantiene para que esté sobre el fondo */
         background-color: transparent;
       }
       /* --- Fin estilos Escritorio --- */
 
+      /* NUEVO: Fondo compartido para Header y Sobre Nosotros */
+      .shared-background {
+        background-image: url('https://images.unsplash.com/photo-1593182393394-1594e1a0a56b?q=80&w=1920&auto=format&fit=crop'); /* Imagen de mapa topográfico */
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed; /* Clave para el efecto continuo */
+        position: relative;
+        z-index: 0;
+      }
+      .shared-background::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(240, 244, 240, 0.85); /* Superposición clara para legibilidad */
+        z-index: -1;
+      }
+
+      /* NUEVO: Fondo con imagen transparente para Trayectoria y Proyectos */
+      .transparent-image-background {
+        background-image: url('https://images.unsplash.com/photo-1600132806370-bf17e65e9352?q=80&w=1920&auto=format&fit=crop'); /* Imagen de textura sutil de plano */
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed; /* Clave para el efecto continuo */
+        position: relative;
+        z-index: 0;
+      }
+      .transparent-image-background::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(248, 248, 248, 0.92); /* Superposición más opaca para legibilidad */
+        z-index: -1;
+      }
 
       /* Estilos de Secciones */
       section {
@@ -166,14 +193,20 @@
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        overflow: hidden;
+        overflow: hidden; /* Mantenido, pero el fondo fijo lo "ignora" visualmente */
       }
-      section:nth-of-type(odd) {
+      /* Se anulan los colores de fondo para las secciones con imagen nueva */
+      #about-us, #our-history, #projects {
+          background-color: transparent !important;
+      }
+      /* Se mantienen los colores de fondo para el resto de las secciones */
+      section:nth-of-type(odd):not(.transparent-image-background) {
           background-color: #f8f8f8;
       }
-      section:nth-of-type(even) {
+      section:nth-of-type(even):not(.transparent-image-background) {
           background-color: #f0f4f0;
       }
+
       section.visible {
         opacity: 1;
         transform: translateY(0);
@@ -631,6 +664,11 @@
     /* ========== AJUSTES PARA MÓVILES ============ */
     /* ============================================== */
     @media (max-width: 768px) {
+      /* Desactivar el efecto de fondo fijo en móviles por rendimiento y compatibilidad */
+      .shared-background, .transparent-image-background {
+          background-attachment: scroll;
+      }
+      
       /* Ajustes generales responsivos */
       .container {
         padding: 0 15px;
@@ -787,12 +825,12 @@
     </div>
   </nav>
 
-  <header class="header">
-    <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header">
+  <header class="header shared-background">
+    <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header" onerror="this.onerror=null;this.src='https://placehold.co/468x150/ffffff/386641?text=TOPO4D+Logo';">
   </header>
 
   <main>
-    <section id="about-us">
+    <section id="about-us" class="shared-background">
       <div class="container">
         <h2>Sobre Nosotros</h2>
         <div class="two-column-layout">
@@ -805,13 +843,13 @@
             </p>
           </div>
           <div class="image-column">
-            <img src="images/plano.PNG" alt="[Image of Plano de agrimensura]">
+            <img src="images/plano.PNG" alt="[Imagen de Plano de agrimensura]" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+de+Plano';">
           </div>
         </div>
       </div>
     </section>
 
-    <section id="our-history">
+    <section id="our-history" class="transparent-image-background">
       <div class="container">
         <h2>Nuestra Trayectoria</h2>
         <div class="two-column-layout reverse">
@@ -827,7 +865,7 @@
             </p>
           </div>
           <div class="image-column">
-            <img src="images/trabajo.jpg" alt="[Image of Equipo de topografía trabajando en el campo]">
+            <img src="images/trabajo.jpg" alt="[Imagen de Equipo de topografía trabajando en el campo]" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Equipo+en+Campo';">
           </div>
         </div>
       </div>
@@ -883,7 +921,7 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="transparent-image-background">
       <div class="container">
         <h2>Proyectos Destacados</h2>
         <p class="section-intro">Hemos tenido el privilegio de participar en diversos proyectos, aportando nuestra experiencia y tecnología. Aquí algunos ejemplos:</p>
@@ -891,7 +929,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-              <img src="images/nave.jpg" alt="Construcción de Nave Industrial">
+              <img src="images/nave.jpg" alt="[Imagen de Construcción de Nave Industrial]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Nave+Industrial';">
             </div>
             <div class="project-card-content">
               <h3>Proyecto para la Industria</h3>
@@ -902,7 +940,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-              <img src="images/vial.png" alt="Proyecto Vial">
+              <img src="images/vial.png" alt="[Imagen de Proyecto Vial]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Proyecto+Vial';">
             </div>
             <div class="project-card-content">
               <h3>Proyectos Viales</h3>
@@ -913,7 +951,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-              <img src="images/minera.jpg" alt="Proyecto Minero">
+              <img src="images/minera.jpg" alt="[Imagen de Proyecto Minero]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Proyecto+Minero';">
             </div>
             <div class="project-card-content">
                <h3>Trabajos para el Sector Minero</h3>
@@ -924,7 +962,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-               <img src="images/eolico.jpg" alt="Turbinas Eólicas">
+               <img src="images/eolico.jpg" alt="[Imagen de Turbinas Eólicas]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Parque+Eólico';">
             </div>
             <div class="project-card-content">
                <h3>Estudios para el Sector Industrial</h3>
@@ -935,7 +973,7 @@
 
           <div class="project-card">
             <div class="project-image-container">
-              <img src="images/catastro.jpg" alt="Relevamiento Catastral">
+              <img src="images/catastro.jpg" alt="[Imagen de Relevamiento Catastral]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Catastro';">
             </div>
              <div class="project-card-content">
               <h3>Relevamiento Catastral</h3>
@@ -946,7 +984,7 @@
           
           <div class="project-card">
             <div class="project-image-container">
-              <img src="images/loteo.jpg" alt="Diseño de Loteo">
+              <img src="images/loteo.jpg" alt="[Imagen de Diseño de Loteo]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Diseño+Loteo';">
             </div>
              <div class="project-card-content">
               <h3>Diseño de Loteos</h3>
@@ -977,9 +1015,9 @@
                 </div>
                 <div class="image-column">
                     <div class="equipment-image-grid">
-                        <img src="images/drone.jpg" alt="[Imagen drone]">
-                        <img src="images/equipos.jpg" alt="[Imagen Equipo de topografía]">
-                        <img src="images/equipo3.jpg" alt="[Image of Equipo de topografía 3]">
+                        <img src="images/drone.jpg" alt="[Imagen de drone]" onerror="this.onerror=null;this.src='https://placehold.co/600x200/cccccc/333333?text=Drone';">
+                        <img src="images/equipos.jpg" alt="[Imagen de Equipo de topografía]" onerror="this.onerror=null;this.src='https://placehold.co/600x200/cccccc/333333?text=Estación+Total';">
+                        <img src="images/equipo3.jpg" alt="[Imagen de Equipo de topografía 3]" onerror="this.onerror=null;this.src='https://placehold.co/600x200/cccccc/333333?text=Equipo+GNSS';">
                     </div>
                 </div>
             </div>
