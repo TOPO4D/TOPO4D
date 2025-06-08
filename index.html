@@ -139,17 +139,18 @@
 
       /* --- Header --- */
       .header {
-        height: 550px; /* Header más alto */
+        height: 550px;
         position: relative;
         display: flex;
-        flex-direction: column; /* Para apilar logo y leyenda */
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         overflow: hidden;
         text-align: center;
       }
       .logo-header {
-        width: 468px;
+        width: 540px; /* Tamaño del logo aumentado un 15% */
+        max-width: 90%;
         height: auto;
         position: relative;
         z-index: 2;
@@ -180,7 +181,7 @@
       }
 
       .header-background {
-        background-image: url('images/fondo1.png');
+        background-image: url('images/fondo1.jpg');
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
@@ -191,7 +192,7 @@
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(27, 94, 32, 0.3);
+        background-color: rgba(27, 94, 32, 0.5);
         z-index: -1;
       }
 
@@ -205,15 +206,13 @@
       }
       .history-background { background-image: url('images/fondo2.jpg'); }
       .services-background { background-image: url('images/fondo3.jpg'); }
-      .about-us-background { background-image: url('images/aaa.jpg'); }
+      .about-us-background { background-image: url('images/fondo4.jpg'); }
 
       .history-background::before, .services-background::before, .about-us-background::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
         z-index: -1;
-      }
-      .about-us-background::before, .history-background::before, .services-background::before {
         background-color: rgba(15, 30, 15, 0.75); /* Overlay oscuro para contraste */
       }
       
@@ -268,23 +267,24 @@
           font-weight: 500;
       }
       
-      /* Estilos para secciones con fondo oscuro */
-      #about-us, #our-history, #services {
+      /* Estilos para texto en secciones con fondo oscuro */
+      .about-us-background h2, 
+      .history-background h2, 
+      .services-background h2 {
         color: #fff;
       }
-      #about-us h2, #about-us strong, 
-      #our-history h2, #our-history strong, 
-      #services h2, #services strong {
-        color: #fff;
-      }
-      #about-us .section-intro, #about-us p, 
-      #our-history .text-column p, 
-      #services .section-intro {
+
+      #about-us .text-column p,
+      #our-history .text-column p,
+      #services > .container > .section-intro {
         color: #e0f2f1;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
       }
-       #about-us strong {
-        font-weight: 700;
+      
+      #about-us .text-column strong,
+      #our-history .text-column strong,
+      #services > .container > .section-intro strong {
+        color: #fff;
       }
 
       .two-column-layout {
@@ -299,16 +299,12 @@
       }
       .text-column p {
         font-size: 1.05em;
-        /* El color se define arriba para las secciones con fondo */
       }
       .image-column img {
         border-radius: 10px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       }
       
-      #our-history .text-column p {
-          color: #e0f2f1;
-      }
       #our-history .image-column {
         flex-grow: 1;
       }
@@ -334,14 +330,33 @@
       .project-card a.details-button { display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease, transform 0.2s ease; font-weight: 500; text-align: center; margin-top: auto; align-self: flex-start; }
       .project-card a.details-button:hover { background-color: #388e3c; transform: scale(1.03); }
       .project-card a.details-button i { margin-left: 8px; }
+      
       #equipment { background-color: #f1f7ed; }
       .equipment-list { list-style: none; padding: 0; margin: 0; text-align: left; }
       .equipment-list li { font-size: 1.1em; color: #333; margin-bottom: 18px; padding-left: 40px; position: relative; border-bottom: 1px dashed #ccc; padding-bottom: 15px; }
       .equipment-list li:last-child { border-bottom: none; }
       .equipment-list li i { position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 1.5em; color: #4CAF50; width: 25px; text-align: center; }
       .equipment-list li strong { color: #1b5e20; font-weight: 700; display: block; margin-bottom: 3px; font-family: 'Space Grotesk', sans-serif; }
-      .equipment-image-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
-      .equipment-image-grid img { width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); object-fit: cover; height: 200px; }
+      
+      .video-container {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      }
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      
       #contact { background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%); }
       .contact-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; max-width: 1100px; margin: 0 auto; }
       #contact-form { flex: 1 1 500px; max-width: 600px; text-align: left; background-color: #ffffff; padding: 35px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); margin: 0; border-top: 5px solid #1b5e20; }
@@ -409,7 +424,7 @@
         .nav-link { padding: 10px 15px; display: block; width: auto; margin: 0 20px; }
         .nav-link:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
         .header { height: 450px; }
-        .logo-header { width: 300px; }
+        .logo-header { width: 345px; /* Tamaño del logo en móvil aumentado */ }
         .header-slogan { font-size: 1.2em; letter-spacing: 2px; }
         .whatsapp-flotante { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
       }
@@ -436,7 +451,7 @@
   </nav>
 
   <header class="header header-background">
-    <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header" onerror="this.onerror=null;this.src='https://placehold.co/468x150/ffffff/386641?text=TOPO4D+Logo';">
+    <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header" onerror="this.onerror=null;this.src='https://placehold.co/540x173/ffffff/386641?text=TOPO4D+Logo';">
     <p class="header-slogan">Agrimensura, Topografía y Fotogrametría de Precisión</p>
   </header>
   
@@ -617,10 +632,9 @@
                     </ul>
                 </div>
                 <div class="image-column">
-                    <div class="equipment-image-grid">
-                        <img src="images/drone.jpg" alt="[Imagen de drone]" onerror="this.onerror=null;this.src='https://placehold.co/600x200/cccccc/333333?text=Drone';">
-                        <img src="images/equipos.jpg" alt="[Imagen de Equipo de topografía]" onerror="this.onerror=null;this.src='https://placehold.co/600x200/cccccc/333333?text=Estación+Total';">
-                        <img src="images/equipo3.jpg" alt="[Imagen de Equipo de topografía 3]" onerror="this.onerror=null;this.src='https://placehold.co/600x200/cccccc/333333?text=Equipo+GNSS';">
+                    <!-- Contenedor del video de YouTube -->
+                    <div class="video-container">
+                        <div id="youtube-player"></div>
                     </div>
                 </div>
             </div>
@@ -682,7 +696,9 @@
     <i class="fab fa-whatsapp"></i>
   </a>
   
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
+    // Script para la barra de navegación con efecto de scroll
     window.addEventListener('scroll', () => {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
@@ -738,6 +754,43 @@
             }
           });
         });
+    }
+
+    // --- Script para el reproductor de YouTube ---
+    let player;
+    const videoId = 'TU_ID_DE_VIDEO_AQUI'; // <-- REEMPLAZA ESTO CON EL ID DE TU VIDEO
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('youtube-player', {
+            height: '360',
+            width: '640',
+            videoId: videoId,
+            playerVars: {
+                'autoplay': 0,       // No autoiniciar
+                'controls': 0,       // Ocultar controles
+                'loop': 1,           // Repetir video
+                'playlist': videoId, // La ID del video es necesaria para que el loop funcione
+                'mute': 1,           // Silenciado para permitir autoplay en algunos navegadores
+                'playsinline': 1,    // Para reproducción inline en iOS
+                'modestbranding': 1, // Logo de YouTube más discreto
+                'rel': 0             // No mostrar videos relacionados al final
+            },
+            events: {
+                'onReady': onPlayerReady
+            }
+        });
+    }
+
+    function onPlayerReady(event) {
+        const equipmentSection = document.querySelector('#equipment');
+        if(equipmentSection) {
+            equipmentSection.addEventListener('mouseenter', () => {
+                event.target.playVideo();
+            });
+            equipmentSection.addEventListener('mouseleave', () => {
+                event.target.pauseVideo();
+            });
+        }
     }
   </script>
 </body>
