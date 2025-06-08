@@ -40,68 +40,77 @@
           display: block;
       }
 
-      /* --- Barra de Navegación (Estilos Escritorio por defecto) --- */
+      /* --- Barra de Navegación (Estado inicial transparente) --- */
       .navbar {
-        background-color: #1b5e20; /* Verde oscuro original */
         color: white;
-        padding: 10px 0; /* Padding original */
-        position: sticky; /* Sticky original */
+        padding: 10px 0;
+        position: fixed; /* Cambiado a fixed para el efecto de scroll */
         top: 0;
+        left: 0;
+        width: 100%;
         z-index: 1000;
-        border-bottom: 3px solid #66bb6a; /* Borde original */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra original */
+        background-color: transparent; /* Inicialmente transparente */
+        border-bottom: 3px solid transparent; /* Borde inicialmente transparente */
+        box-shadow: none; /* Sin sombra inicialmente */
+        transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; /* Transición suave */
       }
+      /* --- Estado de la barra de navegación al hacer scroll --- */
+      .navbar.scrolled {
+        background-color: #1b5e20; /* Color de fondo al scrollear */
+        border-bottom-color: #66bb6a; /* Color del borde al scrollear */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra al scrollear */
+      }
+
       /* Contenedor dentro de la navbar para alinear elementos */
       .navbar .container {
         display: flex;
         justify-content: center; /* Centra los items de navegación en escritorio */
         align-items: center;
-        position: relative; /* Necesario para posicionar hamburguesa en móvil (aunque ahora sea fixed) */
+        position: relative;
       }
       .navbar-nav {
-        display: flex; /* Mostrar horizontalmente por defecto */
-        flex-direction: row; /* Dirección horizontal */
+        display: flex;
+        flex-direction: row;
         justify-content: center;
         list-style: none;
         padding: 0;
         margin: 0;
-        flex-wrap: wrap; /* Permitir que los items se envuelvan si no caben */
-        /* Quitar estilos de menú desplegable */
+        flex-wrap: wrap;
         position: static;
         width: auto;
         background-color: transparent;
       }
       .nav-item {
-        margin: 5px 15px; /* Margen horizontal original */
+        margin: 5px 15px;
       }
       .nav-link {
-        color: white; /* Color original */
+        color: white;
         text-decoration: none;
         font-size: 1em;
         font-weight: 500;
-        padding: 8px 12px; /* Padding original */
+        padding: 8px 12px;
         border-radius: 5px;
         transition: color 0.3s ease, background-color 0.3s ease;
         display: inline-block;
       }
       .nav-link:hover {
-        color: #1b5e20; /* Hover original */
+        color: #1b5e20;
         background-color: white;
       }
       .nav-link i {
-          margin-right: 6px; /* Espacio icono */
+          margin-right: 6px;
       }
 
       /* --- Icono Hamburguesa (Oculto por defecto, visible en móvil) --- */
       .hamburger {
-        display: none; /* Oculto en escritorio */
+        display: none;
         flex-direction: column;
         cursor: pointer;
-        position: absolute; /* Posición por defecto (será fixed en móvil) */
+        position: absolute;
         right: 20px;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 1100; /* Encima de otros elementos */
+        z-index: 1100;
         background-color: #f0f4f0;
         padding: 8px;
         border-radius: 5px;
@@ -115,74 +124,86 @@
       }
       /* Animación 'X' para hamburguesa activa */
       .hamburger.active div {
-         background-color: #1b5e20; /* Color por defecto */
+         background-color: #1b5e20;
       }
       .hamburger.active div:nth-child(1) {
-        /* Transformación por defecto - se sobreescribirá en móvil */
         transform: rotate(45deg) translate(3.5px, 3.5px);
       }
       .hamburger.active div:nth-child(2) {
         opacity: 0;
       }
       .hamburger.active div:nth-child(3) {
-         /* Transformación por defecto - se sobreescribirá en móvil */
         transform: rotate(-45deg) translate(3.5px, -3.5px);
       }
 
       /* --- Header (Estilos Escritorio por defecto) --- */
       .header {
-        /* Se elimina la imagen de fondo de aquí para usar la clase compartida */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        height: 400px; /* Altura original escritorio */
+        height: 400px;
         position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
         overflow: hidden;
       }
-      /* Se elimina .header::before ya que ahora se gestiona con las nuevas clases de fondo */
       .logo-header {
-        width: 468px; /* Ancho original escritorio */
+        width: 468px;
         height: auto;
         position: relative;
-        z-index: 2; /* Se mantiene para que esté sobre el fondo */
+        z-index: 2;
         background-color: transparent;
       }
-      /* --- Fin estilos Escritorio --- */
-
-      /* NUEVO: Fondo compartido para Header y Sobre Nosotros */
-      .shared-background {
-        background-image: url('https://images.unsplash.com/photo-1593182393394-1594e1a0a56b?q=80&w=1920&auto=format&fit=crop'); /* Imagen de mapa topográfico */
+      
+      /* Fondo para Header y Sobre Nosotros */
+      .header-background {
+        background-image: url('images/fondo1.jpg');
         background-size: cover;
         background-position: center center;
-        background-attachment: fixed; /* Clave para el efecto continuo */
+        background-attachment: fixed;
         position: relative;
         z-index: 0;
       }
-      .shared-background::before {
+      .header-background::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(240, 244, 240, 0.85); /* Superposición clara para legibilidad */
+        background-color: rgba(240, 244, 240, 0.85);
         z-index: -1;
       }
 
-      /* NUEVO: Fondo con imagen transparente para Trayectoria y Proyectos */
-      .transparent-image-background {
-        background-image: url('https://images.unsplash.com/photo-1600132806370-bf17e65e9352?q=80&w=1920&auto=format&fit=crop'); /* Imagen de textura sutil de plano */
+      /* Fondo para Trayectoria */
+      .history-background {
+        background-image: url('images/fondo2.jpg');
         background-size: cover;
         background-position: center center;
-        background-attachment: fixed; /* Clave para el efecto continuo */
+        background-attachment: fixed;
         position: relative;
         z-index: 0;
       }
-      .transparent-image-background::before {
+      .history-background::before {
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(248, 248, 248, 0.92); /* Superposición más opaca para legibilidad */
+        background-color: rgba(248, 248, 248, 0.92);
+        z-index: -1;
+      }
+      
+      /* Fondo para Servicios */
+      .services-background {
+        background-image: url('images/fondo3.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+        position: relative;
+        z-index: 0;
+      }
+      .services-background::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-color: rgba(248, 248, 248, 0.92);
         z-index: -1;
       }
 
@@ -193,17 +214,15 @@
         opacity: 0;
         transform: translateY(30px);
         transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        overflow: hidden; /* Mantenido, pero el fondo fijo lo "ignora" visualmente */
+        overflow: hidden;
       }
-      /* Se anulan los colores de fondo para las secciones con imagen nueva */
-      #about-us, #our-history, #projects {
+      #about-us, #our-history, #services {
           background-color: transparent !important;
       }
-      /* Se mantienen los colores de fondo para el resto de las secciones */
-      section:nth-of-type(odd):not(.transparent-image-background) {
+      section:nth-of-type(odd):not(.services-background) {
           background-color: #f8f8f8;
       }
-      section:nth-of-type(even):not(.transparent-image-background) {
+      section:nth-of-type(even):not(.history-background) {
           background-color: #f0f4f0;
       }
 
@@ -237,10 +256,10 @@
           color: #444;
       }
       
-      /* --- Estilos para layout de dos columnas --- */
+      /* Estilos para layout de dos columnas */
       .two-column-layout {
         display: flex;
-        flex-direction: column; /* Por defecto para móvil */
+        flex-direction: column;
         gap: 30px;
         align-items: center;
         text-align: center;
@@ -621,17 +640,17 @@
     /* ============================================== */
     @media (min-width: 769px) {
       .two-column-layout {
-        flex-direction: row; /* Layout horizontal en escritorio */
+        flex-direction: row;
         text-align: left;
         gap: 50px;
         align-items: flex-start;
       }
       .two-column-layout .text-column,
       .two-column-layout .image-column {
-        flex-basis: 50%; /* Cada columna ocupa el 50% */
+        flex-basis: 50%;
       }
       .two-column-layout.reverse {
-        flex-direction: row-reverse; /* Invierte el orden de las columnas */
+        flex-direction: row-reverse;
       }
     }
 
@@ -665,11 +684,10 @@
     /* ============================================== */
     @media (max-width: 768px) {
       /* Desactivar el efecto de fondo fijo en móviles por rendimiento y compatibilidad */
-      .shared-background, .transparent-image-background {
+      .header-background, .history-background, .services-background {
           background-attachment: scroll;
       }
       
-      /* Ajustes generales responsivos */
       .container {
         padding: 0 15px;
       }
@@ -703,15 +721,8 @@
 
       /* Navbar Móvil */
       .navbar {
-        background-color: transparent;
-        border-bottom: none;
-        box-shadow: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
+        /* Se eliminan estilos redundantes, hereda de la base */
         padding: 0;
-        z-index: 999;
       }
       .navbar .container {
          justify-content: flex-end;
@@ -742,14 +753,14 @@
       /* Hamburguesa Móvil */
       .hamburger {
         display: flex;
-        position: fixed;
+        position: fixed; /* Se mantiene fixed para que esté siempre visible */
         top: 15px;
         right: 15px;
         transform: none;
         background-color: #4CAF50;
         padding: 10px;
         border-radius: 5px;
-        z-index: 1100;
+        z-index: 1100; /* Por encima del menú y la barra */
       }
       .hamburger div {
         background-color: white;
@@ -825,12 +836,12 @@
     </div>
   </nav>
 
-  <header class="header shared-background">
+  <header class="header header-background">
     <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header" onerror="this.onerror=null;this.src='https://placehold.co/468x150/ffffff/386641?text=TOPO4D+Logo';">
   </header>
 
   <main>
-    <section id="about-us" class="shared-background">
+    <section id="about-us" class="header-background">
       <div class="container">
         <h2>Sobre Nosotros</h2>
         <div class="two-column-layout">
@@ -849,7 +860,7 @@
       </div>
     </section>
 
-    <section id="our-history" class="transparent-image-background">
+    <section id="our-history" class="history-background">
       <div class="container">
         <h2>Nuestra Trayectoria</h2>
         <div class="two-column-layout reverse">
@@ -871,7 +882,7 @@
       </div>
     </section>
 
-    <section id="services">
+    <section id="services" class="services-background">
       <div class="container">
         <h2>Nuestros Servicios</h2>
          <p class="section-intro">Ofrecemos una amplia gama de servicios adaptados a las necesidades específicas de cada proyecto, garantizando precisión y resultados confiables.</p>
@@ -921,7 +932,7 @@
       </div>
     </section>
 
-    <section id="projects" class="transparent-image-background">
+    <section id="projects">
       <div class="container">
         <h2>Proyectos Destacados</h2>
         <p class="section-intro">Hemos tenido el privilegio de participar en diversos proyectos, aportando nuestra experiencia y tecnología. Aquí algunos ejemplos:</p>
@@ -1091,6 +1102,16 @@
   </a>
   
   <script>
+    // Script para la barra de navegación con efecto de scroll
+    window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
     // Script para el formulario
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
