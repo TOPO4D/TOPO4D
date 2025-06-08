@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
       /* Estilos Generales */
       body {
@@ -159,7 +159,7 @@
       /* --- Fin estilos Escritorio --- */
 
 
-      /* Estilos de Secciones (Sin cambios) */
+      /* Estilos de Secciones */
       section {
         padding: 60px 0;
         text-align: center;
@@ -203,8 +203,28 @@
           font-size: 1.1em;
           color: #444;
       }
+      
+      /* --- Estilos para layout de dos columnas --- */
+      .two-column-layout {
+        display: flex;
+        flex-direction: column; /* Por defecto para móvil */
+        gap: 30px;
+        align-items: center;
+        text-align: center;
+      }
+      .text-column {
+        text-align: left;
+      }
+      .text-column p {
+        font-size: 1.05em;
+        color: #333;
+      }
+      .image-column img {
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      }
 
-      /* Cuadrícula de Servicios (Sin cambios) */
+      /* Cuadrícula de Servicios */
       .services-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -252,7 +272,7 @@
         flex-grow: 1;
       }
 
-    /* Cuadrícula de Proyectos (Sin cambios) */
+    /* Cuadrícula de Proyectos */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -326,18 +346,15 @@
          margin-left: 8px;
      }
 
-    /* Sección Equipamiento (Sin cambios) */
+    /* Sección Equipamiento */
     #equipment {
         background-color: #f1f7ed;
     }
     .equipment-list {
       list-style: none;
       padding: 0;
-      margin-top: 30px;
+      margin: 0;
       text-align: left;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
     }
     .equipment-list li {
       font-size: 1.1em;
@@ -367,8 +384,21 @@
       display: block;
       margin-bottom: 3px;
     }
+    
+    .equipment-image-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .equipment-image-grid img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        object-fit: cover;
+        height: 150px;
+    }
 
-    /* Sección Contacto (Sin cambios) */
+    /* Sección Contacto */
     #contact {
         background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%);
     }
@@ -505,7 +535,7 @@
       vertical-align: middle;
     }
 
-    /* Pie de Página (Sin cambios) */
+    /* Pie de Página */
     footer {
       background-color: #1a4d2e;
       color: #e0f2f1;
@@ -525,12 +555,56 @@
          color: white;
      }
 
+    /* Botón Flotante de WhatsApp */
+    .whatsapp-flotante {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 30px;
+        right: 30px;
+        background-color: #25D366;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .whatsapp-flotante:hover {
+        background-color: #128C7E;
+        transform: scale(1.1);
+        color: white;
+    }
+
 
     /* --- Media Queries para Responsividad --- */
 
-    /* Ajustes para tablets y pantallas medianas (si es necesario) */
+    /* ============================================== */
+    /* ======== AJUSTES PARA ESCRITORIO ============ */
+    /* ============================================== */
+    @media (min-width: 769px) {
+      .two-column-layout {
+        flex-direction: row; /* Layout horizontal en escritorio */
+        text-align: left;
+        gap: 50px;
+        align-items: flex-start;
+      }
+      .two-column-layout .text-column,
+      .two-column-layout .image-column {
+        flex-basis: 50%; /* Cada columna ocupa el 50% */
+      }
+      .two-column-layout.reverse {
+        flex-direction: row-reverse; /* Invierte el orden de las columnas */
+      }
+    }
+
+
+    /* Ajustes para tablets y pantallas medianas */
     @media (max-width: 992px) {
-        /* Ajustes generales responsivos (Sin cambios) */
         .contact-container {
             flex-direction: column;
             align-items: center;
@@ -557,7 +631,7 @@
     /* ========== AJUSTES PARA MÓVILES ============ */
     /* ============================================== */
     @media (max-width: 768px) {
-      /* Ajustes generales responsivos (Sin cambios) */
+      /* Ajustes generales responsivos */
       .container {
         padding: 0 15px;
       }
@@ -577,10 +651,6 @@
       .service-card p, .project-card p {
         font-size: 0.95em;
       }
-       #about-us p, .history-section p, #equipment p.intro-text {
-        font-size: 1em;
-        text-align: left;
-      }
       .equipment-list {
            padding-left: 10px;
            max-width: 100%;
@@ -593,105 +663,107 @@
            font-size: 1.3em;
        }
 
-      /* --- MODIFICACIONES Navbar Móvil --- */
+      /* Navbar Móvil */
       .navbar {
-        /* La navbar original (barra verde) sigue siendo absoluta y transparente */
         background-color: transparent;
         border-bottom: none;
         box-shadow: none;
-        position: absolute; /* No ocupa espacio, permite al header estar arriba */
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         padding: 0;
-        z-index: 999; /* Debajo del menú y del botón fijo */
+        z-index: 999;
       }
       .navbar .container {
          justify-content: flex-end;
-         padding: 10px 15px; /* Mantenemos padding por si acaso */
-         /* Ya no necesita position:relative porque el botón es fixed */
+         padding: 10px 15px;
       }
 
-      /* --- MODIFICACIONES Menú Desplegable Móvil --- */
+      /* Menú Desplegable Móvil */
       .navbar-nav {
-        display: none; /* Ocultar menú horizontal por defecto */
-        flex-direction: column; /* Menú vertical */
-        background-color: #1b5e20; /* Fondo oscuro para menú desplegable */
-        text-align: center; /* Texto centrado */
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra */
-
-        /* << MODIFICADO: Posición fija para cubrir pantalla >> */
+        display: none;
+        flex-direction: column;
+        background-color: #1b5e20;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100vh; /* Cubrir toda la altura de la ventana */
-        z-index: 1000; /* Por debajo del botón hamburguesa */
-        padding: 70px 0 20px 0; /* << MODIFICADO: Padding superior para no tapar con botón, inferior por si acaso */
-        box-sizing: border-box; /* Para que padding no aumente el tamaño total */
-        overflow-y: auto; /* << AÑADIDO: Permitir scroll si el menú es largo */
+        height: 100vh;
+        z-index: 1000;
+        padding: 70px 0 20px 0;
+        box-sizing: border-box;
+        overflow-y: auto;
       }
       .navbar-nav.active {
-        display: flex; /* Mostrar menú al activar */
+        display: flex;
       }
 
-      /* --- MODIFICACIONES Hamburguesa Móvil --- */
+      /* Hamburguesa Móvil */
       .hamburger {
         display: flex;
-        /* << MODIFICADO: Posición fija >> */
         position: fixed;
         top: 15px;
         right: 15px;
-        transform: none; /* Eliminar transformaciones previas */
-        background-color: #4CAF50; /* Fondo verde */
+        transform: none;
+        background-color: #4CAF50;
         padding: 10px;
         border-radius: 5px;
-        z-index: 1100; /* << Mantenido alto para estar sobre todo */
+        z-index: 1100;
       }
       .hamburger div {
-        background-color: white; /* Líneas blancas */
+        background-color: white;
         width: 22px;
         height: 3px;
         margin: 3px 0;
-        transition: 0.4s; /* Mantener transición */
+        transition: 0.4s;
       }
       .hamburger.active div {
-         background-color: white; /* Líneas blancas también en estado activo */
+         background-color: white;
       }
-      /* << MODIFICADO: Ajustar transformación 'X' para que sea más pequeña >> */
        .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translate(3.5px, 3.5px); /* << Reducido translate */
+        transform: rotate(45deg) translate(3.5px, 3.5px);
       }
        .hamburger.active div:nth-child(2) {
-        opacity: 0; /* La línea del medio desaparece */
+        opacity: 0;
       }
       .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(3.5px, -3.5px); /* << Reducido translate */
+        transform: rotate(-45deg) translate(3.5px, -3.5px);
       }
 
       .nav-item {
-        margin: 12px 0; /* Ajustar margen vertical si es necesario */
+        margin: 12px 0;
       }
       .nav-link {
          padding: 10px 15px;
-         display: block; /* Asegurar que ocupen todo el ancho disponible */
+         display: block;
          width: auto;
-         margin: 0 20px; /* Márgenes laterales dentro del menú */
+         margin: 0 20px;
       }
        .nav-link:hover {
-         /* Mantener o ajustar hover si es necesario para menú fijo */
-         background-color: rgba(255, 255, 255, 0.1); /* Ligero hover */
+         background-color: rgba(255, 255, 255, 0.1);
          color: white;
        }
 
-      /* --- Estilos Móviles Header (Sin cambios aquí) --- */
+      /* Header Móvil */
       .header {
-        height: 250px; /* Altura reducida para móvil */
+        height: 250px;
       }
       .logo-header {
-        width: 300px; /* Ancho reducido para móvil */
+        width: 300px;
       }
-    } /* Fin de @media (max-width: 768px) */
+
+      /* Botón Flotante para Móvil */
+      .whatsapp-flotante {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+      }
+    }
 
     </style>
 </head>
@@ -723,27 +795,40 @@
     <section id="about-us">
       <div class="container">
         <h2>Sobre Nosotros</h2>
-        <p class="section-intro">
-          Somos TOPO4D, una empresa catamarqueña con proyección regional, dedicada a brindar servicios de alta precisión en topografía, fotogrametría y agrimensura. Combinamos experiencia, formación académica y tecnología de vanguardia.
-        </p>
-        <p>
-          Nacimos de la pasión por la ingeniería y la agrimensura, con el objetivo de ofrecer soluciones geoespaciales integrales para obras civiles, proyectos mineros, infraestructura y desarrollos territoriales. Nuestro compromiso es la eficiencia, la calidad y la satisfacción del cliente en cada proyecto.
-        </p>
+        <div class="two-column-layout">
+          <div class="text-column">
+            <p class="section-intro" style="text-align: left; margin-left: 0; max-width: 100%;">
+              Somos TOPO4D, una empresa catamarqueña con proyección regional, dedicada a brindar servicios de alta precisión en topografía, fotogrametría y agrimensura. Combinamos experiencia, formación académica y tecnología de vanguardia.
+            </p>
+            <p>
+              Nacimos de la pasión por la ingeniería y la agrimensura, con el objetivo de ofrecer soluciones geoespaciales integrales para obras civiles, proyectos mineros, infraestructura y desarrollos territoriales. Nuestro compromiso es la eficiencia, la calidad y la satisfacción del cliente en cada proyecto.
+            </p>
+          </div>
+          <div class="image-column">
+            <img src="images/plano.jpg" alt="[Image of Plano de agrimensura]">
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="our-history">
       <div class="container">
         <h2>Nuestra Trayectoria</h2>
-         <p class="section-intro">
-            Impulsados por un legado familiar en agrimensura y el deseo de innovar, fundamos TOPO4D para aplicar tecnología avanzada al estudio del territorio.
-         </p>
-        <div class="history-section"> <p>
-            Desde nuestros inicios, hemos crecido rápidamente, consolidándonos como referentes en Catamarca gracias a la fusión de métodos tradicionales probados y las últimas herramientas digitales. Hemos participado en proyectos de diversa escala, desde mensuras urbanas hasta complejos relevamientos mineros.
-          </p>
-          <p>
-            Miramos hacia el futuro con la visión de ser una consultora técnica líder, especializada en la integración de topografía, geología, SIG y procesos industriales, aportando valor a proyectos civiles, mineros y al ordenamiento territorial en toda la región.
-          </p>
+        <div class="two-column-layout reverse">
+          <div class="text-column">
+            <p class="section-intro" style="text-align: left; margin-left: 0; max-width: 100%;">
+                Impulsados por un legado familiar en agrimensura y el deseo de innovar, fundamos TOPO4D para aplicar tecnología avanzada al estudio del territorio.
+            </p>
+            <p>
+                Desde nuestros inicios, hemos crecido rápidamente, consolidándonos como referentes en Catamarca gracias a la fusión de métodos tradicionales probados y las últimas herramientas digitales. Hemos participado en proyectos de diversa escala, desde mensuras urbanas hasta complejos relevamientos mineros.
+            </p>
+            <p>
+                Miramos hacia el futuro con la visión de ser una consultora técnica líder, especializada en la integración de topografía, geología, SIG y procesos industriales, aportando valor a proyectos civiles, mineros y al ordenamiento territorial en toda la región.
+            </p>
+          </div>
+          <div class="image-column">
+            <img src="images/trayectoria.jpg" alt="[Image of Equipo de topografía trabajando en el campo]">
+          </div>
         </div>
       </div>
     </section>
@@ -858,6 +943,17 @@
               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
+          
+          <div class="project-card">
+            <div class="project-image-container">
+              <img src="images/loteo.jpg" alt="Diseño de Loteo">
+            </div>
+             <div class="project-card-content">
+              <h3>Diseño de Loteos</h3>
+              <p>Planificación y diseño de loteos urbanos y rurales, incluyendo trazado de calles, división de parcelas y gestión de servicios.</p>
+              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -865,19 +961,29 @@
 
 
     <section id="equipment">
-      <div class="container">
-        <h2>Equipamiento Tecnológico</h2>
-        <p class="section-intro"> Contamos con instrumentos de última generación calibrados y mantenidos para asegurar la máxima precisión y eficiencia en cada medición:
-        </p>
-        <ul class="equipment-list">
-          <li><i class="fas fa-satellite-dish"></i><strong>Equipos GNSS RTK:</strong> South G1, G1 Plus (Precisión centimétrica en tiempo real)</li>
-          <li><i class="fas fa-plane-departure"></i><strong>Dron Fotogramétrico:</strong> DJI Phantom 4 Pro (Imágenes de alta resolución y precisión)</li>
-          <li><i class="fas fa-crosshairs"></i><strong>Estación Total:</strong> Pentax R-2505NS, Kolida KTS-422UT (Mediciones angulares y distancias precisas)</li>
-          <li><i class="fas fa-ruler-vertical"></i><strong>Niveles Ópticos:</strong> Pentax, South (Altimetría de alta precisión)</li>
-          <li><i class="fas fa-laptop-code"></i><strong>Software Especializado:</strong> Pix4D, AutoCAD Civil 3D, QGIS, Recap Pro, Global Mapper, Google Earth, Trimble Business Center (Procesamiento y análisis avanzado)</li>
-          <li><i class="fas fa-truck"></i><strong>Vehículos 4x4:</strong> Equipados para acceso a terrenos difíciles y zonas remotas</li>
-        </ul>
-      </div>
+        <div class="container">
+            <h2>Equipamiento Tecnológico</h2>
+            <p class="section-intro">Contamos con instrumentos de última generación calibrados y mantenidos para asegurar la máxima precisión y eficiencia en cada medición:</p>
+            <div class="two-column-layout">
+                <div class="text-column">
+                    <ul class="equipment-list">
+                        <li><i class="fas fa-satellite-dish"></i><strong>Equipos GNSS RTK:</strong> South G1, G1 Plus (Precisión centimétrica en tiempo real)</li>
+                        <li><i class="fas fa-plane-departure"></i><strong>Dron Fotogramétrico:</strong> DJI Phantom 4 Pro (Imágenes de alta resolución y precisión)</li>
+                        <li><i class="fas fa-crosshairs"></i><strong>Estación Total:</strong> Pentax R-2505NS, Kolida KTS-422UT (Mediciones angulares y distancias precisas)</li>
+                        <li><i class="fas fa-ruler-vertical"></i><strong>Niveles Ópticos:</strong> Pentax, South (Altimetría de alta precisión)</li>
+                        <li><i class="fas fa-laptop-code"></i><strong>Software Especializado:</strong> Pix4D, AutoCAD Civil 3D, QGIS, Recap Pro, Global Mapper, Google Earth, Trimble Business Center (Procesamiento y análisis avanzado)</li>
+                        <li><i class="fas fa-truck"></i><strong>Vehículos 4x4:</strong> Equipados para acceso a terrenos difíciles y zonas remotas</li>
+                    </ul>
+                </div>
+                <div class="image-column">
+                    <div class="equipment-image-grid">
+                        <img src="images/equipo1.jpg" alt="[Image of Equipo de topografía 1]">
+                        <img src="images/equipo2.jpg" alt="[Image of Equipo de topografía 2]">
+                        <img src="images/equipo3.jpg" alt="[Image of Equipo de topografía 3]">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="contact">
@@ -917,7 +1023,7 @@
                     <i class="fab fa-whatsapp"></i> Chatea por WhatsApp
                  </a>
                 <div class="social-icons">
-                    <h4>Síguenos:</h4>
+                    <h4>Síguenos en nuestras redes:</h4>
                    <a href="https://www.instagram.com/topo.4d/?hl=es-la" target="_blank" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
@@ -935,8 +1041,13 @@
       </div>
   </footer>
 
+  <!-- Botón Flotante de WhatsApp -->
+  <a href="https://wa.me/5493834612365?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
   <script>
-    // Script para el formulario (Sin cambios)
+    // Script para el formulario
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
       contactForm.addEventListener('submit', (event) => {
@@ -948,7 +1059,7 @@
       });
     }
 
-    // Script para animación de secciones al hacer scroll (Sin cambios)
+    // Script para animación de secciones al hacer scroll
     function revealSections() {
       const sections = document.querySelectorAll('section');
       const windowHeight = window.innerHeight;
@@ -962,13 +1073,13 @@
     window.addEventListener('load', revealSections);
     window.addEventListener('scroll', revealSections);
 
-    // Script para actualizar año del footer (Sin cambios)
+    // Script para actualizar año del footer
     const yearSpan = document.getElementById('current-year');
     if(yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // Script de hamburguesa (Sin cambios en lógica)
+    // Script de hamburguesa
     const hamburger = document.getElementById('hamburger');
     const navbarNav = document.getElementById('navbarNav');
     if (hamburger && navbarNav) {
@@ -981,7 +1092,6 @@
         const navLinks = navbarNav.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
-            // Solo cerrar si el menú está activo y el enlace es interno (#)
             if (navbarNav.classList.contains('active') && link.getAttribute('href').startsWith('#')) {
                 hamburger.classList.remove('active');
                 navbarNav.classList.remove('active');
