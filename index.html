@@ -181,7 +181,7 @@
       }
 
       .header-background {
-        background-image: url('images/fondo1.jpg');
+        background-image: url('images/fondo1.png');
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
@@ -192,12 +192,12 @@
         content: '';
         position: absolute;
         top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(27, 94, 32, 0.5);
+        background-color: rgba(27, 94, 32, 0.4);
         z-index: -1;
       }
 
       /* Fondos de otras secciones */
-      .history-background, .services-background, .about-us-background, .visual-results-background {
+      .history-background, .services-background, .about-us-background {
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
@@ -206,8 +206,7 @@
       }
       .history-background { background-image: url('images/fondo2.jpg'); }
       .services-background { background-image: url('images/fondo3.jpg'); }
-      .about-us-background { background-image: url('images/fondo4.jpg'); }
-      .visual-results-background { background-color: #1a2e25; }
+      .about-us-background { background-image: url('images/aaa.jpg'); }
 
       .history-background::before, .services-background::before, .about-us-background::before {
         content: '';
@@ -227,7 +226,7 @@
         overflow: hidden;
       }
       
-      #our-history, #services, #about-us, #visual-results {
+      #our-history, #services, #about-us {
           background-color: transparent !important;
       }
       section:not([class*="-background"]) {
@@ -312,61 +311,6 @@
       #our-history .text-column {
         flex-basis: 50%;
       }
-      #our-history {
-        min-height: 500px; /* Altura de referencia */
-        display: flex;
-        align-items: center;
-      }
-
-      /* --- Sección de Resultados Visuales --- */
-      #visual-results {
-        min-height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 40px 0;
-      }
-      .visuals-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 40px;
-        width: 100%;
-      }
-      .visual-item {
-        text-align: center;
-        width: 220px;
-      }
-      .visual-shape {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        background-color: #000;
-        clip-path: path('M 25 0 C 10 0, 0 10, 0 25 L 0 175 C 0 190, 10 200, 25 200 L 175 200 C 190 200, 200 190, 200 175 L 200 60 C 200 20, 150 0, 140 0 Z');
-        position: relative;
-        overflow: hidden;
-        transition: transform 0.3s ease;
-      }
-      .visual-shape:hover {
-        transform: scale(1.05);
-      }
-      .visual-shape video {
-        width: 150%;
-        height: 150%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-      }
-      .visual-item p {
-        color: #66bb6a;
-        margin-top: 15px;
-        font-size: 1.1em;
-        font-family: 'Bai Jamjuree', sans-serif;
-        font-weight: 700;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-      }
-
 
       .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; text-align: left; }
       .service-card { background-color: white; padding: 30px 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; display: flex; flex-direction: column; align-items: center; text-align: center; border-top: 5px solid #4CAF50; }
@@ -454,7 +398,6 @@
         .contact-info p { justify-content: center; }
         .social-icons { text-align: center; }
         .social-icons a { margin: 0 10px; }
-        .visuals-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
       }
       @media (max-width: 768px) {
         .header-background, .history-background, .services-background, .about-us-background { background-attachment: scroll; }
@@ -481,10 +424,9 @@
         .nav-link { padding: 10px 15px; display: block; width: auto; margin: 0 20px; }
         .nav-link:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
         .header { height: 450px; }
-        .logo-header { width: 345px; }
+        .logo-header { width: 345px; /* Tamaño del logo en móvil aumentado */ }
         .header-slogan { font-size: 1.2em; letter-spacing: 2px; }
         .whatsapp-flotante { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
-        .visuals-grid { flex-direction: column; align-items: center; }
       }
     </style>
 </head>
@@ -600,37 +542,6 @@
             <p>
                 Asesoramiento experto en temas de la propiedad inmueble, <strong>estudio de títulos</strong>, regularización dominial, y gestión de documentación.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="visual-results" class="visual-results-background">
-      <div class="container">
-        <div class="visuals-grid">
-          <div class="visual-item">
-            <div class="visual-shape">
-              <video src="images/video1.mp4" autoplay loop muted playsinline></video>
-            </div>
-            <p>Nube de Puntos</p>
-          </div>
-          <div class="visual-item">
-            <div class="visual-shape">
-              <video src="videos/video2.mp4" autoplay loop muted playsinline></video>
-            </div>
-            <p>MDT</p>
-          </div>
-          <div class="visual-item">
-            <div class="visual-shape">
-              <video src="videos/video3.mp4" autoplay loop muted playsinline></video>
-            </div>
-            <p>Ortomosaico</p>
-          </div>
-          <div class="visual-item">
-            <div class="visual-shape">
-              <video src="videos/video4.mp4" autoplay loop muted playsinline></video>
-            </div>
-            <p>Planos</p>
           </div>
         </div>
       </div>
@@ -855,14 +766,14 @@
             width: '640',
             videoId: videoId,
             playerVars: {
-                'autoplay': 0,
-                'controls': 0,
-                'loop': 1,
-                'playlist': videoId,
-                'mute': 1,
-                'playsinline': 1,
-                'modestbranding': 1,
-                'rel': 0
+                'autoplay': 0,       // No autoiniciar
+                'controls': 0,       // Ocultar controles
+                'loop': 1,           // Repetir video
+                'playlist': videoId, // La ID del video es necesaria para que el loop funcione
+                'mute': 1,           // Silenciado para permitir autoplay en algunos navegadores
+                'playsinline': 1,    // Para reproducción inline en iOS
+                'modestbranding': 1, // Logo de YouTube más discreto
+                'rel': 0             // No mostrar videos relacionados al final
             },
             events: {
                 'onReady': onPlayerReady
