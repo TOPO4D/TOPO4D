@@ -1,1036 +1,1106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17175900861"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+  <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17175900861"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17175900861');
+  </script>
 
-        gtag('config', 'AW-17175900861');
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOPO4D - Agrimensura e Ingeniería</title>
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    
-    <!-- Etiquetas Open Graph (para redes, WhatsApp, etc.) -->
-    <meta property="og:title" content="TOPO4D - Topografía y Fotogrametría de Precisión">
-    <meta property="og:description" content="Servicios profesionales en agrimensura, replanteos, mensuras y vuelos fotogramétricos en Catamarca y el NOA.">
-    <meta property="og:image" content="https://topo4d.com.ar/images/logo.png">
-    <meta property="og:url" content="https://topo4d.com.ar">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="TOPO4D - Servicios de Topografía">
-    <meta name="twitter:description" content="Agrimensura, Fotogrametría y Tecnología de Precisión.">
-    <meta name="twitter:image" content="https://topo4d.com.ar/images/logo.png">
-    
-    <!-- Datos estructurados Schema.org en JSON-LD -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "TOPO4D",
-      "url": "https://topo4d.com.ar",
-      "logo": "https://topo4d.com.ar/images/logo.png",
-      "description": "Servicios técnicos en agrimensura, topografía, fotogrametría, mensuras y replanteos en Catamarca y la región NOA.",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+54-383-461-2365",
-        "contactType": "customer service",
-        "areaServed": "AR"
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOPO4D - Agrimensura e Ingeniería</title>
+
+  <!-- SEO Básico -->
+  <meta name="description" content="TOPO4D brinda servicios de agrimensura, topografía, fotogrametría con drones, mensuras y replanteos para obras civiles, proyectos mineros e industriales en Catamarca y el NOA.">
+  <meta name="keywords" content="agrimensura, topografía, fotogrametría, drones, mensuras, Catamarca, NOA, ingeniería civil, minería">
+  <meta name="author" content="TOPO4D Agrimensura e Ingeniería">
+
+  <!-- Open Graph / Redes -->
+  <meta property="og:title" content="TOPO4D - Agrimensura e Ingeniería">
+  <meta property="og:description" content="Servicios técnicos en agrimensura, topografía y fotogrametría con drones para obras, minería e industria en Catamarca y la región NOA.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://topo4d.com.ar">
+  <meta property="og:image" content="https://topo4d.com.ar/images/logo.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TOPO4D - Agrimensura e Ingeniería">
+  <meta name="twitter:description" content="Relevamientos, mensuras, replanteos y fotogrametría con drones en Catamarca y el NOA.">
+  <meta name="twitter:image" content="https://topo4d.com.ar/images/logo.png">
+
+  <!-- Datos estructurados Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TOPO4D",
+    "url": "https://topo4d.com.ar",
+    "logo": "https://topo4d.com.ar/images/logo.png",
+    "description": "Servicios técnicos en agrimensura, topografía, fotogrametría con drones, mensuras y replanteos en Catamarca y la región NOA.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+54-383-461-2365",
+      "contactType": "customer service",
+      "areaServed": "AR"
+    }
+  }
+  </script>
+
+  <!-- Fuentes / Iconos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" defer></script>
+
+  <!-- ESTILOS -->
+  <style>
+    :root {
+      --bg: #f5f7f6;
+      --bg-alt: #ffffff;
+      --bg-dark: #0f2416;
+      --accent: #2f7c4a;
+      --accent-soft: #d7efe1;
+      --accent-strong: #1b4332;
+      --text-main: #163225;
+      --text-muted: #546e5f;
+      --radius-lg: 18px;
+      --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+      --shadow-strong: 0 18px 45px rgba(0,0,0,0.15);
+    }
+
+    * , *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    a:hover {
+      color: #245c39;
+    }
+
+    /* CONTENEDOR */
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAVBAR */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(245,247,246,0.92);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .navbar {
+      padding: 0.5rem 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--accent-strong);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+    }
+
+    .nav-brand img {
+      height: 36px;
+      width: auto;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+    }
+
+    .nav-links a {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      box-shadow: 0 8px 18px rgba(47,124,74,0.35);
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      background: #245c39;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 4px;
+      padding: 0.25rem;
+      margin-left: auto;
+    }
+
+    .nav-toggle span {
+      width: 20px;
+      height: 2px;
+      background: var(--accent-strong);
+      border-radius: 999px;
+      transition: transform 0.18s, opacity 0.18s;
+    }
+
+    .nav-toggle.open span:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.open span:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 4.2rem 0 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+    }
+
+    .hero h1 {
+      font-family: 'Bai Jamjuree', system-ui, sans-serif;
+      font-size: 2.55rem;
+      margin: 1rem 0 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-sub {
+      margin: 0.5rem 0 1.8rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      font-size: 0.98rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 0.8rem 1.6rem;
+      border: 1px solid transparent;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(47,124,74,0.35);
+    }
+
+    .btn-primary:hover {
+      background: #245c39;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border-color: var(--accent-soft);
+      color: var(--accent-strong);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-metrics div {
+      min-width: 120px;
+    }
+
+    .metric-number {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .hero-media {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1b4332 0, #08150d 50%, #000 100%);
+      border-radius: 22px;
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-card::after {
+      content: "Trabajo real de campo · TOPO4D";
+      position: absolute;
+      left: 1.2rem;
+      bottom: 1.1rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-card video {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      height: 100%;
+      max-height: 330px;
+    }
+
+    /* SECCIONES GENERALES */
+    .section {
+      padding: 3.5rem 0;
+    }
+
+    .section-alt {
+      background-color: var(--bg-alt);
+    }
+
+    .section-header {
+      text-align: left;
+      max-width: 560px;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Bai Jamjuree', system-ui, sans-serif;
+      font-size: 1.9rem;
+      margin: 0 0 0.6rem;
+      color: var(--accent-strong);
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .card-light {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.2rem;
+    }
+
+    .card-light img {
+      border-radius: calc(var(--radius-lg) - 4px);
+    }
+
+    /* ABOUT / ESTUDIO */
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.55rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .about-list i {
+      margin-top: 0.18rem;
+      color: var(--accent);
+    }
+
+    /* SERVICIOS */
+    .cards-grid {
+      display: grid;
+      gap: 1.6rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .service-card .card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 0.9rem;
+      font-size: 1.1rem;
+    }
+
+    .service-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.08rem;
+      color: var(--accent-strong);
+    }
+
+    .service-card p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* PROYECTOS */
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.78rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1.2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.7rem;
+    }
+
+    .project-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .project-meta i {
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    /* EQUIPAMIENTO */
+    .equipment-grid {
+      display: grid;
+      gap: 1.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .equipment-card h3 {
+      margin: 0 0 0.4rem;
+      color: var(--accent-strong);
+      font-size: 1.02rem;
+    }
+
+    .equipment-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.3rem 0 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .equipment-card li {
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .equipment-card li i {
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+
+    /* CONTACTO */
+    .contact-form {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 1.6rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      border-radius: 10px;
+      border: 1px solid #d8e3dc;
+      padding: 0.7rem 0.9rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.12s ease-out, box-shadow 0.12s ease-out;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(47,124,74,0.18);
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn.full {
+      width: 100%;
+    }
+
+    .contact-highlights {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-highlights li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-highlights i {
+      color: var(--accent);
+    }
+
+    .contact-info {
+      margin-top: 1.4rem;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .contact-info p {
+      margin: 0.2rem 0;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding: 1.6rem 0 2.4rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #ffffff;
+      margin-top: 2rem;
+    }
+
+    .footer-inner {
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* WHATSAPP FAB */
+    .whatsapp-fab {
+      position: fixed;
+      right: 1.4rem;
+      bottom: 1.4rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      text-decoration: none;
+      z-index: 60;
+    }
+
+    .whatsapp-fab i {
+      font-size: 1.6rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 3.2rem;
+      }
+
+      .hero-media {
+        order: -1;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(245,247,246,0.98);
+        flex-direction: column;
+        padding: 0.8rem 1.5rem 1.2rem;
+        border-bottom: 1px solid rgba(0,0,0,0.04);
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
       }
     }
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Fuentes nuevas: Bai Jamjuree para títulos y Space Grotesk para texto -->
-    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Corregido xintegrity a integrity -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-      /* Estilos Generales */
-      body {
-        font-family: 'Space Grotesk', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f0f4f0;
-        color: #386641;
-        line-height: 1.6;
-        scroll-behavior: smooth;
-        font-weight: 400;
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.1rem;
       }
       .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px; /* Padding general del contenedor */
+        padding: 0 1.2rem;
       }
-      h1, h2, h3 {
-          font-family: 'Bai Jamjuree', sans-serif;
-          color: #1b4332;
-          font-weight: 700;
-          letter-spacing: 0.5px;
-      }
-      a {
-          text-decoration: none;
-          color: #4CAF50;
-      }
-      a:hover {
-          color: #388e3c;
-      }
-      img {
-          max-width: 100%;
-          height: auto;
-          display: block;
-      }
-      strong {
-        font-weight: 700;
-        color: #1b4332;
-      }
-
-      /* --- Barra de Navegación --- */
-      .navbar {
-        color: white;
-        padding: 10px 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: transparent;
-        border-bottom: 3px solid transparent;
-        box-shadow: none;
-        transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-      }
-      .navbar.scrolled {
-        background-color: #1b5e20;
-        border-bottom-color: #66bb6a;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      }
-
-      .navbar .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-      }
-      .navbar-nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        flex-wrap: wrap;
-        position: static;
-        width: auto;
-        background-color: transparent;
-      }
-      .nav-item {
-        margin: 5px 15px;
-      }
-      .nav-link {
-        color: white;
-        text-decoration: none;
-        font-size: 1em;
-        font-weight: 500;
-        padding: 8px 12px;
-        border-radius: 5px;
-        transition: color 0.3s ease, background-color 0.3s ease;
-        display: inline-block;
-      }
-      .nav-link:hover {
-        color: #1b5e20;
-        background-color: white;
-      }
-      .nav-link i {
-          margin-right: 6px;
-      }
-
-      /* --- Icono Hamburguesa --- */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1100;
-        background-color: #f0f4f0;
-        padding: 8px;
-        border-radius: 5px;
-      }
-      .hamburger div {
-        width: 20px;
-        height: 2px;
-        background-color: #1b5e20;
-        margin: 3px 0;
-        transition: 0.4s;
-      }
-      .hamburger.active div:nth-child(1) {
-        transform: rotate(45deg) translate(3.5px, 3.5px);
-      }
-      .hamburger.active div:nth-child(2) { opacity: 0; }
-      .hamburger.active div:nth-child(3) {
-        transform: rotate(-45deg) translate(3.5px, -3.5px);
-      }
-
-      /* --- Header --- */
-      .header {
-        height: 550px;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        text-align: center;
-      }
-      .logo-header {
-        width: 540px; /* Tamaño del logo aumentado un 15% */
-        max-width: 90%;
-        height: auto;
-        position: relative;
-        z-index: 2;
-        opacity: 0;
-        animation: fadeInLogo 1.2s ease-out 0.5s forwards;
-      }
-      .header-slogan {
-        color: white;
-        font-family: 'Bai Jamjuree', sans-serif;
-        font-size: 1.8em;
-        font-weight: 600;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-top: 25px;
-        text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-        opacity: 0;
-        animation: fadeInSlogan 1.2s ease-out 1s forwards;
-        max-width: 90%;
-      }
-      
-      @keyframes fadeInLogo {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      @keyframes fadeInSlogan {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-
-      .header-background {
-        background-image: url('images/fondo1.png');
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        position: relative;
-        z-index: 0;
-      }
-      .header-background::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background-color: rgba(27, 94, 32, 0.4);
-        z-index: -1;
-      }
-
-      /* Fondos de otras secciones */
-      .history-background, .services-background, .about-us-background {
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        position: relative;
-        z-index: 0;
-      }
-      .history-background { background-image: url('images/fondo2.jpg'); }
-      .services-background { background-image: url('images/fondo3.jpg'); }
-      .about-us-background { background-image: url('images/aaa.jpg'); }
-
-      .history-background::before, .services-background::before, .about-us-background::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        z-index: -1;
-        background-color: rgba(15, 30, 15, 0.75); /* Overlay oscuro para contraste */
-      }
-      
-      /* Estilos de Secciones */
-      section {
-        padding: 60px 0;
-        text-align: center;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-        overflow: hidden;
-      }
-      
-      #our-history, #services, #about-us {
-          background-color: transparent !important;
-      }
-      section:not([class*="-background"]) {
-          background-color: #f8f8f8;
-      }
-       section:nth-of-type(even):not([class*="-background"]) {
-          background-color: #f0f4f0;
-      }
-
-      section.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      section h2 {
-        margin: 0 auto 40px auto;
-        font-size: 2.8em;
-        font-weight: 700;
-        position: relative;
-        padding-bottom: 15px;
-        max-width: 600px;
-      }
-      section h2::after {
-          content: '';
-          position: absolute;
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 80px;
-          height: 4px;
-          background-color: #4CAF50;
-          border-radius: 2px;
-      }
-      .section-intro {
-          max-width: 800px;
-          margin: 0 auto 40px auto;
-          font-size: 1.15em;
-          color: #444;
-          font-weight: 500;
-      }
-      
-      /* Estilos para texto en secciones con fondo oscuro */
-      .about-us-background h2, 
-      .history-background h2, 
-      .services-background h2 {
-        color: #fff;
-      }
-
-      #about-us .text-column p,
-      #our-history .text-column p,
-      #services > .container > .section-intro {
-        color: #e0f2f1;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-      }
-      
-      #about-us .text-column strong,
-      #our-history .text-column strong,
-      #services > .container > .section-intro strong {
-        color: #fff;
-      }
-
-      .two-column-layout {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        align-items: center;
-        text-align: center;
-      }
-      .text-column {
-        text-align: left;
-      }
-      .text-column p {
-        font-size: 1.05em;
-      }
-      
-      /* --- Estilos para el Slider de Imágenes (Desplazamiento) --- */
-      .image-slider {
-          position: relative;
-          overflow: hidden;
-          border-radius: 10px;
-          box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      }
-      /* La primera imagen es relativa para dar altura al contenedor */
-      .image-slider img:first-child {
-          position: relative;
-          z-index: 1;
-      }
-      /* Las siguientes imágenes son absolutas para superponerse */
-      .image-slider img:not(:first-child) {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          opacity: 0;
-          z-index: 0;
-          transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-      }
-      /* Clase activa para mostrar la imagen */
-      .image-slider img.active {
-          opacity: 1;
-          z-index: 2;
-          transform: scale(1.02); /* Efecto sutil de zoom/movimiento */
-      }
-      /* Aseguramos que la primera imagen también tenga transición */
-      .image-slider img:first-child {
-          transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-      }
-      /* Cuando la primera NO es activa, la ocultamos suavemente */
-      .image-slider img:first-child:not(.active) {
-          opacity: 0;
-      }
-
-      /* Estilo original de imágenes por si acaso */
-      .image-column img:not(.image-slider img) {
-        border-radius: 10px;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-      }
-      
-      #our-history .image-column {
-        flex-grow: 1;
-      }
-      #our-history .text-column {
-        flex-basis: 50%;
-      }
-
-      .services-grid { 
-        display: grid; 
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-        gap: 30px; 
-        margin-top: 50px; 
-        text-align: left; 
-      }
-
-      /* --- NUEVO ESTILO DE TARJETAS DE SERVICIOS (GLASSMORPHISM + SVG TÉCNICOS) --- */
-      .service-card { 
-        background: rgba(255, 255, 255, 0.05); 
-        padding: 40px 30px; 
-        border-radius: 16px; 
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
-        transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease, border-color 0.4s ease; 
-        display: flex; 
-        flex-direction: column; 
-        /* Cambiado a center para centrar iconos y textos */
-        align-items: center; 
-        text-align: center; 
-        position: relative;
-        overflow: hidden;
-      }
-
-      .service-card:hover { 
-        transform: translateY(-10px); 
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
-        background: rgba(255, 255, 255, 0.1); 
-        border-color: rgba(76, 175, 80, 0.5); 
-      }
-      
-      /* Línea decorativa inferior centrada */
-      .service-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(90deg, #4CAF50, #81c784);
-        transform: translateX(-50%) scaleX(0);
-        transform-origin: center;
-        transition: transform 0.4s ease;
-      }
-      .service-card:hover::after {
-        transform: translateX(-50%) scaleX(1);
-      }
-
-      /* Estilos para los iconos SVG */
-      .service-icon {
-        width: 60px; /* Un poco más grandes para que se luzcan */
-        height: 60px;
-        margin-bottom: 25px;
-        stroke: #69f0ae; /* Verde técnico brillante */
-        stroke-width: 1.2; /* Línea más fina */
-        fill: none;
-        transition: transform 0.4s ease, stroke 0.3s ease;
-        filter: drop-shadow(0 0 5px rgba(105, 240, 174, 0.2));
-      }
-      
-      .service-card:hover .service-icon {
-        transform: scale(1.1);
-        stroke: #ffffff; 
-        filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
-      }
-
-      .service-card h3 { 
-        margin: 0 0 15px 0; 
-        font-size: 1.6em; 
-        font-weight: 700; 
-        color: #ffffff; 
-        letter-spacing: 0.5px;
-      }
-      
-      .service-card p { 
-        margin: 0; 
-        font-size: 1.05em; 
-        color: #e0e0e0; 
-        flex-grow: 1; 
-        line-height: 1.7;
-        opacity: 0.9;
-      }
-
-      .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px; }
-      .project-card { background-color: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; text-align: left; display: flex; flex-direction: column; overflow: hidden; }
-      .project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); }
-      .project-card .project-image-container { position: relative; height: 220px; overflow: hidden; }
-      
-      /* Modificación para slider dentro de cards */
-      .project-card .image-slider {
-          height: 100%;
-          width: 100%;
-          border-radius: 0; /* Quitar borde redondeado dentro de la card */
-      }
-      .project-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-      .project-card:hover img { transform: scale(1.05); }
-      .project-card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-      .project-card h3 { margin: 0 0 10px 0; font-size: 1.4em; font-weight: 700; color: #1b5e20; }
-      .project-card p { margin: 0 0 20px 0; font-size: 1em; color: #555; flex-grow: 1; }
-      .project-card a.details-button { display: inline-block; padding: 10px 20px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px; transition: background-color 0.3s ease, transform 0.2s ease; font-weight: 500; text-align: center; margin-top: auto; align-self: flex-start; }
-      .project-card a.details-button:hover { background-color: #388e3c; transform: scale(1.03); }
-      .project-card a.details-button i { margin-left: 8px; }
-      
-      #equipment { background-color: #f1f7ed; }
-      .equipment-list { list-style: none; padding: 0; margin: 0; text-align: left; }
-      .equipment-list li { font-size: 1.1em; color: #333; margin-bottom: 18px; padding-left: 40px; position: relative; border-bottom: 1px dashed #ccc; padding-bottom: 15px; }
-      .equipment-list li:last-child { border-bottom: none; }
-      .equipment-list li i { position: absolute; left: 0; top: 50%; transform: translateY(-50%); font-size: 1.5em; color: #4CAF50; width: 25px; text-align: center; }
-      .equipment-list li strong { color: #1b5e20; font-weight: 700; display: block; margin-bottom: 3px; font-family: 'Space Grotesk', sans-serif; }
-      
-      /* Video Container Local */
-      .video-container {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        /* Quitamos padding-top fijo para que se adapte al video HTML5 o mantenemos si queremos 16:9 fijo */
-        padding-top: 56.25%; 
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        background-color: #000;
-      }
-      .video-container video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      
-      #contact { background: linear-gradient(to bottom, #ffffff 50%, #f0f4f0 50%); }
-      .contact-container { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; max-width: 1100px; margin: 0 auto; }
-      #contact-form { flex: 1 1 500px; max-width: 600px; text-align: left; background-color: #ffffff; padding: 35px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); margin: 0; border-top: 5px solid #1b5e20; }
-      .contact-form-label { display: block; margin-top: 15px; margin-bottom: 5px; font-weight: 700; color: #444; font-size: 1em; }
-      .contact-form-input, .contact-form-textarea { width: 100%; box-sizing: border-box; padding: 12px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; transition: border-color 0.3s ease, box-shadow 0.3s ease; font-size: 1em; font-family: 'Space Grotesk', sans-serif; }
-      .contact-form-input:focus, .contact-form-textarea:focus { outline: none; border-color: #4CAF50; box-shadow: 0 0 8px rgba(76, 175, 80, 0.3); }
-      .contact-form-textarea { resize: vertical; min-height: 140px; }
-      .contact-form-button { margin-top: 25px; padding: 12px 25px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; font-size: 1.1em; font-weight: 700; width: 100%; font-family: 'Bai Jamjuree', sans-serif; }
-      .contact-form-button:hover { background-color: #388e3c; transform: scale(1.02); }
-      .contact-details { flex: 1 1 300px; text-align: left; padding: 20px; }
-      .contact-details h3 { font-size: 1.6em; margin-bottom: 20px; color: #1b5e20; }
-      .contact-info p { font-size: 1.1em; color: #333; margin-bottom: 18px; display: flex; align-items: center; }
-      .contact-info p i { font-size: 1.3em; margin-right: 15px; color: #1b5e20; width: 25px; text-align: center; }
-      .whatsapp-button { display: inline-block; padding: 12px 25px; background-color: #25d366; color: white; text-decoration: none; border-radius: 25px; transition: background-color 0.3s ease, transform 0.2s ease; font-weight: 500; margin-top: 15px; }
-      .whatsapp-button:hover { background-color: #128c7e; transform: scale(1.05); }
-      .whatsapp-button i { margin-right: 8px; vertical-align: middle; }
-      .social-icons { margin-top: 30px; text-align: left; }
-      .social-icons h4 { font-size: 1.2em; margin-bottom: 10px; color: #555; }
-      .social-icons a { display: inline-block; margin-right: 15px; font-size: 1.8em; color: #1b5e20; transition: color 0.3s ease, transform 0.3s ease; }
-      .social-icons a:hover { color: #4CAF50; transform: scale(1.2); }
-      .social-icons a i { vertical-align: middle; }
-      footer { background-color: #1a4d2e; color: #e0f2f1; padding: 40px 0; text-align: center; margin-top: 0; }
-      footer p { margin: 5px 0; font-size: 0.95em; opacity: 0.8; }
-      footer a { color: #f1f7ed; }
-      footer a:hover { color: white; }
-      .whatsapp-flotante { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: #25D366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; justify-content: center; align-items: center; transition: transform 0.3s ease, background-color 0.3s ease; }
-      .whatsapp-flotante:hover { background-color: #128C7E; transform: scale(1.1); color: white; }
-
-      /* --- Media Queries --- */
-      @media (min-width: 769px) {
-        .two-column-layout { flex-direction: row; text-align: left; gap: 50px; align-items: center; }
-        .two-column-layout .text-column, .two-column-layout .image-column { flex-basis: 50%; }
-        .two-column-layout.reverse { flex-direction: row-reverse; }
-      }
-      @media (max-width: 992px) {
-        .contact-container { flex-direction: column; align-items: center; }
-        #contact-form { max-width: 100%; }
-        .contact-details { text-align: center; max-width: 500px; }
-        .contact-info p { justify-content: center; }
-        .social-icons { text-align: center; }
-        .social-icons a { margin: 0 10px; }
-      }
-      @media (max-width: 768px) {
-        .header-background, .history-background, .services-background, .about-us-background { background-attachment: scroll; }
-        .container { padding: 0 15px; }
-        section { padding: 40px 0; }
-        section h2 { font-size: 2.2em; }
-        .services-grid, .projects-grid { grid-template-columns: 1fr; gap: 25px; }
-        .service-card h3, .project-card h3 { font-size: 1.3em; }
-        .service-card p, .project-card p { font-size: 0.95em; }
-        .equipment-list { padding-left: 10px; max-width: 100%; }
-        .equipment-list li { padding-left: 35px; font-size: 1em; }
-        .equipment-list li i { font-size: 1.3em; }
-        .navbar { padding: 0; }
-        .navbar .container { justify-content: flex-end; padding: 10px 15px; }
-        .navbar-nav { display: none; flex-direction: column; background-color: #1b5e20; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 1000; padding: 70px 0 20px 0; box-sizing: border-box; overflow-y: auto; }
-        .navbar-nav.active { display: flex; }
-        .hamburger { display: flex; position: fixed; top: 15px; right: 15px; transform: none; background-color: #4CAF50; padding: 10px; border-radius: 5px; z-index: 1100; }
-        .hamburger div { background-color: white; width: 22px; height: 3px; margin: 3px 0; transition: 0.4s; }
-        .hamburger.active div { background-color: white; }
-        .hamburger.active div:nth-child(1) { transform: rotate(45deg) translate(3.5px, 3.5px); }
-        .hamburger.active div:nth-child(2) { opacity: 0; }
-        .hamburger.active div:nth-child(3) { transform: rotate(-45deg) translate(3.5px, -3.5px); }
-        .nav-item { margin: 12px 0; }
-        .nav-link { padding: 10px 15px; display: block; width: auto; margin: 0 20px; }
-        .nav-link:hover { background-color: rgba(255, 255, 255, 0.1); color: white; }
-        .header { height: 450px; }
-        .logo-header { width: 345px; /* Tamaño del logo en móvil aumentado */ }
-        .header-slogan { font-size: 1.2em; letter-spacing: 2px; }
-        .whatsapp-flotante { width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px; }
-      }
-    </style>
+    }
+  </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="container">
-      <div class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-      <ul class="navbar-nav" id="navbarNav">
-        <li class="nav-item"><a class="nav-link" href="#about-us"><i class="fas fa-info-circle"></i> Sobre Nosotros</a></li>
-        <li class="nav-item"><a class="nav-link" href="#our-history"><i class="fas fa-history"></i> Nuestra Historia</a></li>
-        <li class="nav-item"><a class="nav-link" href="#services"><i class="fas fa-cogs"></i> Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects"><i class="fas fa-briefcase"></i> Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#equipment"><i class="fas fa-tools"></i> Equipamiento</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact"><i class="fas fa-envelope"></i> Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="container nav-inner">
+        <a href="#top" class="nav-brand">
+          <img src="images/logo.png" alt="TOPO4D logo">
+          <span>TOPO4D</span>
+        </a>
 
-  <header class="header header-background">
-    <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header" onerror="this.onerror=null;this.src='https://placehold.co/540x173/ffffff/386641?text=TOPO4D+Logo';">
-    <p class="header-slogan">Agrimensura, Topografía y Fotogrametría de Precisión</p>
+        <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">Estudio</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#projects">Proyectos</a></li>
+          <li><a href="#equipment">Equipamiento</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-cta">Solicitar consulta</a>
+      </div>
+    </nav>
   </header>
-  
-  <main>
-    <section id="about-us" class="about-us-background">
-      <div class="container">
-        <h2>Sobre Nosotros</h2>
-        <div class="two-column-layout">
-          <div class="text-column">
-            <p class="section-intro" style="text-align: left; margin-left: 0; max-width: 100%;">
-              Somos TOPO4D, una empresa catamarqueña con proyección regional, dedicada a brindar servicios de <strong>alta precisión</strong> en <strong>AGRIMENSURA</strong>, <strong>TOPOGRAFÍA</strong> Y <strong>FOTOGRAMETRÍA</strong>. Combinamos <strong>experiencia</strong>, <strong>formación académica</strong> y <strong>tecnología de vanguardia</strong>.
-            </p>
-            <p>
-              Nacimos de la pasión por la ingeniería y la agrimensura, con el objetivo de ofrecer <strong>soluciones geoespaciales integrales</strong> para obras civiles, proyectos mineros, infraestructura y desarrollos territoriales. Nuestro compromiso es la <strong>eficiencia</strong>, la <strong>calidad</strong> y la <strong>satisfacción del cliente</strong> en cada proyecto.
-            </p>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="hero-kicker">Agrimensura · Topografía · Fotogrametría</p>
+          <h1>Ingeniería aplicada al territorio para obras, minería e industria.</h1>
+          <p class="hero-sub">
+            Relevamientos, mensuras, replanteos y vuelos fotogramétricos
+            con instrumental GNSS, estación total y drones para que tu proyecto
+            tenga información confiable desde el inicio.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              Hablemos de tu proyecto
+            </a>
+            <a href="#services" class="btn btn-outline">
+              Ver servicios
+            </a>
           </div>
-          <div class="image-column">
-             <!-- SLIDER SOBRE NOSOTROS -->
-             <div class="image-slider">
-                <img src="images/plano.PNG" class="active" alt="[Imagen de Plano de agrimensura]" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Plano+1';">
-                <img src="images/plano2.PNG" alt="[Imagen de Plano 2]" onerror="this.onerror=null;this.src='https://placehold.co/600x400/888888/333333?text=Plano+2';">
-             </div>
+          <div class="hero-metrics">
+            <div>
+              <span class="metric-number">+360 ha</span>
+              <span class="metric-label">relevadas para parques eólicos</span>
+            </div>
+            <div>
+              <span class="metric-number">+10</span>
+              <span class="metric-label">proyectos mineros y viales</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-card">
+            <!-- Usá tu video real -->
+            <video src="video/videotopo4d.mp4" autoplay muted loop playsinline></video>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="our-history" class="history-background">
-      <div class="container">
-        <h2>Nuestra Trayectoria</h2>
-        <div class="two-column-layout reverse">
-          <div class="text-column">
-            <p class="section-intro" style="text-align: left; margin-left: 0; max-width: 100%;">
-                Impulsados por un <strong>legado familiar</strong> en agrimensura y el deseo de innovar, fundamos TOPO4D para aplicar <strong>tecnología avanzada</strong> al estudio del territorio.
-            </p>
+    <!-- ESTUDIO / SOBRE NOSOTROS -->
+    <section id="about" class="section section-alt">
+      <div class="container two-col">
+        <div>
+          <div class="section-header">
+            <h2>Estudio de agrimensura con ADN minero y vial</h2>
             <p>
-                Desde nuestros inicios, hemos crecido rápidamente, consolidándonos como <strong>referentes en Catamarca</strong> gracias a la fusión de métodos tradicionales probados y las últimas <strong>herramientas digitales</strong>. Hemos participado en proyectos de diversa escala, desde mensuras urbanas hasta complejos relevamientos mineros.
-            </p>
-            <p>
-                Miramos hacia el futuro con la visión de ser una <strong>consultora técnica líder</strong>, especializada en la integración de topografía, geología, SIG y procesos industriales, aportando valor a proyectos civiles, mineros y al ordenamiento territorial en toda la región.
+              TOPO4D es un estudio de agrimensura e ingeniería con base en Catamarca
+              y alcance regional en el NOA. Integra experiencia académica, campo
+              en altura y tecnología geoespacial para acompañar proyectos civiles,
+              mineros e industriales.
             </p>
           </div>
-          <div class="image-column">
-             <!-- SLIDER TRAYECTORIA -->
-             <div class="image-slider">
-                <img src="images/trabajo.jpg" class="active" alt="[Imagen de Equipo de topografía trabajando en el campo]" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Equipo+1';">
-                <img src="images/trabajo2.jpg" alt="[Imagen de Equipo de topografía 2]" onerror="this.onerror=null;this.src='https://placehold.co/600x400/888888/333333?text=Equipo+2';">
-             </div>
-          </div>
+          <p>
+            Nacimos de la tradición familiar en agrimensura y del trabajo directo
+            en obras, minas, parques industriales y desarrollos territoriales.
+            Combinamos métodos clásicos con modelos digitales del terreno, nubes
+            de puntos, SIG y fotogrametría aérea.
+          </p>
+          <ul class="about-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Relevamientos planialtimétricos y nivelación para obras civiles y viales.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Mensuras, estudios de título y regularización dominial ante organismos provinciales.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Vuelos fotogramétricos con drones para grandes superficies, accesos complejos y zonas sensibles.</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i>
+              <span>Acompañamiento técnico en proyectos mineros, desde campañas de campo hasta documentación para ingeniería.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-light">
+          <!-- Podés reemplazar por una foto real de trabajo de campo -->
+          <img src="images/trabajo-topografia.jpg" alt="Relevamiento topográfico en campo">
         </div>
       </div>
     </section>
 
-    <section id="services" class="services-background">
+    <!-- SERVICIOS -->
+    <section id="services" class="section">
       <div class="container">
-        <h2>Nuestros Servicios</h2>
-         <p class="section-intro">Ofrecemos una amplia gama de servicios adaptados a las necesidades específicas de cada proyecto, garantizando <strong>precisión</strong> y <strong>resultados confiables</strong>.</p>
-        <div class="services-grid">
-          <div class="service-card">
-            <!-- Icono Relevamientos (Estación Total de Perfil) -->
-            <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <!-- Trípode -->
-                <path d="M12 12 L6 22 M12 12 L18 22" />
-                <path d="M12 12 L12 22" stroke-dasharray="2,2" stroke-width="1" />
-                <!-- Base de la estación -->
-                <path d="M8 12 L16 12 L15 10 L9 10 Z" />
-                <!-- Cuerpo (perfil) -->
-                <rect x="9" y="5" width="6" height="5" rx="1" />
-                <!-- Lente/Telescopio -->
-                <circle cx="12" cy="7.5" r="2" />
-                <line x1="14" y1="7.5" x2="19" y2="7.5" stroke-width="2" /> 
-                <rect x="19" y="6.5" width="2" height="2" />
-                <!-- Asa superior -->
-                <path d="M10 5 L10 3 L14 3 L14 5" />
-            </svg>
-            <h3>Relevamientos Topográficos</h3>
+        <header class="section-header">
+          <h2>Servicios</h2>
+          <p>
+            Soluciones integrales en agrimensura, topografía y fotogrametría a medida
+            de cada etapa del proyecto: desde el estudio de factibilidad hasta el
+            control de obra y la documentación final.
+          </p>
+        </header>
+
+        <div class="cards-grid">
+          <article class="card service-card">
+            <div class="card-icon"><i class="fas fa-ruler-combined"></i></div>
+            <h3>Relevamientos topográficos</h3>
             <p>
-              <strong>Planimetría y altimetría</strong> detallada con Estaciones Totales y GNSS para obras, caminos, proyectos urbanos y rurales.
+              Levantamientos planialtimétricos con GNSS y estación total para
+              obras civiles, loteos, parques industriales, canales, calles y rotondas.
             </p>
-          </div>
-          <div class="service-card">
-            <!-- Icono Fotogrametría (Dron Simplificado) -->
-            <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="9" y="9" width="6" height="6" rx="1" />
-                <path d="M9 9l-2-2" /><path d="M15 9l2-2" /><path d="M9 15l-2 2" /><path d="M15 15l2 2" />
-                <circle cx="5" cy="5" r="2" /><circle cx="19" cy="5" r="2" /><circle cx="5" cy="19" r="2" /><circle cx="19" cy="19" r="2" />
-            </svg>
-            <h3>Fotogrametría con Drones</h3>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon"><i class="fas fa-drone"></i></div>
+            <h3>Fotogrametría con drones</h3>
             <p>
-              Vuelos de <strong>alta resolución</strong> para ortomosaicos, modelos digitales (MDE/MDT) y nubes de puntos. Ideal para grandes extensiones, inspecciónes y <strong>control de obra</strong>.
+              Vuelos programados para ortomosaicos, modelos digitales de terreno
+              y curvas de nivel, optimizando tiempos, costos y acceso en grandes superficies.
             </p>
-          </div>
-          <div class="service-card">
-            <!-- Icono Mensuras (Plano Técnico) -->
-            <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <path d="M9 15h6"></path><path d="M9 11h6"></path><path d="M9 19h4"></path>
-            </svg>
-            <h3>Mensuras y Catastro</h3>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon"><i class="fas fa-file-signature"></i></div>
+            <h3>Mensuras y catastro</h3>
             <p>
-              Mensuras para <strong>subdivisiones</strong>, unificaciones, prescripciones y loteos. <strong>VESEP</strong>. Gestión completa ante el catastro provincial.
+              Mensuras para subdivisión, unificación, prescripción adquisitiva,
+              loteos y regularización, con gestión ante el Catastro y organismos
+              competentes.
             </p>
-          </div>
-          <div class="service-card">
-            <!-- Icono Replanteos (Mira / Objetivo) -->
-            <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="22" y1="12" x2="18" y2="12"></line>
-                <line x1="6" y1="12" x2="2" y2="12"></line>
-                <line x1="12" y1="6" x2="12" y2="2"></line>
-                <line x1="12" y1="22" x2="12" y2="18"></line>
-            </svg>
-            <h3>Replanteos de Precisión</h3>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon"><i class="fas fa-road"></i></div>
+            <h3>Obras viales y movimiento de suelo</h3>
             <p>
-              <strong>Marcación exacta</strong> en terreno de puntos, líneas y niveles para desmontes, calles, fundaciones, estructuras y obras de saneamiento.
+              Relevamientos, replanteos, generación de modelos 3D y cómputos de
+              volúmenes para accesos, calles de servicio, carriles de aceleración
+              y plataformas industriales.
             </p>
-          </div>
-          <div class="service-card">
-            <!-- Icono Cómputos (Cubo 3D / Volumen) -->
-            <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                <line x1="12" y1="22.08" x2="12" y2="12"></line>
-            </svg>
-            <h3>Cómputos y Mov. de Suelo</h3>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon"><i class="fas fa-mountain"></i></div>
+            <h3>Proyectos mineros</h3>
             <p>
-              <strong>Cálculo preciso de volúmenes</strong> para excavaciones, terraplenes y acopios. Modelado 3D para optimizar el movimiento de suelo.
+              Apoyo topográfico para minería en altura: redes GNSS, vuelos
+              fotogramétricos, documentación para ingeniería, monitoreo de
+              pilas, botaderos y frentes de explotación.
             </p>
-          </div>
-           <div class="service-card">
-            <!-- Icono Legal (Balanza de justicia técnica - Rediseñada) -->
-            <svg class="service-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-                <!-- Base -->
-                <path d="M12 21 L12 3" />
-                <path d="M8 21 L16 21" />
-                <!-- Brazo horizontal -->
-                <path d="M4 6 L20 6" />
-                <!-- Cuerdas -->
-                <path d="M4 6 L4 11" />
-                <path d="M20 6 L20 11" />
-                <!-- Platillos (Triángulos más arriba y equilibrados) -->
-                <path d="M1 11 L7 11 L4 16 Z" />
-                <path d="M17 11 L23 11 L20 16 Z" />
-                <!-- Detalle superior -->
-                <circle cx="12" cy="4" r="1" />
-            </svg>
-            <h3>Asesoramiento Legal</h3>
+          </article>
+
+          <article class="card service-card">
+            <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+            <h3>SIG y documentación técnica</h3>
             <p>
-                Asesoramiento experto en temas de la propiedad inmueble, <strong>estudio de títulos</strong>, regularización dominial, y gestión de documentación.
+              Integración de información geoespacial, elaboración de planos,
+              memorias técnicas, cartografía temática y reportes listos para
+              presentar ante clientes y organismos.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="projects">
+    <!-- PROYECTOS -->
+    <section id="projects" class="section section-alt">
       <div class="container">
-        <h2>Proyectos Destacados</h2>
-        <p class="section-intro">Hemos tenido el privilegio de participar en diversos proyectos, aportando nuestra <strong>experiencia y tecnología</strong>. Aquí algunos ejemplos:</p>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="images/nave.jpg" alt="[Imagen de Construcción de Nave Industrial]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Nave+Industrial';">
-            </div>
-            <div class="project-card-content">
-              <h3>Proyecto para la Industria</h3>
-              <p>Construcción de una nave industrial, desde el <strong>replanteo integral</strong> hasta la implantación final de estructuras metálicas y fundaciones.</p>
-               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- SLIDER PROYECTOS VIALES -->
-              <div class="image-slider">
-                  <img src="images/vial.png" class="active" alt="[Imagen de Proyecto Vial]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Proyecto+Vial+1';">
-                  <img src="images/vial2.png" alt="[Imagen de Proyecto Vial 2]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/888888/333333?text=Proyecto+Vial+2';">
-              </div>
-            </div>
-            <div class="project-card-content">
-              <h3>Proyectos Viales</h3>
-              <p>Diseño de <strong>apertura de calle</strong>, incluyendo carriles de aceleración/desaceleración y conexión a rotonda principal.</p>
-              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
+        <header class="section-header">
+          <h2>Proyectos destacados</h2>
+          <p>
+            Algunos ejemplos de trabajos que integran relevamientos topográficos,
+            fotogrametría y documentación técnica para obra, industria y minería.
+          </p>
+        </header>
 
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="images/minera.jpg" alt="[Imagen de Proyecto Minero]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Proyecto+Minero';">
+        <div class="cards-grid">
+          <article class="card">
+            <span class="project-tag">
+              <i class="fas fa-wind"></i> Parque eólico
+            </span>
+            <h3>Relevamiento y replanteo de lote para parque eólico</h3>
+            <p>
+              Red GNSS, relevamiento planialtimétrico y apoyo fotogramétrico
+              sobre un lote de más de 360 hectáreas destinado a la implantación
+              de un parque eólico, generando base geométrica y documentación
+              para ingeniería.
+            </p>
+            <div class="project-meta">
+              <span><i class="fas fa-map"></i> +360 ha</span>
+              <span><i class="fas fa-location-dot"></i> Catamarca</span>
+              <span><i class="fas fa-file-alt"></i> MDT, curvas de nivel, planos</span>
             </div>
-            <div class="project-card-content">
-               <h3>Trabajos para el Sector Minero</h3>
-               <p><strong>Vuelos fotogramétricos</strong>, topografía de detalle y procesamiento de datos en zonas de alta sensibilidad ambiental.</p>
-              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-image-container">
-               <img src="images/eolico.jpg" alt="[Imagen de Turbinas Eólicas]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Parque+Eólico';">
-            </div>
-            <div class="project-card-content">
-               <h3>Estudios para el Sector Industrial</h3>
-              <p>Trabajos de campo en lote &gt;360 ha: <strong>replanteo de puntos de medición</strong>, determinación de coordenadas precisas y estudio de títulos.</p>
-               <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="project-image-container">
-              <img src="images/catastro.jpg" alt="[Imagen de Relevamiento Catastral]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Catastro';">
-            </div>
-             <div class="project-card-content">
-              <h3>Relevamiento Catastral</h3>
-              <p>Relevamiento para el <strong>levantamiento de mejoras</strong> e inclusión en el catastro provincial, optimizando la gestión de la propiedad.</p>
-              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
+          </article>
 
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- SLIDER DISEÑO DE LOTEOS -->
-              <div class="image-slider">
-                  <img src="images/loteo.jpg" class="active" alt="[Imagen de Diseño de Loteo]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/cccccc/333333?text=Diseño+Loteo+1';">
-                  <img src="images/loteo2.jpg" alt="[Imagen de Diseño de Loteo 2]" onerror="this.onerror=null;this.src='https://placehold.co/400x220/888888/333333?text=Diseño+Loteo+2';">
-              </div>
+          <article class="card">
+            <span class="project-tag">
+              <i class="fas fa-industry"></i> Industria
+            </span>
+            <h3>Replanteo de nave industrial y movimiento de suelo</h3>
+            <p>
+              Relevamiento inicial, definición de rasantes y replanteo para el
+              desmonte y la construcción de una nave industrial, incluyendo
+              control de cotas y verificación de la implantación en obra.
+            </p>
+            <div class="project-meta">
+              <span><i class="fas fa-road"></i> Accesos y playa de maniobras</span>
+              <span><i class="fas fa-drafting-compass"></i> Planos ejecutivos</span>
             </div>
-             <div class="project-card-content">
-              <h3>Diseño de Loteos</h3>
-              <p>Planificación y <strong>diseño de loteos urbanos</strong> y rurales, incluyendo trazado de calles, división de parcelas y gestión de servicios.</p>
-              <a href="#" class="details-button">Ver más <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </div>
+          </article>
 
+          <article class="card">
+            <span class="project-tag">
+              <i class="fas fa-route"></i> Obra vial
+            </span>
+            <h3>Proyecto de apertura de calle y carriles de conexión</h3>
+            <p>
+              Vuelo fotogramétrico, generación de modelo digital del terreno y
+              cálculo de volúmenes para el diseño de una nueva calle con
+              carriles de aceleración y desaceleración que vincula un barrio
+              con uno de los ingresos principales a la ciudad.
+            </p>
+            <div class="project-meta">
+              <span><i class="fas fa-ruler-horizontal"></i> Trazado y geometría vial</span>
+              <span><i class="fas fa-cubes"></i> Cómputos de volúmenes</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="equipment">
-        <div class="container">
-            <h2>Equipamiento Tecnológico</h2>
-            <p class="section-intro">Contamos con <strong>instrumentos de última generación</strong> calibrados y mantenidos para asegurar la máxima <strong>precisión y eficiencia</strong> en cada medición:</p>
-            <div class="two-column-layout">
-                <div class="text-column">
-                    <ul class="equipment-list">
-                        <li><i class="fas fa-satellite-dish"></i><strong>Equipos GNSS RTK:</strong> South G1, G1 Plus (Precisión centimétrica en tiempo real)</li>
-                        <li><i class="fas fa-plane-departure"></i><strong>Dron Fotogramétrico:</strong> DJI Phantom 4 Pro (Imágenes de alta resolución)</li>
-                        <li><i class="fas fa-crosshairs"></i><strong>Estación Total:</strong> Pentax R-2505NS, Kolida KTS-422UT (Mediciones precisas)</li>
-                        <li><i class="fas fa-ruler-vertical"></i><strong>Niveles Ópticos:</strong> Pentax, South (Altimetría de alta precisión)</li>
-                        <li><i class="fas fa-laptop-code"></i><strong>Software Especializado:</strong> Pix4D, AutoCAD Civil 3D, QGIS, Global Mapper, y más.</li>
-                        <li><i class="fas fa-truck"></i><strong>Vehículos 4x4:</strong> Equipados para acceso a terrenos difíciles y zonas remotas</li>
-                    </ul>
-                </div>
-                <div class="image-column">
-                    <!-- Contenedor del video Local -->
-                    <div class="video-container">
-                        <video width="100%" height="100%" controls loop muted playsinline>
-                            <source src="video/videotopo4d.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.
-                        </video>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
+    <!-- EQUIPAMIENTO -->
+    <section id="equipment" class="section">
       <div class="container">
-        <h2>Contacto</h2>
-        <p class="section-intro">
-          ¿Listo para iniciar tu próximo proyecto o tienes alguna consulta? <br>Completa el formulario o contáctanos directamente. <strong>¡Estamos para ayudarte!</strong>
-        </p>
-        <div class="contact-container">
-            <form id="contact-form" class="contact-form" action="https://formsubmit.co/topo4darg@gmail.com" method="POST">
-              <label for="name" class="contact-form-label">Nombre Completo:</label>
-              <input type="text" id="name" name="name" class="contact-form-input" placeholder="Tu nombre" required>
-              <label for="email" class="contact-form-label">Correo Electrónico:</label>
-              <input type="email" id="email" name="email" class="contact-form-input" placeholder="tu@email.com" required>
-              <label for="phone" class="contact-form-label">Teléfono (Opcional):</label>
-              <input type="tel" id="phone" name="phone" class="contact-form-input" placeholder="+54 9 383 ...">
-              <label for="subject" class="contact-form-label">Asunto:</label>
-              <input type="text" id="subject" name="subject" class="contact-form-input" placeholder="Ej: Consulta sobre mensura" required>
-              <label for="message" class="contact-form-label">Mensaje:</label>
-              <textarea id="message" name="message" class="contact-form-textarea" placeholder="Describe brevemente tu necesidad o consulta aquí..." required></textarea>
-              <input type="hidden" name="_next" value="https://TOPO4D.github.io/TOPO4D/gracias.html">
-              <input type="text" name="_honey" style="display:none">
-              <button type="submit" class="contact-form-button">Enviar Consulta</button>
-            </form>
-            <div class="contact-details">
-                <h3>Información Directa</h3>
-                 <div class="contact-info">
-                    <p><i class="fas fa-phone"></i>+54 9 383 461 2365</p>
-                    <p><i class="fas fa-envelope"></i><a href="mailto:topo4darg@gmail.com">topo4darg@gmail.com</a></p> <p><i class="fas fa-map-marker-alt"></i>San F. del Valle de Catamarca, Argentina</p>
-                    <p><i class="fas fa-clock"></i>Lunes a Viernes: 8:00 - 18:00 hs</p>
-                </div>
-                 <a href="https://wa.me/5493834612365?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." target="_blank" class="whatsapp-button">
-                    <i class="fab fa-whatsapp"></i> Chatea por WhatsApp
-                 </a>
-                <div class="social-icons">
-                    <h4>Síguenos en nuestras redes:</h4>
-                   <a href="https://www.instagram.com/topo4d.ar/?hl=es-la" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                </div>
-            </div>
+        <header class="section-header">
+          <h2>Equipamiento y software</h2>
+          <p>
+            Instrumental, drones y software profesional para garantizar
+            compatibilidad con los flujos de trabajo de ingeniería civil y minera.
+          </p>
+        </header>
+
+        <div class="equipment-grid">
+          <article class="card equipment-card">
+            <h3><i class="fas fa-location-crosshairs"></i> Instrumental de campo</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i> Receptores GNSS geodésicos (modo base/rover).</li>
+              <li><i class="fas fa-circle"></i> Estación total para replanteos y controles finos.</li>
+              <li><i class="fas fa-circle"></i> Niveles ópticos y digitales para nivelación geométrica.</li>
+            </ul>
+          </article>
+
+          <article class="card equipment-card">
+            <h3><i class="fas fa-drone"></i> Drones y fotogrametría</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i> Drones multirotor para mapeo y documentación de obra.</li>
+              <li><i class="fas fa-circle"></i> Planificación de vuelos con solapes y alturas adaptadas al proyecto.</li>
+              <li><i class="fas fa-circle"></i> Captura de imágenes para ortomosaicos, MDT/MDE y nubes de puntos.</li>
+            </ul>
+          </article>
+
+          <article class="card equipment-card">
+            <h3><i class="fas fa-desktop"></i> Software de procesamiento</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i> Suites de fotogrametría para generación de ortomosaicos y modelos 3D.</li>
+              <li><i class="fas fa-circle"></i> Software CAD/BIM para diseño de obras lineales y documentación.</li>
+              <li><i class="fas fa-circle"></i> Sistemas de Información Geográfica (SIG) para análisis territorial.</li>
+            </ul>
+          </article>
+
+          <article class="card equipment-card">
+            <h3><i class="fas fa-truck-pickup"></i> Logística de campo</h3>
+            <ul>
+              <li><i class="fas fa-circle"></i> Operación en terreno urbano, rural y de altura.</li>
+              <li><i class="fas fa-circle"></i> Capacidad para campañas continuas de relevamiento.</li>
+              <li><i class="fas fa-circle"></i> Coordinación con equipos de obra, ingeniería y seguridad.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- CONTACTO -->
+    <section id="contact" class="section section-alt">
+      <div class="container two-col">
+        <div>
+          <div class="section-header">
+            <h2>Contacto</h2>
+            <p>
+              Contá con un equipo que habla el idioma de la obra y de la minería.
+              Dejanos los datos de tu proyecto y coordinamos una llamada para
+              analizar requerimientos y alcances.
+            </p>
+          </div>
+          <ul class="contact-highlights">
+            <li><i class="fas fa-check"></i> Respuesta personalizada según el tipo de proyecto.</li>
+            <li><i class="fas fa-check"></i> Acompañamiento en la definición de alcance y entregables.</li>
+            <li><i class="fas fa-check"></i> Operación en Catamarca y región NOA.</li>
+          </ul>
+
+          <div class="contact-info">
+            <p><strong>Teléfono / WhatsApp:</strong> +54 9 383 461 2365</p>
+            <p><strong>Email:</strong> topo4darg@gmail.com</p>
+            <p><strong>Ubicación:</strong> Catamarca, Argentina · Proyectos en toda la región NOA.</p>
+          </div>
+        </div>
+
+        <form
+          id="contact-form"
+          class="contact-form"
+          action="https://formsubmit.co/topo4darg@gmail.com"
+          method="POST"
+        >
+          <input type="text" name="name" placeholder="Nombre completo" required>
+          <input type="email" name="email" placeholder="Correo electrónico" required>
+          <input type="tel" name="phone" placeholder="Teléfono (opcional)">
+          <input type="text" name="subject" placeholder="Asunto" required>
+          <textarea name="message" rows="4" placeholder="Contanos brevemente tu necesidad…" required></textarea>
+
+          <!-- Opciones Formsubmit -->
+          <input type="hidden" name="_next" value="https://TOPO4D.github.io/TOPO4D/gracias.html">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+
+          <button type="submit" class="btn btn-primary full">Enviar consulta</button>
+        </form>
+      </div>
+    </section>
+
   </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; <span id="current-year"></span> TOPO4D. Todos los derechos reservados.</p>
-      <p>Agrimensura, Topografía y Fotogrametría de Precisión en Catamarca y la Región NOA.</p>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> TOPO4D · Agrimensura e Ingeniería</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="mailto:topo4darg@gmail.com">
+          <i class="fas fa-envelope"></i> Correo
+        </a>
       </div>
+    </div>
   </footer>
 
-  <a href="https://wa.me/5493834612365?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." class="whatsapp-flotante" target="_blank" rel="noopener noreferrer">
+  <!-- WHATSAPP -->
+  <a
+    href="https://wa.me/5493834612365?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta."
+    class="whatsapp-fab"
+    target="_blank"
+    rel="noopener"
+  >
     <i class="fab fa-whatsapp"></i>
   </a>
-  
-  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <!-- JS SIMPLE -->
   <script>
-    // Script para la barra de navegación con efecto de scroll
-    window.addEventListener('scroll', () => {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.addEventListener('submit', () => {
-        const submitButton = contactForm.querySelector('.contact-form-button');
-        if(submitButton) {
-            submitButton.textContent = 'Enviando...';
-            submitButton.disabled = true;
-        }
-      });
-    }
-
-    function revealSections() {
-      const sections = document.querySelectorAll('section');
-      const windowHeight = window.innerHeight;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if (sectionTop < windowHeight * 0.85) {
-          section.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('load', revealSections);
-    window.addEventListener('scroll', revealSections);
-
-    const yearSpan = document.getElementById('current-year');
-    if(yearSpan) {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Año dinámico
+      var yearSpan = document.getElementById('year');
+      if (yearSpan) {
         yearSpan.textContent = new Date().getFullYear();
-    }
+      }
 
-    const hamburger = document.getElementById('hamburger');
-    const navbarNav = document.getElementById('navbarNav');
-    if (hamburger && navbarNav) {
-        hamburger.addEventListener('click', () => {
-          hamburger.classList.toggle('active');
-          navbarNav.classList.toggle('active');
+      // Menú mobile
+      var navToggle = document.getElementById('navToggle');
+      var navLinks = document.getElementById('navLinks');
+
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function () {
+          navToggle.classList.toggle('open');
+          navLinks.classList.toggle('open');
         });
 
-        const navLinks = navbarNav.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            if (navbarNav.classList.contains('active') && link.getAttribute('href').startsWith('#')) {
-                hamburger.classList.remove('active');
-                navbarNav.classList.remove('active');
-            }
+        navLinks.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            navToggle.classList.remove('open');
+            navLinks.classList.remove('open');
           });
         });
-    }
-
-    // --- Script para Slideshow (Desplazamiento de Imágenes) ---
-    // Busca todos los contenedores con clase "image-slider" e inicia la animación
-    document.addEventListener("DOMContentLoaded", function() {
-        const sliders = document.querySelectorAll('.image-slider');
-        
-        sliders.forEach(slider => {
-            let images = slider.querySelectorAll('img');
-            // Solo activar si hay más de una imagen
-            if (images.length > 1) {
-                let currentIndex = 0;
-                
-                setInterval(() => {
-                    // Quitar clase activa de la imagen actual
-                    images[currentIndex].classList.remove('active');
-                    
-                    // Calcular el índice de la siguiente imagen
-                    currentIndex = (currentIndex + 1) % images.length;
-                    
-                    // Añadir clase activa a la siguiente imagen
-                    images[currentIndex].classList.add('active');
-                    
-                }, 4000); // Cambia cada 4 segundos
-            }
-        });
+      }
     });
-
-    // --- Se eliminó el script de YouTube, ya no es necesario ---
   </script>
 </body>
 </html>
