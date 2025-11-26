@@ -14,6 +14,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TOPO4D - Agrimensura e Ingeniería</title>
 
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
   <!-- SEO Básico -->
   <meta name="description" content="TOPO4D brinda servicios de agrimensura, topografía, fotogrametría con drones, mensuras y replanteos para obras civiles, proyectos mineros e industriales en Catamarca y el NOA.">
   <meta name="keywords" content="agrimensura, topografía, fotogrametría, drones, mensuras, Catamarca, NOA, ingeniería civil, minería">
@@ -39,7 +42,7 @@
     "name": "TOPO4D",
     "url": "https://topo4d.com.ar",
     "logo": "https://topo4d.com.ar/images/logo.png",
-    "description": "Servicios técnicos en agrimensura, topografía, fotogrametría con drones, mensuras y replanteos en Catamarca y la región NOA.",
+    "description": "Servicios técnicos en agrimensura, topografía, fotogrametría, mensuras y replanteos en Catamarca y la región NOA.",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+54-383-461-2365",
@@ -53,8 +56,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="images/logo.png" type="image/png">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- ESTILOS -->
   <style>
@@ -72,9 +74,7 @@
       --shadow-strong: 0 18px 45px rgba(0,0,0,0.15);
     }
 
-    * , *::before, *::after {
-      box-sizing: border-box;
-    }
+    * , *::before, *::after { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -86,21 +86,12 @@
       background-color: var(--bg);
       color: var(--text-main);
       line-height: 1.6;
+      scroll-behavior: smooth;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      text-decoration: none;
-      color: var(--accent);
-    }
-
-    a:hover {
-      color: #245c39;
-    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: var(--accent); }
+    a:hover { color: #245c39; }
 
     /* CONTENEDOR */
     .container {
@@ -120,9 +111,7 @@
       border-bottom: 1px solid rgba(0,0,0,0.04);
     }
 
-    .navbar {
-      padding: 0.5rem 0;
-    }
+    .navbar { padding: 0.5rem 0; }
 
     .nav-inner {
       display: flex;
@@ -155,7 +144,10 @@
       margin: 0;
       padding: 0;
       flex: 1;
+      justify-content: flex-end;
     }
+
+    .nav-links li { display: flex; }
 
     .nav-links a {
       font-size: 0.95rem;
@@ -176,9 +168,7 @@
       transition: width 0.18s ease-out;
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+    .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
       text-decoration: none;
@@ -190,11 +180,10 @@
       font-weight: 600;
       box-shadow: 0 8px 18px rgba(47,124,74,0.35);
       white-space: nowrap;
+      margin-left: 0.5rem;
     }
 
-    .nav-cta:hover {
-      background: #245c39;
-    }
+    .nav-cta:hover { background: #245c39; }
 
     .nav-toggle {
       display: none;
@@ -218,11 +207,7 @@
     .nav-toggle.open span:nth-child(1) {
       transform: translateY(6px) rotate(45deg);
     }
-
-    .nav-toggle.open span:nth-child(2) {
-      opacity: 0;
-    }
-
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
     .nav-toggle.open span:nth-child(3) {
       transform: translateY(-6px) rotate(-45deg);
     }
@@ -287,9 +272,7 @@
       box-shadow: 0 10px 24px rgba(47,124,74,0.35);
     }
 
-    .btn-primary:hover {
-      background: #245c39;
-    }
+    .btn-primary:hover { background: #245c39; }
 
     .btn-outline {
       background: transparent;
@@ -297,9 +280,9 @@
       color: var(--accent-strong);
     }
 
-    .btn-outline:hover {
-      border-color: var(--accent);
-    }
+    .btn-outline:hover { border-color: var(--accent); }
+
+    .btn.full { width: 100%; }
 
     .hero-metrics {
       display: flex;
@@ -309,9 +292,7 @@
       color: var(--text-muted);
     }
 
-    .hero-metrics div {
-      min-width: 120px;
-    }
+    .hero-metrics div { min-width: 120px; }
 
     .metric-number {
       display: block;
@@ -320,9 +301,7 @@
       color: var(--accent);
     }
 
-    .hero-media {
-      position: relative;
-    }
+    .hero-media { position: relative; }
 
     .hero-card {
       background: radial-gradient(circle at top left, #1b4332 0, #08150d 50%, #000 100%);
@@ -356,9 +335,7 @@
       padding: 3.5rem 0;
     }
 
-    .section-alt {
-      background-color: var(--bg-alt);
-    }
+    .section-alt { background-color: var(--bg-alt); }
 
     .section-header {
       text-align: left;
@@ -414,8 +391,9 @@
     }
 
     .about-list i {
-      margin-top: 0.18rem;
+      margin-top: 0.2rem;
       color: var(--accent);
+      flex-shrink: 0;
     }
 
     /* SERVICIOS */
@@ -458,6 +436,12 @@
     }
 
     /* PROYECTOS */
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
     .project-tag {
       display: inline-flex;
       align-items: center;
@@ -469,7 +453,23 @@
       color: var(--accent-strong);
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      margin-bottom: 0.6rem;
+    }
+
+    .project-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.35s ease-out;
+    }
+
+    .project-card:hover .project-image img {
+      transform: scale(1.03);
     }
 
     .project-meta {
@@ -478,7 +478,7 @@
       gap: 0.6rem 1.2rem;
       font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 0.7rem;
+      margin-top: 0.4rem;
     }
 
     .project-meta span {
@@ -503,26 +503,51 @@
       margin: 0 0 0.4rem;
       color: var(--accent-strong);
       font-size: 1.02rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    .equipment-card ul {
+    .equipment-card h3 i {
+      color: var(--accent);
+    }
+
+    .equipment-list {
       list-style: none;
       padding: 0;
       margin: 0.3rem 0 0;
-      font-size: 0.9rem;
-      color: var(--text-muted);
+      text-align: left;
     }
 
-    .equipment-card li {
-      margin-bottom: 0.35rem;
+    .equipment-list li {
       display: flex;
-      align-items: center;
-      gap: 0.35rem;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.95rem;
+      color: #333;
+      padding: 8px 0;
+      border-bottom: 1px dashed #ccc;
     }
 
-    .equipment-card li i {
-      font-size: 0.7rem;
-      color: var(--accent);
+    .equipment-list li:last-child {
+      border-bottom: none;
+    }
+
+    .equipment-list li i {
+      flex-shrink: 0;
+      font-size: 1.05rem;
+      color: #4CAF50;
+      width: 20px;
+      text-align: center;
+      margin-top: 2px;
+    }
+
+    .equipment-list li strong {
+      color: #1b5e20;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+      font-family: 'Space Grotesk', sans-serif;
     }
 
     /* CONTACTO */
@@ -557,10 +582,6 @@
       min-height: 120px;
     }
 
-    .btn.full {
-      width: 100%;
-    }
-
     .contact-highlights {
       list-style: none;
       padding: 0;
@@ -588,6 +609,13 @@
 
     .contact-info p {
       margin: 0.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-info i {
+      color: var(--accent);
     }
 
     /* FOOTER */
@@ -600,9 +628,7 @@
       margin-top: 2rem;
     }
 
-    .footer-inner {
-      text-align: center;
-    }
+    .footer-inner { text-align: center; }
 
     .footer-links {
       margin-top: 0.4rem;
@@ -615,6 +641,9 @@
     .footer-links a {
       font-size: 0.85rem;
       color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
     }
 
     /* WHATSAPP FAB */
@@ -635,9 +664,7 @@
       z-index: 60;
     }
 
-    .whatsapp-fab i {
-      font-size: 1.6rem;
-    }
+    .whatsapp-fab i { font-size: 1.6rem; }
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
@@ -666,9 +693,7 @@
         display: none;
       }
 
-      .nav-links.open {
-        display: flex;
-      }
+      .nav-links.open { display: flex; }
 
       .nav-cta {
         display: none;
@@ -686,9 +711,13 @@
       .container {
         padding: 0 1.2rem;
       }
+      .project-image img {
+        height: 200px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
@@ -742,18 +771,17 @@
           <div class="hero-metrics">
             <div>
               <span class="metric-number">+360 ha</span>
-              <span class="metric-label">relevadas para parques eólicos</span>
+              <span>relevadas para parques eólicos</span>
             </div>
             <div>
               <span class="metric-number">+10</span>
-              <span class="metric-label">proyectos mineros y viales</span>
+              <span>proyectos mineros y viales</span>
             </div>
           </div>
         </div>
 
         <div class="hero-media">
           <div class="hero-card">
-            <!-- Usá tu video real -->
             <video src="video/videotopo4d.mp4" autoplay muted loop playsinline></video>
           </div>
         </div>
@@ -774,10 +802,9 @@
             </p>
           </div>
           <p>
-            Nacimos de la tradición familiar en agrimensura y del trabajo directo
-            en obras, minas, parques industriales y desarrollos territoriales.
-            Combinamos métodos clásicos con modelos digitales del terreno, nubes
-            de puntos, SIG y fotogrametría aérea.
+            Nacido de la tradición familiar y del trabajo directo en obra y en mina,
+            el estudio combina métodos clásicos de la agrimensura con modelos digitales
+            del terreno, nubes de puntos, SIG y fotogrametría aérea.
           </p>
           <ul class="about-list">
             <li>
@@ -790,18 +817,18 @@
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span>Vuelos fotogramétricos con drones para grandes superficies, accesos complejos y zonas sensibles.</span>
+              <span>Vuelos fotogramétricos para grandes superficies, accesos complejos y zonas sensibles.</span>
             </li>
             <li>
               <i class="fas fa-check-circle"></i>
-              <span>Acompañamiento técnico en proyectos mineros, desde campañas de campo hasta documentación para ingeniería.</span>
+              <span>Apoyo topográfico y cartográfico para proyectos mineros e industriales.</span>
             </li>
           </ul>
         </div>
 
         <div class="card-light">
-          <!-- Podés reemplazar por una foto real de trabajo de campo -->
-          <img src="images/trabajo-topografia.jpg" alt="Relevamiento topográfico en campo">
+          <!-- Foto de trabajo de campo -->
+          <img src="images/trabajo.jpg" alt="Relevamiento topográfico en campo">
         </div>
       </div>
     </section>
@@ -812,9 +839,8 @@
         <header class="section-header">
           <h2>Servicios</h2>
           <p>
-            Soluciones integrales en agrimensura, topografía y fotogrametría a medida
-            de cada etapa del proyecto: desde el estudio de factibilidad hasta el
-            control de obra y la documentación final.
+            Soluciones en agrimensura, topografía y fotogrametría ajustadas a cada
+            etapa del proyecto: desde la factibilidad hasta el control de obra.
           </p>
         </header>
 
@@ -842,7 +868,7 @@
             <h3>Mensuras y catastro</h3>
             <p>
               Mensuras para subdivisión, unificación, prescripción adquisitiva,
-              loteos y regularización, con gestión ante el Catastro y organismos
+              loteos y regularización, con gestión ante Catastro y organismos
               competentes.
             </p>
           </article>
@@ -851,9 +877,8 @@
             <div class="card-icon"><i class="fas fa-road"></i></div>
             <h3>Obras viales y movimiento de suelo</h3>
             <p>
-              Relevamientos, replanteos, generación de modelos 3D y cómputos de
-              volúmenes para accesos, calles de servicio, carriles de aceleración
-              y plataformas industriales.
+              Relevamientos, replanteos, modelos 3D y cómputos de volúmenes para
+              accesos, calles de servicio, carriles de aceleración y plataformas industriales.
             </p>
           </article>
 
@@ -861,9 +886,8 @@
             <div class="card-icon"><i class="fas fa-mountain"></i></div>
             <h3>Proyectos mineros</h3>
             <p>
-              Apoyo topográfico para minería en altura: redes GNSS, vuelos
-              fotogramétricos, documentación para ingeniería, monitoreo de
-              pilas, botaderos y frentes de explotación.
+              Redes GNSS, vuelos fotogramétricos, documentación para ingeniería
+              y monitoreo de pilas, botaderos y frentes de explotación.
             </p>
           </article>
 
@@ -872,8 +896,8 @@
             <h3>SIG y documentación técnica</h3>
             <p>
               Integración de información geoespacial, elaboración de planos,
-              memorias técnicas, cartografía temática y reportes listos para
-              presentar ante clientes y organismos.
+              memorias técnicas y cartografía temática lista para presentar
+              ante clientes y organismos.
             </p>
           </article>
         </div>
@@ -886,16 +910,19 @@
         <header class="section-header">
           <h2>Proyectos destacados</h2>
           <p>
-            Algunos ejemplos de trabajos que integran relevamientos topográficos,
+            Algunos ejemplos de trabajos que combinan relevamientos topográficos,
             fotogrametría y documentación técnica para obra, industria y minería.
           </p>
         </header>
 
         <div class="cards-grid">
-          <article class="card">
+          <article class="card project-card">
             <span class="project-tag">
               <i class="fas fa-wind"></i> Parque eólico
             </span>
+            <div class="project-image">
+              <img src="images/eolico.jpg" alt="Relevamiento para parque eólico">
+            </div>
             <h3>Relevamiento y replanteo de lote para parque eólico</h3>
             <p>
               Red GNSS, relevamiento planialtimétrico y apoyo fotogramétrico
@@ -906,14 +933,17 @@
             <div class="project-meta">
               <span><i class="fas fa-map"></i> +360 ha</span>
               <span><i class="fas fa-location-dot"></i> Catamarca</span>
-              <span><i class="fas fa-file-alt"></i> MDT, curvas de nivel, planos</span>
+              <span><i class="fas fa-file-alt"></i> MDT, curvas, planos</span>
             </div>
           </article>
 
-          <article class="card">
+          <article class="card project-card">
             <span class="project-tag">
               <i class="fas fa-industry"></i> Industria
             </span>
+            <div class="project-image">
+              <img src="images/nave.jpg" alt="Replanteo de nave industrial">
+            </div>
             <h3>Replanteo de nave industrial y movimiento de suelo</h3>
             <p>
               Relevamiento inicial, definición de rasantes y replanteo para el
@@ -926,10 +956,13 @@
             </div>
           </article>
 
-          <article class="card">
+          <article class="card project-card">
             <span class="project-tag">
               <i class="fas fa-route"></i> Obra vial
             </span>
+            <div class="project-image">
+              <img src="images/vial.png" alt="Proyecto de apertura de calle">
+            </div>
             <h3>Proyecto de apertura de calle y carriles de conexión</h3>
             <p>
               Vuelo fotogramétrico, generación de modelo digital del terreno y
@@ -952,45 +985,45 @@
         <header class="section-header">
           <h2>Equipamiento y software</h2>
           <p>
-            Instrumental, drones y software profesional para garantizar
-            compatibilidad con los flujos de trabajo de ingeniería civil y minera.
+            Instrumental, drones y software profesional compatibles con los
+            flujos de trabajo de ingeniería civil y minera.
           </p>
         </header>
 
         <div class="equipment-grid">
           <article class="card equipment-card">
             <h3><i class="fas fa-location-crosshairs"></i> Instrumental de campo</h3>
-            <ul>
-              <li><i class="fas fa-circle"></i> Receptores GNSS geodésicos (modo base/rover).</li>
-              <li><i class="fas fa-circle"></i> Estación total para replanteos y controles finos.</li>
-              <li><i class="fas fa-circle"></i> Niveles ópticos y digitales para nivelación geométrica.</li>
+            <ul class="equipment-list">
+              <li><i class="fas fa-circle"></i><span><strong>GNSS geodésicos</strong>Modo base/rover para redes y replanteos.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>Estación total</strong>Replanteos, controles y verificación de obra.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>Niveles ópticos y digitales</strong>Nivelación geométrica y de control.</span></li>
             </ul>
           </article>
 
           <article class="card equipment-card">
             <h3><i class="fas fa-drone"></i> Drones y fotogrametría</h3>
-            <ul>
-              <li><i class="fas fa-circle"></i> Drones multirotor para mapeo y documentación de obra.</li>
-              <li><i class="fas fa-circle"></i> Planificación de vuelos con solapes y alturas adaptadas al proyecto.</li>
-              <li><i class="fas fa-circle"></i> Captura de imágenes para ortomosaicos, MDT/MDE y nubes de puntos.</li>
+            <ul class="equipment-list">
+              <li><i class="fas fa-circle"></i><span><strong>Drones multirotor</strong>Para mapeo, documentación de obra y monitoreo.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>Planificación de vuelos</strong>Solapes y alturas adaptadas a cada proyecto.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>Captura para modelos 3D</strong>Ortomosaicos, MDT/MDE y nubes de puntos.</span></li>
             </ul>
           </article>
 
           <article class="card equipment-card">
             <h3><i class="fas fa-desktop"></i> Software de procesamiento</h3>
-            <ul>
-              <li><i class="fas fa-circle"></i> Suites de fotogrametría para generación de ortomosaicos y modelos 3D.</li>
-              <li><i class="fas fa-circle"></i> Software CAD/BIM para diseño de obras lineales y documentación.</li>
-              <li><i class="fas fa-circle"></i> Sistemas de Información Geográfica (SIG) para análisis territorial.</li>
+            <ul class="equipment-list">
+              <li><i class="fas fa-circle"></i><span><strong>Fotogrametría</strong>Generación de ortomosaicos y modelos 3D.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>CAD para ingeniería</strong>Diseño de obras lineales y documentación.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>Sistemas de Información Geográfica</strong>Análisis territorial y cartografía temática.</span></li>
             </ul>
           </article>
 
           <article class="card equipment-card">
             <h3><i class="fas fa-truck-pickup"></i> Logística de campo</h3>
-            <ul>
-              <li><i class="fas fa-circle"></i> Operación en terreno urbano, rural y de altura.</li>
-              <li><i class="fas fa-circle"></i> Capacidad para campañas continuas de relevamiento.</li>
-              <li><i class="fas fa-circle"></i> Coordinación con equipos de obra, ingeniería y seguridad.</li>
+            <ul class="equipment-list">
+              <li><i class="fas fa-circle"></i><span><strong>Operación en altura</strong>Experiencia en campañas en zonas mineras.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>Terreno urbano y rural</strong>Relevamientos en entornos diversos.</span></li>
+              <li><i class="fas fa-circle"></i><span><strong>Coordinación en obra</strong>Trabajo integrado con ingeniería y seguridad.</span></li>
             </ul>
           </article>
         </div>
@@ -1004,21 +1037,20 @@
           <div class="section-header">
             <h2>Contacto</h2>
             <p>
-              Contá con un equipo que habla el idioma de la obra y de la minería.
               Dejanos los datos de tu proyecto y coordinamos una llamada para
-              analizar requerimientos y alcances.
+              definir requerimientos, alcances y entregables.
             </p>
           </div>
           <ul class="contact-highlights">
             <li><i class="fas fa-check"></i> Respuesta personalizada según el tipo de proyecto.</li>
-            <li><i class="fas fa-check"></i> Acompañamiento en la definición de alcance y entregables.</li>
+            <li><i class="fas fa-check"></i> Acompañamiento en la definición de alcance y documentación.</li>
             <li><i class="fas fa-check"></i> Operación en Catamarca y región NOA.</li>
           </ul>
 
           <div class="contact-info">
-            <p><strong>Teléfono / WhatsApp:</strong> +54 9 383 461 2365</p>
-            <p><strong>Email:</strong> topo4darg@gmail.com</p>
-            <p><strong>Ubicación:</strong> Catamarca, Argentina · Proyectos en toda la región NOA.</p>
+            <p><i class="fas fa-phone"></i><span><strong>Teléfono / WhatsApp:</strong> +54 9 383 461 2365</span></p>
+            <p><i class="fas fa-envelope"></i><span><strong>Email:</strong> topo4darg@gmail.com</span></p>
+            <p><i class="fas fa-location-dot"></i><span><strong>Ubicación:</strong> Catamarca, Argentina · Proyectos en toda la región NOA.</span></p>
           </div>
         </div>
 
