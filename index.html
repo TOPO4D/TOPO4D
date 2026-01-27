@@ -23,7 +23,7 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom Config with Dark Palette -->
+    <!-- Custom Config with Topo4D Brand Colors -->
     <script>
         tailwind.config = {
             theme: {
@@ -33,26 +33,23 @@
                         heading: ['Bai Jamjuree', 'sans-serif'],
                     },
                     colors: {
-                        black: '#050505',      // Main Background
-                        dark: '#121212',       // Surface/Cards
-                        secondary: '#4CAF50',  // Topo4D Green (Accent)
-                        secondaryHover: '#388E3C',
-                        textMain: '#ffffff',
-                        textMuted: '#a1a1aa',  // Zinc-400
-                        borderDark: '#27272a', // Zinc-800
+                        primary: '#1b4332', // Topo4D Dark Green
+                        secondary: '#4CAF50', // Topo4D Bright Green
+                        accent: '#eab308', // Yellow accent if needed
+                        dark: '#0f291e', // Very dark green
+                        light: '#f0f4f0', // Light greenish-white background
                     },
                     backgroundImage: {
                         'hero-pattern': "url('images/fondo1.png')",
                         'parallax-pattern': "url('images/fondo-parallax.jpg')",
-                        // Patrón sutil oscuro
-                        'topo-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234CAF50' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+                        'topo-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231b4332' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
                     }
                 }
             }
         }
     </script>
     <style>
-        .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); }
+        .text-shadow { text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); }
         
         /* Carousel Transitions */
         .carousel-image { transition: opacity 1s ease-in-out; }
@@ -72,23 +69,17 @@
         .whatsapp-float {
             animation: pulse-green 2s infinite;
         }
-        
-        /* Efecto Hover en Cards Dark */
-        .hover-card-dark:hover {
-            box-shadow: 0 10px 30px -10px rgba(76, 175, 80, 0.2); /* Sombra verde sutil */
-            border-color: #4CAF50;
-        }
     </style>
 </head>
-<body class="font-sans text-textMuted bg-black antialiased">
+<body class="font-sans text-slate-700 bg-white antialiased">
 
     <!-- HEADER PRINCIPAL -->
+    <!-- Script modificado abajo para bg-black/70 -->
     <header id="main-header" class="fixed w-full top-0 z-40 transition-all duration-300 bg-transparent text-white py-4">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <a href="#" class="flex items-center gap-2 group">
-                    <!-- Logo invertido para asegurar visibilidad en fondo oscuro si es necesario -->
                     <img src="images/logo.png" alt="Topo4D Logo" class="h-12 object-contain filter drop-shadow-lg">
                 </a>
 
@@ -99,7 +90,7 @@
                     <a href="#equipo" class="hover:text-secondary transition-colors">Equipo</a>
                     <a href="#servicios" class="hover:text-secondary transition-colors">Servicios</a>
                     <a href="#proyectos" class="hover:text-secondary transition-colors">Proyectos</a>
-                    <a href="#contacto" class="px-5 py-2 bg-secondary border border-secondary text-white rounded hover:bg-secondaryHover transition shadow-lg shadow-green-900/50">
+                    <a href="#contacto" class="px-5 py-2 bg-secondary/90 border border-secondary text-white rounded hover:bg-secondary transition shadow-lg">
                         Contacto
                     </a>
                 </nav>
@@ -123,25 +114,25 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="relative h-[100vh] flex items-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat">
-        <!-- Overlay Negro Intenso -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/40"></div>
+        <!-- Overlay con degradado verde oscuro -->
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/50 to-primary/30"></div>
         <div class="container mx-auto px-6 relative z-10 text-white pt-20">
             <div class="max-w-3xl animate-fade-in-up">
-                <div class="inline-block bg-secondary/90 px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest rounded-sm border border-secondary text-white">
+                <div class="inline-block bg-secondary px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest rounded-sm">
                     Soluciones de Alta Precisión
                 </div>
                 <h1 class="font-heading text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-shadow">
                     Ingeniería que transforma <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-white">el territorio.</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-white">el territorio.</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-8 font-light max-w-2xl text-shadow">
+                <p class="text-lg md:text-xl text-slate-100 mb-8 font-light max-w-2xl text-shadow">
                     Brindamos servicios integrales de Topografía, Fotogrametría y Agrimensura con tecnología de vanguardia para obras civiles, minería y catastro en Catamarca y la región.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#servicios" class="px-8 py-3 bg-secondary hover:bg-secondaryHover text-white font-semibold rounded shadow-lg shadow-green-900/50 transition text-center border border-secondary">
+                    <a href="#servicios" class="px-8 py-3 bg-secondary hover:bg-green-600 text-white font-semibold rounded shadow-lg transition text-center border border-secondary">
                         Nuestros Servicios
                     </a>
-                    <a href="#proyectos" class="px-8 py-3 border border-gray-400 hover:border-white hover:bg-white hover:text-black text-white font-semibold rounded shadow-lg transition text-center backdrop-blur-sm">
+                    <a href="#proyectos" class="px-8 py-3 border border-white hover:bg-white hover:text-primary text-white font-semibold rounded shadow-lg transition text-center backdrop-blur-sm">
                         Ver Portafolio
                     </a>
                 </div>
@@ -149,20 +140,20 @@
         </div>
     </section>
 
-    <!-- Intro / About Section (Dark) -->
-    <section id="nosotros" class="py-24 bg-black relative">
-        <div class="absolute inset-0 bg-topo-pattern opacity-30 pointer-events-none"></div>
+    <!-- Intro / About Section -->
+    <section id="nosotros" class="py-24 bg-white relative">
+        <div class="absolute inset-0 bg-topo-pattern opacity-40 pointer-events-none"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <!-- Columna Texto (Izquierda) -->
                 <div class="order-2 md:order-1">
                     <h4 class="text-secondary font-bold uppercase tracking-wide mb-2">Sobre Topo4D</h4>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mb-6">Experiencia, Formación y Tecnología.</h2>
-                    <p class="text-gray-400 mb-6 leading-relaxed text-lg">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">Experiencia, Formación y Tecnología.</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed text-lg">
                         Somos una empresa catamarqueña con proyección regional, dedicada a brindar soluciones técnicas de alta precisión. Entendemos que cada proyecto de ingeniería comienza con un conocimiento exacto del terreno.
                     </p>
-                    <p class="text-gray-400 mb-8 leading-relaxed">
+                    <p class="text-slate-600 mb-8 leading-relaxed">
                         Nuestra filosofía se basa en superar las expectativas del cliente, combinando la agrimensura tradicional con las últimas tecnologías en GNSS, fotogrametría y escaneo láser para ofrecer resultados eficientes.
                     </p>
                     
@@ -170,29 +161,29 @@
                         <div class="flex items-start">
                             <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
                             <div>
-                                <h5 class="font-bold text-white">Precisión Milimétrica</h5>
-                                <p class="text-sm text-gray-500">Equipos GNSS última gen.</p>
+                                <h5 class="font-bold text-primary">Precisión Milimétrica</h5>
+                                <p class="text-sm text-slate-500">Equipos GNSS última gen.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
                             <div>
-                                <h5 class="font-bold text-white">Tecnología Drone</h5>
-                                <p class="text-sm text-gray-500">Vuelos de alta resolución.</p>
+                                <h5 class="font-bold text-primary">Tecnología Drone</h5>
+                                <p class="text-sm text-slate-500">Vuelos de alta resolución.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
                             <div>
-                                <h5 class="font-bold text-white">Gestión GIS</h5>
-                                <p class="text-sm text-gray-500">Sistemas de información.</p>
+                                <h5 class="font-bold text-primary">Gestión GIS</h5>
+                                <p class="text-sm text-slate-500">Sistemas de información.</p>
                             </div>
                         </div>
                         <div class="flex items-start">
                             <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
                             <div>
-                                <h5 class="font-bold text-white">Soporte Técnico</h5>
-                                <p class="text-sm text-gray-500">Asesoramiento permanente.</p>
+                                <h5 class="font-bold text-primary">Soporte Técnico</h5>
+                                <p class="text-sm text-slate-500">Asesoramiento permanente.</p>
                             </div>
                         </div>
                     </div>
@@ -200,144 +191,142 @@
                 
                 <!-- Columna Imagen (Derecha) -->
                 <div class="order-1 md:order-2 h-[500px] w-full relative">
-                    <div id="carousel-container" class="relative w-full h-full rounded-sm overflow-hidden border border-borderDark shadow-2xl">
-                        <img src="images/trabajo.jpg" alt="Trabajo en Campo" class="carousel-image active absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
-                        <img src="images/trabajo1.jpg" alt="Trabajo con Drones" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
-                        <img src="images/trabajo2.jpg" alt="Trabajo de Oficina" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
-                        <img src="images/trabajo3.jpg" alt="Equipos de Medición" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
-                        
-                        <!-- Overlay degradado sutil sobre la imagen -->
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent pointer-events-none"></div>
+                    <div id="carousel-container" class="relative w-full h-full">
+                        <img src="images/trabajo.jpg" alt="Trabajo en Campo" class="carousel-image active absolute inset-0 w-full h-full object-cover rounded-sm" onerror="this.style.display='none'">
+                        <img src="images/trabajo1.jpg" alt="Trabajo con Drones" class="carousel-image inactive absolute inset-0 w-full h-full object-cover rounded-sm">
+                        <img src="images/trabajo2.jpg" alt="Trabajo de Oficina" class="carousel-image inactive absolute inset-0 w-full h-full object-cover rounded-sm">
+                        <img src="images/trabajo3.jpg" alt="Equipos de Medición" class="carousel-image inactive absolute inset-0 w-full h-full object-cover rounded-sm">
                     </div>
-                    <!-- Elementos decorativos oscuros -->
-                    <div class="absolute -bottom-4 -left-4 bg-secondary/10 border border-secondary/20 w-32 h-32 -z-10 rounded-full"></div>
-                    <div class="absolute -top-4 -right-4 bg-white/5 border border-white/10 w-24 h-24 -z-10 rounded-full"></div>
+                    <div class="absolute -bottom-6 -left-6 bg-secondary w-24 h-24 -z-10 rounded-full opacity-20"></div>
+                    <div class="absolute -top-6 -right-6 bg-primary w-32 h-32 -z-10 rounded-full opacity-10"></div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Team Section -->
-    <section id="equipo" class="py-16 bg-dark border-y border-borderDark">
+    <section id="equipo" class="py-16 bg-light">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <span class="text-secondary font-bold uppercase tracking-wider text-sm">Profesionales</span>
-                <h2 class="font-heading text-3xl font-bold text-white mt-2">Nuestro Equipo</h2>
+                <h2 class="font-heading text-3xl font-bold text-primary mt-2">Nuestro Equipo</h2>
             </div>
             
             <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
                 <!-- Member 1 -->
                 <div class="flex flex-col items-center text-center group">
-                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-black shadow-xl shadow-black/50 mb-6 group-hover:border-secondary transition-colors duration-300 relative grayscale group-hover:grayscale-0">
-                        <img src="images/rostro1.jpg" alt="Ingeniero Agrimensor" class="w-full h-full object-cover transition-transform duration-500 transform group-hover:scale-110" onerror="this.src='https://via.placeholder.com/400x400/333/999?text=Rostro+1'">
+                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hover:border-secondary transition-colors duration-300 relative">
+                        <img src="images/rostro1.jpg" alt="Ingeniero Agrimensor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400x400?text=Rostro+1'">
                     </div>
-                    <h3 class="text-xl font-bold text-white">Jorge Luis Soria</h3>
+                    <h3 class="text-xl font-bold text-primary">Jorge Luis Soria</h3>
                     <p class="text-secondary font-semibold text-sm uppercase tracking-wide mt-1">Ingeniero Agrimensor</p>
-                    <p class="text-gray-500 text-sm mt-3 px-4">Presidente de Federación Argentina de Agrimensura, experto en propiedad inmueble.</p>
+                    <p class="text-slate-500 text-sm mt-3 px-4">Presidente de Federación Argentina de Agrimensura, experto en propiedad inmueble.</p>
                 </div>
 
                 <!-- Member 2 -->
                 <div class="flex flex-col items-center text-center group">
-                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-black shadow-xl shadow-black/50 mb-6 group-hover:border-secondary transition-colors duration-300 relative grayscale group-hover:grayscale-0">
-                        <img src="images/rostro2.jpg" alt="Ingeniero Agrimensor" class="w-full h-full object-cover transition-transform duration-500 transform group-hover:scale-110" onerror="this.src='https://via.placeholder.com/400x400/333/999?text=Rostro+2'">
+                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hover:border-secondary transition-colors duration-300 relative">
+                        <img src="images/rostro2.jpg" alt="Ingeniero Agrimensor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400x400?text=Rostro+2'">
                     </div>
-                    <h3 class="text-xl font-bold text-white">Jorge Luis Soria (H)</h3>
+                    <h3 class="text-xl font-bold text-primary">Jorge Luis Soria (H)</h3>
                     <p class="text-secondary font-semibold text-sm uppercase tracking-wide mt-1">Ingeniero Agrimensor</p>
-                    <p class="text-gray-500 text-sm mt-3 px-4">Manejo de proyectos mineros.</p>
+                    <p class="text-slate-500 text-sm mt-3 px-4">Manejo de proyectos mineros.</p>
                 </div>
 
                 <!-- Member 3 -->
                 <div class="flex flex-col items-center text-center group">
-                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-black shadow-xl shadow-black/50 mb-6 group-hover:border-secondary transition-colors duration-300 relative grayscale group-hover:grayscale-0">
-                        <img src="images/rostro3.jpg" alt="Topógrafo" class="w-full h-full object-cover transition-transform duration-500 transform group-hover:scale-110" onerror="this.src='https://via.placeholder.com/400x400/333/999?text=Rostro+3'">
+                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hover:border-secondary transition-colors duration-300 relative">
+                        <img src="images/rostro3.jpg" alt="Topógrafo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400x400?text=Rostro+3'">
                     </div>
-                    <h3 class="text-xl font-bold text-white">Javier Nicolás Soria</h3>
+                    <h3 class="text-xl font-bold text-primary">Javier Nicolás Soria</h3>
                     <p class="text-secondary font-semibold text-sm uppercase tracking-wide mt-1">Topógrafo</p>
-                    <p class="text-gray-500 text-sm mt-3 px-4">Especialista en fotogrametria con drone y topografia minera.</p>
+                    <p class="text-slate-500 text-sm mt-3 px-4">Especialista en fotogrametria con drone y topografia minera.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="py-20 bg-black relative">
+    <!-- Services Section (Grid Style) -->
+    <section id="servicios" class="py-20 bg-white relative">
+        <div class="absolute inset-0 bg-topo-pattern opacity-30 pointer-events-none"></div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16 max-w-3xl mx-auto">
                 <span class="text-secondary font-bold uppercase tracking-wider text-sm">Lo que hacemos</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-2">Soluciones Integrales</h2>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2">Soluciones Integrales</h2>
                 <div class="w-16 h-1 bg-secondary mx-auto mt-4 rounded"></div>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Cards Dark -->
-                <div class="bg-dark p-8 rounded-lg shadow-lg border border-borderDark hover-card-dark transition-all duration-300 group hover:-translate-y-2">
-                    <div class="w-14 h-14 bg-black border border-borderDark rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-satellite-dish text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Topografía de Precisión</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Planimetría y altimetría detallada con Estaciones Totales y GNSS.</p>
+                <!-- Service Cards -->
+                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-satellite-dish text-2xl"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Topografía de Precisión</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Planimetría y altimetría detallada con Estaciones Totales y GNSS.</p>
                 </div>
-                <div class="bg-dark p-8 rounded-lg shadow-lg border border-borderDark hover-card-dark transition-all duration-300 group hover:-translate-y-2">
-                    <div class="w-14 h-14 bg-black border border-borderDark rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-plane-departure text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Fotogrametría con Drones</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Vuelos de alta resolución para ortomosaicos y modelos digitales.</p>
+                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-plane-departure text-2xl"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Fotogrametría con Drones</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Vuelos de alta resolución para ortomosaicos y modelos digitales.</p>
                 </div>
-                <div class="bg-dark p-8 rounded-lg shadow-lg border border-borderDark hover-card-dark transition-all duration-300 group hover:-translate-y-2">
-                    <div class="w-14 h-14 bg-black border border-borderDark rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-map-marked-alt text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Mensuras y Catastro</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Gestión completa ante catastro. Subdivisiones y unificaciones.</p>
+                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-map-marked-alt text-2xl"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Mensuras y Catastro</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Gestión completa ante catastro. Subdivisiones y unificaciones.</p>
                 </div>
-                <div class="bg-dark p-8 rounded-lg shadow-lg border border-borderDark hover-card-dark transition-all duration-300 group hover:-translate-y-2">
-                    <div class="w-14 h-14 bg-black border border-borderDark rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-balance-scale text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Asesoramiento Legal</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Consultoría experta en propiedad inmueble y títulos.</p>
+                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-balance-scale text-2xl"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Asesoramiento Legal</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Consultoría experta en propiedad inmueble y títulos.</p>
                 </div>
-                <div class="bg-dark p-8 rounded-lg shadow-lg border border-borderDark hover-card-dark transition-all duration-300 group hover:-translate-y-2">
-                    <div class="w-14 h-14 bg-black border border-borderDark rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-cube text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Escaneo Láser 3D</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Captura de realidad para BIM y documentación As-Built.</p>
+                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-cube text-2xl"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Escaneo Láser 3D</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Captura de realidad para BIM y documentación As-Built.</p>
                 </div>
-                <div class="bg-dark p-8 rounded-lg shadow-lg border border-borderDark hover-card-dark transition-all duration-300 group hover:-translate-y-2">
-                    <div class="w-14 h-14 bg-black border border-borderDark rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-city text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-3">Desarrollos Urbanísticos</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Diseño y planificación de loteos y apertura de calles.</p>
+                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
+                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-city text-2xl"></i></div>
+                    <h3 class="text-xl font-bold text-primary mb-3">Desarrollos Urbanísticos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Diseño y planificación de loteos y apertura de calles.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Parallax / CTA Section -->
-    <section class="py-24 bg-parallax-pattern bg-cover bg-fixed relative border-y border-black">
-        <div class="absolute inset-0 bg-black/85"></div>
+    <section class="py-24 bg-parallax-pattern bg-cover bg-fixed relative">
+        <div class="absolute inset-0 bg-primary/90"></div>
         <div class="container mx-auto px-6 relative z-10 text-center">
             <h2 class="font-heading text-3xl md:text-5xl font-bold text-white mb-6">Compromiso con la Calidad</h2>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+            <!-- Texto restaurado -->
+            <p class="text-lg md:text-xl text-slate-100 mb-10 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-md">
                 Acompañamos a nuestros clientes desde la fase conceptual hasta la ejecución final, asegurando datos confiables para la toma de decisiones.
             </p>
             <div class="flex flex-wrap justify-center gap-12 text-white">
                 <div class="text-center">
                     <span class="block text-4xl font-bold text-secondary mb-2">+150</span>
-                    <span class="text-sm uppercase tracking-wide opacity-80 text-gray-400">Proyectos Realizados</span>
+                    <span class="text-sm uppercase tracking-wide opacity-80">Proyectos Realizados</span>
                 </div>
                 <div class="text-center">
                     <span class="block text-4xl font-bold text-secondary mb-2">100%</span>
-                    <span class="text-sm uppercase tracking-wide opacity-80 text-gray-400">Satisfacción Cliente</span>
+                    <span class="text-sm uppercase tracking-wide opacity-80">Satisfacción Cliente</span>
                 </div>
                 <div class="text-center">
                     <span class="block text-4xl font-bold text-secondary mb-2">+40</span>
-                    <span class="text-sm uppercase tracking-wide opacity-80 text-gray-400">Años de Experiencia</span>
+                    <span class="text-sm uppercase tracking-wide opacity-80">Años de Experiencia</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section (Dark) -->
-    <section id="proyectos" class="py-20 bg-dark overflow-hidden">
+    <!-- Projects Section (Aligned Text) -->
+    <section id="proyectos" class="py-20 bg-light overflow-hidden">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-8">
                 <div>
                     <span class="text-secondary font-bold uppercase tracking-wider text-sm">Nuestro Portfolio</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-2">Proyectos Destacados</h2>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2">Proyectos Destacados</h2>
                 </div>
-                <div class="flex md:hidden gap-2 text-secondary opacity-70">
+                <div class="flex md:hidden gap-2 text-primary opacity-50">
                     <i class="fas fa-arrow-left"></i>
                     <span class="text-xs uppercase font-bold tracking-widest">Deslizar</span>
                     <i class="fas fa-arrow-right"></i>
@@ -347,68 +336,68 @@
             <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory no-scrollbar md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:gap-8 md:snap-none">
                 
                 <!-- Project 1 -->
-                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg border border-borderDark aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
-                    <img src="images/nave.jpg" alt="Proyecto Industrial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" onerror="this.src='https://via.placeholder.com/600x400/222/555?text=Industria'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-100 transition-opacity duration-300"></div>
+                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
+                    <img src="images/nave.jpg" alt="Proyecto Industrial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Industria'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-90 transition-opacity duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 text-left w-full">
                         <span class="text-secondary text-xs font-bold uppercase mb-2 block">Industria</span>
                         <h3 class="text-white text-xl font-bold">Proyecto para la Industria</h3>
-                        <p class="text-gray-300 text-sm mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-left">Construcción de nave industrial, replanteo integral e implantación de estructuras.</p>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-left">Construcción de nave industrial, replanteo integral e implantación de estructuras.</p>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg border border-borderDark aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
-                    <img src="images/vial.png" alt="Proyectos Viales" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" onerror="this.src='https://via.placeholder.com/600x400/222/555?text=Vial'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-100 transition-opacity duration-300"></div>
+                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
+                    <img src="images/vial.png" alt="Proyectos Viales" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Vial'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-90 transition-opacity duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 text-left w-full">
                         <span class="text-secondary text-xs font-bold uppercase mb-2 block">Vialidad</span>
                         <h3 class="text-white text-xl font-bold">Proyectos Viales</h3>
-                        <p class="text-gray-300 text-sm mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-left">Diseño de apertura de calle, carriles de aceleración y conexión a rotonda.</p>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-left">Diseño de apertura de calle, carriles de aceleración y conexión a rotonda.</p>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg border border-borderDark aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
-                    <img src="images/minera.jpg" alt="Proyecto Minero" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" onerror="this.src='https://via.placeholder.com/600x400/222/555?text=Mineria'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-100 transition-opacity duration-300"></div>
+                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
+                    <img src="images/minera.jpg" alt="Proyecto Minero" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Mineria'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-90 transition-opacity duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 text-left w-full">
                         <span class="text-secondary text-xs font-bold uppercase mb-2 block">Minería</span>
                         <h3 class="text-white text-xl font-bold">Trabajos Sector Minero</h3>
-                        <p class="text-gray-300 text-sm mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-left">Vuelos fotogramétricos y topografía de detalle en zonas de alta sensibilidad.</p>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-left">Vuelos fotogramétricos y topografía de detalle en zonas de alta sensibilidad.</p>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg border border-borderDark aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
-                    <img src="images/eolico.jpg" alt="Parque Eólico" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" onerror="this.src='https://via.placeholder.com/600x400/222/555?text=Eolico'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-100 transition-opacity duration-300"></div>
+                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
+                    <img src="images/eolico.jpg" alt="Parque Eólico" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Eolico'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-90 transition-opacity duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 text-left w-full">
                         <span class="text-secondary text-xs font-bold uppercase mb-2 block">Grandes Superficies</span>
                         <h3 class="text-white text-xl font-bold">Estudios Industriales</h3>
-                        <p class="text-gray-300 text-sm mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-left">Replanteo en lotes >360 ha, coordenadas precisas y estudio de títulos.</p>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-left">Replanteo en lotes >360 ha, coordenadas precisas y estudio de títulos.</p>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg border border-borderDark aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
-                    <img src="images/catastro.jpg" alt="Catastro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" onerror="this.src='https://via.placeholder.com/600x400/222/555?text=Catastro'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-100 transition-opacity duration-300"></div>
+                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
+                    <img src="images/catastro.jpg" alt="Catastro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Catastro'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-90 transition-opacity duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 text-left w-full">
                         <span class="text-secondary text-xs font-bold uppercase mb-2 block">Catastro</span>
                         <h3 class="text-white text-xl font-bold">Relevamiento Catastral</h3>
-                        <p class="text-gray-300 text-sm mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-left">Levantamiento de mejoras e inclusión en catastro provincial.</p>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-left">Levantamiento de mejoras e inclusión en catastro provincial.</p>
                     </div>
                 </div>
 
                 <!-- Project 6 -->
-                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg border border-borderDark aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
-                    <img src="images/loteo.jpg" alt="Diseño Loteo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70 group-hover:opacity-100" onerror="this.src='https://via.placeholder.com/600x400/222/555?text=Loteo'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-100 transition-opacity duration-300"></div>
+                <div class="min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer md:min-w-0 md:snap-align-none md:shrink">
+                    <img src="images/loteo.jpg" alt="Diseño Loteo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Loteo'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark/95 via-dark/40 to-transparent opacity-90 transition-opacity duration-300"></div>
                     <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300 text-left w-full">
                         <span class="text-secondary text-xs font-bold uppercase mb-2 block">Urbanismo</span>
                         <h3 class="text-white text-xl font-bold">Diseño de Loteos</h3>
-                        <p class="text-gray-300 text-sm mt-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 text-left">Planificación, trazado de calles y división de parcelas.</p>
+                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-left">Planificación, trazado de calles y división de parcelas.</p>
                     </div>
                 </div>
 
@@ -417,93 +406,96 @@
     </section>
 
     <!-- Clients Section -->
-    <section class="py-10 bg-black border-y border-borderDark">
+    <section class="py-10 bg-white border-y border-slate-200">
         <div class="container mx-auto px-6 text-center">
-             <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-8">Nuestros Clientes</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 hover:opacity-100 transition-all duration-500">
-                <!-- Filtro Invert para que los logos se vean blancos sobre negro -->
-                <div class="h-16 flex items-center justify-center filter brightness-0 invert"><img src="images/cliente1.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80/000/fff?text=Cliente+1'"></div>
-                <div class="h-16 flex items-center justify-center filter brightness-0 invert"><img src="images/cliente2.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80/000/fff?text=Cliente+2'"></div>
-                <div class="h-16 flex items-center justify-center filter brightness-0 invert"><img src="images/cliente3.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80/000/fff?text=Cliente+3'"></div>
-                <div class="h-16 flex items-center justify-center filter brightness-0 invert"><img src="images/cliente4.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80/000/fff?text=Cliente+4'"></div>
-                <div class="h-16 flex items-center justify-center filter brightness-0 invert"><img src="images/cliente5.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80/000/fff?text=Cliente+5'"></div>
+             <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8">Nuestros Clientes</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+                <div class="h-16 flex items-center justify-center"><img src="images/cliente1.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+1'"></div>
+                <div class="h-16 flex items-center justify-center"><img src="images/cliente2.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+2'"></div>
+                <div class="h-16 flex items-center justify-center"><img src="images/cliente3.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+3'"></div>
+                <div class="h-16 flex items-center justify-center"><img src="images/cliente4.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+4'"></div>
+                <div class="h-16 flex items-center justify-center"><img src="images/cliente5.png" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+5'"></div>
             </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION (Dark) -->
-    <section id="contacto" class="py-20 bg-dark relative overflow-hidden">
+    <!-- CONTACT SECTION -->
+    <section id="contacto" class="py-20 bg-light relative overflow-hidden">
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-primary/5 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
                 <span class="text-secondary font-bold uppercase tracking-wider text-sm">Contáctanos</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-white mt-2">Hablemos de tu Proyecto</h2>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2">Hablemos de tu Proyecto</h2>
             </div>
             
-            <div class="grid md:grid-cols-2 gap-12 bg-black rounded-xl shadow-2xl overflow-hidden border border-borderDark">
+            <div class="grid md:grid-cols-2 gap-12 bg-white rounded-xl shadow-2xl overflow-hidden border border-slate-100">
                 <!-- Información de Contacto -->
-                <div class="bg-gradient-to-br from-black to-gray-900 p-10 text-white flex flex-col justify-between relative overflow-hidden">
+                <div class="bg-primary p-10 text-white flex flex-col justify-between relative overflow-hidden">
                     <div class="relative z-10">
-                        <h3 class="font-heading text-2xl font-bold mb-6 text-secondary">Información Directa</h3>
+                        <h3 class="font-heading text-2xl font-bold mb-6">Información Directa</h3>
                         
                         <div class="space-y-6">
                             <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-secondary/10 border border-secondary flex items-center justify-center flex-shrink-0 text-secondary"><i class="fas fa-phone"></i></div>
-                                <span class="font-medium text-gray-300">+54 9 383 461 2365</span>
+                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-lg"><i class="fas fa-phone"></i></div>
+                                <span class="font-medium">+54 9 383 461 2365</span>
                             </div>
                             <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-secondary/10 border border-secondary flex items-center justify-center flex-shrink-0 text-secondary"><i class="fas fa-envelope"></i></div>
-                                <a href="mailto:topo4darg@gmail.com" class="hover:text-secondary transition font-medium text-gray-300">topo4darg@gmail.com</a>
+                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-lg"><i class="fas fa-envelope"></i></div>
+                                <a href="mailto:topo4darg@gmail.com" class="hover:text-secondary transition font-medium">topo4darg@gmail.com</a>
                             </div>
                             <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-secondary/10 border border-secondary flex items-center justify-center flex-shrink-0 text-secondary"><i class="fas fa-map-marker-alt"></i></div>
-                                <span class="font-medium text-gray-300">San F. del Valle de Catamarca, Argentina</span>
+                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-lg"><i class="fas fa-map-marker-alt"></i></div>
+                                <span class="font-medium">San F. del Valle de Catamarca, Argentina</span>
                             </div>
                             <div class="flex items-center space-x-4">
-                                <div class="w-10 h-10 rounded-full bg-secondary/10 border border-secondary flex items-center justify-center flex-shrink-0 text-secondary"><i class="fas fa-clock"></i></div>
-                                <span class="font-medium text-gray-300">Lunes a Viernes: 8:00 - 18:00 hs</span>
+                                <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-lg"><i class="fas fa-clock"></i></div>
+                                <span class="font-medium">Lunes a Viernes: 8:00 - 18:00 hs</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="relative z-10 mt-12">
-                        <h4 class="font-bold mb-4 text-sm uppercase tracking-wide opacity-80 text-gray-400">Síguenos:</h4>
+                        <h4 class="font-bold mb-4 text-sm uppercase tracking-wide opacity-80">Síguenos:</h4>
                         <div class="flex space-x-4">
-                            <a href="https://www.instagram.com/topo4d.ar/?hl=es-la" target="_blank" class="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:bg-secondary hover:border-secondary hover:text-white transition bg-transparent text-gray-400"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.instagram.com/topo4d.ar/?hl=es-la" target="_blank" class="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center hover:bg-secondary hover:border-secondary transition bg-white/10 backdrop-blur-sm"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
+
+                    <svg class="absolute bottom-0 right-0 opacity-10" width="200" height="200" viewBox="0 0 200 200">
+                        <path fill="#fff" d="M45.7,-76.3C58.9,-69.3,69.1,-57.6,76.5,-44.7C83.9,-31.8,88.5,-17.7,86.7,-4.3C84.9,9.1,76.7,21.8,68.2,33.4C59.7,45,50.9,55.5,40.1,63.1C29.3,70.7,16.5,75.4,3.2,70.9C-10.1,66.4,-23.9,52.7,-37.3,42.4C-50.7,32.1,-63.7,25.2,-71.1,14.7C-78.5,4.2,-80.3,-9.9,-75.3,-21.8C-70.3,-33.7,-58.5,-43.4,-46.7,-50.9C-34.9,-58.4,-23.1,-63.7,-10.8,-62.1C1.5,-60.5,32.5,-83.3,45.7,-76.3Z" transform="translate(100 100)" />
+                    </svg>
                 </div>
 
-                <!-- Formulario Dark -->
+                <!-- Formulario -->
                 <div class="p-10">
                     <form action="https://formsubmit.co/topo4darg@gmail.com" method="POST" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-sm font-bold text-gray-400 mb-2">Nombre Completo</label>
-                                <input type="text" name="name" class="w-full px-4 py-3 bg-dark border border-borderDark text-white rounded-lg focus:outline-none focus:border-secondary transition placeholder-gray-600" placeholder="Tu nombre" required>
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Nombre Completo</label>
+                                <input type="text" name="name" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-secondary transition" placeholder="Tu nombre" required>
                             </div>
                             <div>
-                                <label class="block text-sm font-bold text-gray-400 mb-2">Teléfono</label>
-                                <input type="tel" name="phone" class="w-full px-4 py-3 bg-dark border border-borderDark text-white rounded-lg focus:outline-none focus:border-secondary transition placeholder-gray-600" placeholder="+54 9 383 ...">
+                                <label class="block text-sm font-bold text-slate-700 mb-2">Teléfono</label>
+                                <input type="tel" name="phone" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-secondary transition" placeholder="+54 9 383 ...">
                             </div>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-400 mb-2">Correo Electrónico</label>
-                            <input type="email" name="email" class="w-full px-4 py-3 bg-dark border border-borderDark text-white rounded-lg focus:outline-none focus:border-secondary transition placeholder-gray-600" placeholder="tu@email.com" required>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Correo Electrónico</label>
+                            <input type="email" name="email" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-secondary transition" placeholder="tu@email.com" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-400 mb-2">Asunto</label>
-                            <input type="text" name="subject" class="w-full px-4 py-3 bg-dark border border-borderDark text-white rounded-lg focus:outline-none focus:border-secondary transition placeholder-gray-600" placeholder="Ej: Consulta sobre mensura" required>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Asunto</label>
+                            <input type="text" name="subject" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-secondary transition" placeholder="Ej: Consulta sobre mensura" required>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-400 mb-2">Mensaje</label>
-                            <textarea name="message" rows="4" class="w-full px-4 py-3 bg-dark border border-borderDark text-white rounded-lg focus:outline-none focus:border-secondary transition placeholder-gray-600" placeholder="Describe brevemente tu necesidad..." required></textarea>
+                            <label class="block text-sm font-bold text-slate-700 mb-2">Mensaje</label>
+                            <textarea name="message" rows="4" class="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:border-secondary transition" placeholder="Describe brevemente tu necesidad..." required></textarea>
                         </div>
                         <input type="hidden" name="_next" value="https://TOPO4D.github.io/TOPO4D/gracias.html">
                         <input type="text" name="_honey" style="display:none">
-                        <button type="submit" class="w-full bg-secondary text-white font-bold py-3 rounded-lg hover:bg-secondaryHover transition shadow-lg shadow-green-900/30 transform hover:-translate-y-1">
+                        <button type="submit" class="w-full bg-secondary text-white font-bold py-3 rounded-lg hover:bg-green-600 transition shadow-lg transform hover:-translate-y-1">
                             Enviar Consulta
                         </button>
                     </form>
@@ -513,14 +505,13 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black text-gray-500 py-12 border-t border-borderDark">
+    <footer class="bg-primary text-slate-400 py-12 border-t border-slate-800">
         <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 mb-8">
             <div class="col-span-1 md:col-span-2">
                  <div class="flex items-center gap-2 mb-4">
-                    <!-- Logo blanco sobre negro -->
-                    <img src="images/logo.png" alt="Topo4D Logo" class="h-10 object-contain filter brightness-0 invert opacity-90">
+                    <img src="images/logo.png" alt="Topo4D Logo" class="h-10 object-contain brightness-0 invert opacity-80">
                 </div>
-                <p class="text-sm leading-relaxed max-w-sm text-gray-400">
+                <p class="text-sm leading-relaxed max-w-sm">
                     Empresa dedicada a brindar soluciones integrales en agrimensura y topografía de alta precisión en Catamarca y la Región NOA.
                 </p>
             </div>
@@ -541,7 +532,7 @@
                 </ul>
             </div>
         </div>
-        <div class="container mx-auto px-6 pt-8 border-t border-borderDark text-center text-xs">
+        <div class="container mx-auto px-6 pt-8 border-t border-slate-800 text-center text-xs">
             <p>&copy; <span id="current-year"></span> TOPO4D. Todos los derechos reservados.</p>
         </div>
     </footer>
@@ -553,11 +544,11 @@
 
     <!-- JS Logic -->
     <script>
-        // Header Scroll Logic (Dark Mode: Black with 70% opacity)
+        // Header Scroll Logic (Negro con transparencia del 70%)
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                // Scrolled: Black transparent
+                // Scrolled: Black semi-transparent (70% opacity)
                 header.classList.remove('bg-transparent', 'py-4');
                 header.classList.add('bg-black/70', 'backdrop-blur-md', 'shadow-md', 'py-2');
             } else {
