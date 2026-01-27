@@ -1,643 +1,647 @@
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Topo4D | Agrimensura, Topografía y Fotogrametría</title>
-    <meta name="description" content="Servicios de alta precisión en Agrimensura, Topografía y Fotogrametría en Catamarca. Tecnología de vanguardia para minería, industria y catastro.">
+!DOCTYPE html
+html lang=es class=scroll-smooth
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleTopo4D  Agrimensura, Topografía y Fotogrametríatitle
+    meta name=description content=Servicios de alta precisión en Agrimensura, Topografía y Fotogrametría en Catamarca. Tecnología de vanguardia para minería, industria y catastro.
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    !-- Tailwind CSS --
+    script src=httpscdn.tailwindcss.comscript
     
-    <!-- Google Fonts: Inter (Clean, Engineering look) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    !-- Google Fonts Inter (Clean, Engineering look) --
+    link href=httpsfonts.googleapis.comcss2family=Interwght@300;400;600;700;800&display=swap rel=stylesheet
     
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    !-- FontAwesome for Icons --
+    link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsfont-awesome6.4.0cssall.min.css
 
-    <!-- Custom Config mimicking corporate engineering styles -->
-    <script>
+    !-- Custom Config mimicking corporate engineering styles --
+    script
         tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
+            theme {
+                extend {
+                    fontFamily {
+                        sans ['Inter', 'sans-serif'],
                     },
-                    colors: {
-                        primary: '#0f172a', // Deep slate/navy (Corporate)
-                        secondary: '#0284c7', // Tech Blue (Active elements)
-                        accent: '#eab308', // Construction/Engineering Yellow (Subtle highlights)
-                        light: '#f8fafc',
-                        dark: '#1e293b',
+                    colors {
+                        primary '#0f172a',  Deep slatenavy (Corporate)
+                        secondary '#0284c7',  Tech Blue (Active elements)
+                        accent '#eab308',  ConstructionEngineering Yellow (Subtle highlights)
+                        light '#f8fafc',
+                        dark '#1e293b',
                     },
-                    backgroundImage: {
-                        'hero-pattern': "url('images/trabajo.png')",
-                        'parallax-pattern': "url('images/fondo-parallax.jpg')",
+                    backgroundImage {
+                        'hero-pattern' url('imagesfondo1.png'),
+                        'parallax-pattern' url('imagesfondo-parallax.jpg'),
                     }
                 }
             }
         }
-    </script>
-    <style>
-        /* Custom Utilities */
+    script
+    style
+         Custom Utilities 
         .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .hover-lift:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .hover-lifthover {
+            transform translateY(-5px);
+            box-shadow 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-        /* Fade transition for carousel */
+         Fade transition for carousel 
         .carousel-image {
-            transition: opacity 1s ease-in-out;
+            transition opacity 1s ease-in-out;
         }
         .carousel-image.active {
-            opacity: 1;
+            opacity 1;
         }
         .carousel-image.inactive {
-            opacity: 0;
+            opacity 0;
         }
         
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+         Hide scrollbar for Chrome, Safari and Opera 
+        .no-scrollbar-webkit-scrollbar {
+            display none;
         }
-        /* Hide scrollbar for IE, Edge and Firefox */
+         Hide scrollbar for IE, Edge and Firefox 
         .no-scrollbar {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            -ms-overflow-style none;   IE and Edge 
+            scrollbar-width none;   Firefox 
         }
-    </style>
-</head>
-<body class="font-sans text-slate-700 bg-white antialiased">
+    style
+head
+body class=font-sans text-slate-700 bg-white antialiased
 
-    <!-- Top Bar (Engineering Style - Info First) -->
-    <div class="bg-primary text-slate-300 py-2 text-sm hidden md:block border-b border-slate-700 relative z-50">
-        <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex space-x-6">
-                <span><i class="fas fa-map-marker-alt mr-2 text-secondary"></i>Catamarca, Argentina</span>
-                <span><i class="fas fa-envelope mr-2 text-secondary"></i>topo4darg@gmail.com</span>
-            </div>
-            <div class="flex space-x-4">
-                <a href="#" class="hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/topo4d.ar/" target="_blank" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/javiernicolassoria/" target="_blank" class="hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-    </div>
+    !-- Top Bar (Engineering Style - Info First) --
+    div class=bg-primary text-slate-300 py-2 text-sm hidden mdblock border-b border-slate-700 relative z-50
+        div class=container mx-auto px-6 flex justify-between items-center
+            div class=flex space-x-6
+                spani class=fas fa-map-marker-alt mr-2 text-secondaryiCatamarca, Argentinaspan
+                spani class=fas fa-envelope mr-2 text-secondaryitopo4darg@gmail.comspan
+            div
+            div class=flex space-x-4
+                a href=# class=hovertext-white transitioni class=fab fa-facebook-fia
+                a href=httpswww.instagram.comtopo4d.ar target=_blank class=hovertext-white transitioni class=fab fa-instagramia
+                a href=httpswww.linkedin.cominjaviernicolassoria target=_blank class=hovertext-white transitioni class=fab fa-linkedin-inia
+            div
+        div
+    div
 
-    <!-- Header / Navigation (Transparent to White on Scroll) -->
-    <header id="main-header" class="fixed w-full top-0 md:top-[37px] z-40 transition-all duration-300 bg-transparent text-white">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <a href="#" class="flex items-center gap-2 group">
-                    <!-- LOGO LOCAL -->
-                    <img src="images/logo.png" alt="Topo4D Logo" class="h-12 object-contain filter drop-shadow-lg">
-                </a>
+    !-- Header  Navigation (Transparent to White on Scroll) --
+    header id=main-header class=fixed w-full top-0 mdtop-[37px] z-40 transition-all duration-300 bg-transparent text-white
+        div class=container mx-auto px-6 py-4
+            div class=flex justify-between items-center
+                !-- Logo --
+                a href=# class=flex items-center gap-2 group
+                    !-- LOGO LOCAL --
+                    img src=imageslogo.png alt=Topo4D Logo class=h-12 object-contain filter drop-shadow-lg
+                a
 
-                <!-- Desktop Nav -->
-                <nav id="nav-menu" class="hidden md:flex space-x-8 items-center font-medium">
-                    <a href="#inicio" class="hover:text-secondary transition-colors">Inicio</a>
-                    <a href="#nosotros" class="hover:text-secondary transition-colors">Nosotros</a>
-                    <a href="#equipo" class="hover:text-secondary transition-colors">Equipo</a>
-                    <a href="#servicios" class="hover:text-secondary transition-colors">Servicios</a>
-                    <a href="#proyectos" class="hover:text-secondary transition-colors">Proyectos</a>
-                    <a href="#contacto" class="px-5 py-2 bg-secondary text-white rounded hover:bg-sky-700 transition shadow-lg shadow-sky-200 border border-transparent">
+                !-- Desktop Nav --
+                nav id=nav-menu class=hidden mdflex space-x-8 items-center font-medium
+                    a href=#inicio class=hovertext-secondary transition-colorsInicioa
+                    a href=#nosotros class=hovertext-secondary transition-colorsNosotrosa
+                    a href=#equipo class=hovertext-secondary transition-colorsEquipoa
+                    a href=#servicios class=hovertext-secondary transition-colorsServiciosa
+                    a href=#proyectos class=hovertext-secondary transition-colorsProyectosa
+                    a href=#contacto class=px-5 py-2 bg-secondary text-white rounded hoverbg-sky-700 transition shadow-lg shadow-sky-200 border border-transparent
                         Contacto
-                    </a>
-                </nav>
+                    a
+                nav
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-btn" class="md:hidden text-2xl focus:outline-none" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 text-slate-700 absolute w-full left-0 top-full shadow-lg">
-            <a href="#inicio" class="block px-6 py-3 hover:bg-slate-100">Inicio</a>
-            <a href="#nosotros" class="block px-6 py-3 hover:bg-slate-100">Nosotros</a>
-            <a href="#equipo" class="block px-6 py-3 hover:bg-slate-100">Equipo</a>
-            <a href="#servicios" class="block px-6 py-3 hover:bg-slate-100">Servicios</a>
-            <a href="#proyectos" class="block px-6 py-3 hover:bg-slate-100">Proyectos</a>
-            <a href="#contacto" class="block px-6 py-3 text-secondary font-bold hover:bg-slate-100">Contacto</a>
-        </div>
-    </header>
+                !-- Mobile Menu Button --
+                button id=mobile-btn class=mdhidden text-2xl focusoutline-none onclick=toggleMobileMenu()
+                    i class=fas fa-barsi
+                button
+            div
+        div
+        !-- Mobile Menu --
+        div id=mobile-menu class=hidden mdhidden bg-white border-t border-slate-200 text-slate-700 absolute w-full left-0 top-full shadow-lg
+            a href=#inicio class=block px-6 py-3 hoverbg-slate-100Inicioa
+            a href=#nosotros class=block px-6 py-3 hoverbg-slate-100Nosotrosa
+            a href=#equipo class=block px-6 py-3 hoverbg-slate-100Equipoa
+            a href=#servicios class=block px-6 py-3 hoverbg-slate-100Serviciosa
+            a href=#proyectos class=block px-6 py-3 hoverbg-slate-100Proyectosa
+            a href=#contacto class=block px-6 py-3 text-secondary font-bold hoverbg-slate-100Contactoa
+        div
+    header
 
-    <!-- Hero Section -->
-    <section id="inicio" class="relative h-[100vh] flex items-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat -mt-[37px] md:-mt-[0px]">
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/50 to-slate-900/30"></div>
-        <div class="container mx-auto px-6 relative z-10 text-white pt-20">
-            <div class="max-w-3xl animate-fade-in-up">
-                <div class="inline-block bg-secondary px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest rounded-sm">
+    !-- Hero Section --
+    section id=inicio class=relative h-[100vh] flex items-center bg-hero-pattern bg-cover bg-center bg-fixed bg-no-repeat -mt-[37px] md-mt-[0px]
+        div class=absolute inset-0 bg-gradient-to-r from-slate-90090 via-slate-90050 to-slate-90030div
+        div class=container mx-auto px-6 relative z-10 text-white pt-20
+            div class=max-w-3xl animate-fade-in-up
+                div class=inline-block bg-secondary px-3 py-1 mb-4 text-xs font-bold uppercase tracking-widest rounded-sm
                     Soluciones de Alta Precisión
-                </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-shadow">
-                    Ingeniería que transforma <br/>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-white">el territorio.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-slate-300 mb-8 font-light max-w-2xl text-shadow">
+                div
+                h1 class=text-4xl mdtext-6xl font-extrabold mb-6 leading-tight text-shadow
+                    Ingeniería que transforma br
+                    span class=text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-whiteel territorio.span
+                h1
+                p class=text-lg mdtext-xl text-slate-300 mb-8 font-light max-w-2xl text-shadow
                     Brindamos servicios integrales de Topografía, Fotogrametría y Agrimensura con tecnología de vanguardia para obras civiles, minería y catastro en Catamarca y la región.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#servicios" class="px-8 py-3 bg-secondary hover:bg-sky-600 text-white font-semibold rounded shadow-lg transition text-center border border-secondary">
+                p
+                div class=flex flex-col smflex-row gap-4
+                    a href=#servicios class=px-8 py-3 bg-secondary hoverbg-sky-600 text-white font-semibold rounded shadow-lg transition text-center border border-secondary
                         Nuestros Servicios
-                    </a>
-                    <a href="#proyectos" class="px-8 py-3 border border-white hover:bg-white hover:text-primary text-white font-semibold rounded shadow-lg transition text-center backdrop-blur-sm">
+                    a
+                    a href=#proyectos class=px-8 py-3 border border-white hoverbg-white hovertext-primary text-white font-semibold rounded shadow-lg transition text-center backdrop-blur-sm
                         Ver Portafolio
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+                    a
+                div
+            div
+        div
+    section
 
-    <!-- Intro / About Section (Style: Clean Corporate) -->
-    <section id="nosotros" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1">
-                    <h4 class="text-secondary font-bold uppercase tracking-wide mb-2">Sobre Topo4D</h4>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">Experiencia, Formación y Tecnología.</h2>
-                    <p class="text-slate-600 mb-6 leading-relaxed">
+    !-- Intro  About Section (Style Clean Corporate) --
+    section id=nosotros class=py-20 bg-white
+        div class=container mx-auto px-6
+            div class=grid mdgrid-cols-2 gap-12 items-center
+                div class=order-2 mdorder-1
+                    h4 class=text-secondary font-bold uppercase tracking-wide mb-2Sobre Topo4Dh4
+                    h2 class=text-3xl mdtext-4xl font-bold text-primary mb-6Experiencia, Formación y Tecnología.h2
+                    p class=text-slate-600 mb-6 leading-relaxed
                         Somos una empresa catamarqueña con proyección regional, dedicada a brindar soluciones técnicas de alta precisión. Entendemos que cada proyecto de ingeniería comienza con un conocimiento exacto del terreno.
-                    </p>
-                    <p class="text-slate-600 mb-8 leading-relaxed">
+                    p
+                    p class=text-slate-600 mb-8 leading-relaxed
                         Nuestra filosofía se basa en superar las expectativas del cliente, combinando la agrimensura tradicional con las últimas tecnologías en fotogrametría y escaneo láser para ofrecer resultados eficientes antes, durante y después de la obra.
-                    </p>
+                    p
                     
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
-                            <div>
-                                <h5 class="font-bold text-primary">Precisión Milimétrica</h5>
-                                <p class="text-sm text-slate-500">Equipos GNSS de última generación.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
-                            <div>
-                                <h5 class="font-bold text-primary">Tecnología Drone</h5>
-                                <p class="text-sm text-slate-500">Relevamientos aéreos rápidos y seguros.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
-                            <div>
-                                <h5 class="font-bold text-primary">Gestión de Datos GIS</h5>
-                                <p class="text-sm text-slate-500">Sistemas de información geográfica.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <i class="fas fa-check-circle text-secondary mt-1 mr-3"></i>
-                            <div>
-                                <h5 class="font-bold text-primary">Soporte Técnico</h5>
-                                <p class="text-sm text-slate-500">Asesoramiento integral permanente.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    div class=grid grid-cols-2 gap-6
+                        div class=flex items-start
+                            i class=fas fa-check-circle text-secondary mt-1 mr-3i
+                            div
+                                h5 class=font-bold text-primaryPrecisión Milimétricah5
+                                p class=text-sm text-slate-500Equipos GNSS de última generación.p
+                            div
+                        div
+                        div class=flex items-start
+                            i class=fas fa-check-circle text-secondary mt-1 mr-3i
+                            div
+                                h5 class=font-bold text-primaryTecnología Droneh5
+                                p class=text-sm text-slate-500Relevamientos aéreos rápidos y seguros.p
+                            div
+                        div
+                        div class=flex items-start
+                            i class=fas fa-check-circle text-secondary mt-1 mr-3i
+                            div
+                                h5 class=font-bold text-primaryGestión de Datos GISh5
+                                p class=text-sm text-slate-500Sistemas de información geográfica.p
+                            div
+                        div
+                        div class=flex items-start
+                            i class=fas fa-check-circle text-secondary mt-1 mr-3i
+                            div
+                                h5 class=font-bold text-primarySoporte Técnicoh5
+                                p class=text-sm text-slate-500Asesoramiento integral permanente.p
+                            div
+                        div
+                    div
+                div
                 
-                <!-- Image Carousel -->
-                <div class="order-1 md:order-2 relative h-[400px] w-full rounded-lg shadow-2xl overflow-hidden group">
-                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-slate-100 rounded-full -z-10"></div>
-                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/10 rounded-full -z-10"></div>
+                !-- Image Carousel --
+                div class=order-1 mdorder-2 relative h-[400px] w-full rounded-lg shadow-2xl overflow-hidden group
+                    div class=absolute -top-4 -left-4 w-24 h-24 bg-slate-100 rounded-full -z-10div
+                    div class=absolute -bottom-4 -right-4 w-32 h-32 bg-secondary10 rounded-full -z-10div
                     
-                    <!-- Carousel Images (LOCAL PATHS) -->
-                    <div id="carousel-container" class="relative w-full h-full">
-                        <img src="images/carrusel-1.jpg" alt="Topógrafo 1" class="carousel-image active absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML+='<div class=\'flex items-center justify-center h-full bg-gray-200 text-gray-500\'>Imagen no encontrada: images/carrusel-1.jpg</div>'">
-                        <img src="images/carrusel-2.jpg" alt="Topógrafo 2" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
-                        <img src="images/carrusel-3.jpg" alt="Topógrafo 3" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
-                        <img src="images/carrusel-4.jpg" alt="Topógrafo 4" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
-                    </div>
+                    !-- Carousel Images (LOCAL PATHS UPDATED) --
+                    div id=carousel-container class=relative w-full h-full
+                        img src=imagestrabajo.jpg alt=Trabajo en Campo class=carousel-image active absolute inset-0 w-full h-full object-cover onerror=this.style.display='none'; this.parentElement.innerHTML+='div class='flex items-center justify-center h-full bg-gray-200 text-gray-500'Imagen no encontrada imagestrabajo.jpgdiv'
+                        img src=imagestrabajo1.jpg alt=Trabajo con Drones class=carousel-image inactive absolute inset-0 w-full h-full object-cover
+                        img src=imagestrabajo2.jpg alt=Trabajo de Oficina class=carousel-image inactive absolute inset-0 w-full h-full object-cover
+                        img src=imagestrabajo3.jpg alt=Equipos de Medición class=carousel-image inactive absolute inset-0 w-full h-full object-cover
+                    div
                     
-                    <!-- Overlay gradient for text readability if needed -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    !-- Overlay gradient for text readability if needed --
+                    div class=absolute inset-0 bg-gradient-to-t from-primary30 to-transparentdiv
+                div
+            div
+        div
+    section
 
-    <!-- Team Section -->
-    <section id="equipo" class="py-16 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="text-secondary font-bold uppercase tracking-wider text-sm">Profesionales</span>
-                <h2 class="text-3xl font-bold text-primary mt-2">Nuestro Equipo</h2>
-            </div>
+    !-- Team Section --
+    section id=equipo class=py-16 bg-slate-50
+        div class=container mx-auto px-6
+            div class=text-center mb-12
+                span class=text-secondary font-bold uppercase tracking-wider text-smProfesionalesspan
+                h2 class=text-3xl font-bold text-primary mt-2Nuestro Equipoh2
+            div
             
-            <div class="grid md:grid-cols-3 gap-10 max-w-5xl mx-auto">
-                <!-- Member 1 -->
-                <div class="flex flex-col items-center text-center group">
-                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hover:border-secondary transition-colors duration-300 relative">
-                        <!-- IMAGEN LOCAL ACTUALIZADA -->
-                        <img src="images/rostro1.jpg" alt="Ingeniero Agrimensor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400x400?text=Rostro+1'">
-                    </div>
-                    <h3 class="text-xl font-bold text-primary">Ing. Javier Nicolás Soria</h3>
-                    <p class="text-secondary font-semibold text-sm uppercase tracking-wide mt-1">Ingeniero Agrimensor</p>
-                    <p class="text-slate-500 text-sm mt-3 px-4">Especialista en Catastro y Mensuras Rurales.</p>
-                </div>
+            div class=grid mdgrid-cols-3 gap-10 max-w-5xl mx-auto
+                !-- Member 1 --
+                div class=flex flex-col items-center text-center group
+                    div class=w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hoverborder-secondary transition-colors duration-300 relative
+                        !-- IMAGEN LOCAL ACTUALIZADA --
+                        img src=imagesrostro1.jpg alt=Ingeniero Agrimensor class=w-full h-full object-cover group-hoverscale-110 transition-transform duration-500 onerror=this.src='httpsvia.placeholder.com400x400text=Rostro+1'
+                    div
+                    h3 class=text-xl font-bold text-primaryIng. Javier Nicolás Soriah3
+                    p class=text-secondary font-semibold text-sm uppercase tracking-wide mt-1Ingeniero Agrimensorp
+                    p class=text-slate-500 text-sm mt-3 px-4Especialista en Catastro y Mensuras Rurales.p
+                div
 
-                <!-- Member 2 -->
-                <div class="flex flex-col items-center text-center group">
-                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hover:border-secondary transition-colors duration-300 relative">
-                         <!-- IMAGEN LOCAL ACTUALIZADA -->
-                        <img src="images/rostro2.jpg" alt="Ingeniero Agrimensor" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400x400?text=Rostro+2'">
-                    </div>
-                    <h3 class="text-xl font-bold text-primary">Ing. Socio Agrimensor</h3>
-                    <p class="text-secondary font-semibold text-sm uppercase tracking-wide mt-1">Ingeniero Agrimensor</p>
-                    <p class="text-slate-500 text-sm mt-3 px-4">Experto en Geodesia y Legislación Territorial.</p>
-                </div>
+                !-- Member 2 --
+                div class=flex flex-col items-center text-center group
+                    div class=w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hoverborder-secondary transition-colors duration-300 relative
+                         !-- IMAGEN LOCAL ACTUALIZADA --
+                        img src=imagesrostro2.jpg alt=Ingeniero Agrimensor class=w-full h-full object-cover group-hoverscale-110 transition-transform duration-500 onerror=this.src='httpsvia.placeholder.com400x400text=Rostro+2'
+                    div
+                    h3 class=text-xl font-bold text-primaryIng. Socio Agrimensorh3
+                    p class=text-secondary font-semibold text-sm uppercase tracking-wide mt-1Ingeniero Agrimensorp
+                    p class=text-slate-500 text-sm mt-3 px-4Experto en Geodesia y Legislación Territorial.p
+                div
 
-                <!-- Member 3 -->
-                <div class="flex flex-col items-center text-center group">
-                    <div class="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hover:border-secondary transition-colors duration-300 relative">
-                         <!-- IMAGEN LOCAL ACTUALIZADA -->
-                        <img src="images/rostro3.jpg" alt="Topógrafo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://via.placeholder.com/400x400?text=Rostro+3'">
-                    </div>
-                    <h3 class="text-xl font-bold text-primary">Tec. Topógrafo</h3>
-                    <p class="text-secondary font-semibold text-sm uppercase tracking-wide mt-1">Topógrafo</p>
-                    <p class="text-slate-500 text-sm mt-3 px-4">Responsable de Campo y Relevamientos 3D.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                !-- Member 3 --
+                div class=flex flex-col items-center text-center group
+                    div class=w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-lg mb-6 group-hoverborder-secondary transition-colors duration-300 relative
+                         !-- IMAGEN LOCAL ACTUALIZADA --
+                        img src=imagesrostro3.jpg alt=Topógrafo class=w-full h-full object-cover group-hoverscale-110 transition-transform duration-500 onerror=this.src='httpsvia.placeholder.com400x400text=Rostro+3'
+                    div
+                    h3 class=text-xl font-bold text-primaryTec. Topógrafoh3
+                    p class=text-secondary font-semibold text-sm uppercase tracking-wide mt-1Topógrafop
+                    p class=text-slate-500 text-sm mt-3 px-4Responsable de Campo y Relevamientos 3D.p
+                div
+            div
+        div
+    section
 
-    <!-- Services Section (Grid Style) -->
-    <section id="servicios" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <span class="text-secondary font-bold uppercase tracking-wider text-sm">Lo que hacemos</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Soluciones Integrales en Agrimensura e Ingeniería</h2>
-                <div class="w-16 h-1 bg-secondary mx-auto mt-4 rounded"></div>
-            </div>
+    !-- Services Section (Grid Style) --
+    section id=servicios class=py-20 bg-white
+        div class=container mx-auto px-6
+            div class=text-center mb-16 max-w-3xl mx-auto
+                span class=text-secondary font-bold uppercase tracking-wider text-smLo que hacemosspan
+                h2 class=text-3xl mdtext-4xl font-bold text-primary mt-2Soluciones Integrales en Agrimensura e Ingenieríah2
+                div class=w-16 h-1 bg-secondary mx-auto mt-4 roundeddiv
+            div
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm">
-                        <i class="fas fa-satellite-dish text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Topografía de Precisión</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+            div class=grid mdgrid-cols-2 lggrid-cols-3 gap-8
+                !-- Service 1 --
+                div class=bg-slate-50 p-8 rounded-lg shadow-sm hovershadow-xl transition-all duration-300 border-t-4 border-transparent hoverborder-secondary group
+                    div class=w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hoverbg-secondary group-hovertext-white transition-colors shadow-sm
+                        i class=fas fa-satellite-dish text-2xli
+                    div
+                    h3 class=text-xl font-bold text-primary mb-3Topografía de Precisiónh3
+                    p class=text-slate-600 text-sm leading-relaxed mb-4
                         Planimetría y altimetría detallada con Estaciones Totales y GNSS. Ideal para obras civiles, caminos y proyectos urbanos y rurales.
-                    </p>
-                    <a href="#" class="text-secondary font-semibold text-sm hover:underline">Leer más <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                </div>
+                    p
+                    a href=# class=text-secondary font-semibold text-sm hoverunderlineLeer más i class=fas fa-arrow-right ml-1 text-xsia
+                div
 
-                <!-- Service 2 -->
-                <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm">
-                        <i class="fas fa-plane-departure text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Fotogrametría con Drones</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                        Vuelos de alta resolución para generar ortomosaicos, modelos digitales (MDE/MDT) y nubes de puntos. Inspección de grandes extensiones.
-                    </p>
-                    <a href="#" class="text-secondary font-semibold text-sm hover:underline">Leer más <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                </div>
+                !-- Service 2 --
+                div class=bg-slate-50 p-8 rounded-lg shadow-sm hovershadow-xl transition-all duration-300 border-t-4 border-transparent hoverborder-secondary group
+                    div class=w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hoverbg-secondary group-hovertext-white transition-colors shadow-sm
+                        i class=fas fa-plane-departure text-2xli
+                    div
+                    h3 class=text-xl font-bold text-primary mb-3Fotogrametría con Dronesh3
+                    p class=text-slate-600 text-sm leading-relaxed mb-4
+                        Vuelos de alta resolución para generar ortomosaicos, modelos digitales (MDEMDT) y nubes de puntos. Inspección de grandes extensiones.
+                    p
+                    a href=# class=text-secondary font-semibold text-sm hoverunderlineLeer más i class=fas fa-arrow-right ml-1 text-xsia
+                div
 
-                <!-- Service 3 -->
-                <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm">
-                        <i class="fas fa-map-marked-alt text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Mensuras y Catastro</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                !-- Service 3 --
+                div class=bg-slate-50 p-8 rounded-lg shadow-sm hovershadow-xl transition-all duration-300 border-t-4 border-transparent hoverborder-secondary group
+                    div class=w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hoverbg-secondary group-hovertext-white transition-colors shadow-sm
+                        i class=fas fa-map-marked-alt text-2xli
+                    div
+                    h3 class=text-xl font-bold text-primary mb-3Mensuras y Catastroh3
+                    p class=text-slate-600 text-sm leading-relaxed mb-4
                         Gestión completa ante el catastro provincial. Mensuras para subdivisiones, unificaciones, prescripciones adquisitivas y loteos.
-                    </p>
-                    <a href="#" class="text-secondary font-semibold text-sm hover:underline">Leer más <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                </div>
+                    p
+                    a href=# class=text-secondary font-semibold text-sm hoverunderlineLeer más i class=fas fa-arrow-right ml-1 text-xsia
+                div
 
-                <!-- Service 4 -->
-                <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm">
-                        <i class="fas fa-balance-scale text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Asesoramiento Legal</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                !-- Service 4 --
+                div class=bg-slate-50 p-8 rounded-lg shadow-sm hovershadow-xl transition-all duration-300 border-t-4 border-transparent hoverborder-secondary group
+                    div class=w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hoverbg-secondary group-hovertext-white transition-colors shadow-sm
+                        i class=fas fa-balance-scale text-2xli
+                    div
+                    h3 class=text-xl font-bold text-primary mb-3Asesoramiento Legalh3
+                    p class=text-slate-600 text-sm leading-relaxed mb-4
                         Consultoría experta en propiedad inmueble. Estudio de títulos, regularización dominial y gestión de documentación técnica.
-                    </p>
-                    <a href="#" class="text-secondary font-semibold text-sm hover:underline">Leer más <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                </div>
+                    p
+                    a href=# class=text-secondary font-semibold text-sm hoverunderlineLeer más i class=fas fa-arrow-right ml-1 text-xsia
+                div
 
-                <!-- Service 5 -->
-                <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm">
-                        <i class="fas fa-cube text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Escaneo Láser 3D</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                !-- Service 5 --
+                div class=bg-slate-50 p-8 rounded-lg shadow-sm hovershadow-xl transition-all duration-300 border-t-4 border-transparent hoverborder-secondary group
+                    div class=w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hoverbg-secondary group-hovertext-white transition-colors shadow-sm
+                        i class=fas fa-cube text-2xli
+                    div
+                    h3 class=text-xl font-bold text-primary mb-3Escaneo Láser 3Dh3
+                    p class=text-slate-600 text-sm leading-relaxed mb-4
                         Captura de realidad digital para modelado BIM, industria y arquitectura. Documentación conforme a obra (As-Built).
-                    </p>
-                    <a href="#" class="text-secondary font-semibold text-sm hover:underline">Leer más <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                </div>
+                    p
+                    a href=# class=text-secondary font-semibold text-sm hoverunderlineLeer más i class=fas fa-arrow-right ml-1 text-xsia
+                div
 
-                <!-- Service 6 -->
-                <div class="bg-slate-50 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm">
-                        <i class="fas fa-city text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Desarrollos Urbanísticos</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                !-- Service 6 --
+                div class=bg-slate-50 p-8 rounded-lg shadow-sm hovershadow-xl transition-all duration-300 border-t-4 border-transparent hoverborder-secondary group
+                    div class=w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hoverbg-secondary group-hovertext-white transition-colors shadow-sm
+                        i class=fas fa-city text-2xli
+                    div
+                    h3 class=text-xl font-bold text-primary mb-3Desarrollos Urbanísticosh3
+                    p class=text-slate-600 text-sm leading-relaxed mb-4
                         Diseño y planificación de loteos. Apertura de calles, nivelación y cálculo de movimientos de suelo.
-                    </p>
-                    <a href="#" class="text-secondary font-semibold text-sm hover:underline">Leer más <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+                    p
+                    a href=# class=text-secondary font-semibold text-sm hoverunderlineLeer más i class=fas fa-arrow-right ml-1 text-xsia
+                div
+            div
+        div
+    section
 
-    <!-- Parallax / CTA Section -->
-    <section class="py-24 bg-parallax-pattern bg-cover bg-fixed relative">
-        <div class="absolute inset-0 bg-primary/80"></div>
-        <div class="container mx-auto px-6 relative z-10 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Compromiso con la Calidad</h2>
-            <p class="text-slate-300 text-lg max-w-2xl mx-auto mb-10">
+    !-- Parallax  CTA Section --
+    section class=py-24 bg-parallax-pattern bg-cover bg-fixed relative
+        div class=absolute inset-0 bg-primary80div
+        div class=container mx-auto px-6 relative z-10 text-center
+            h2 class=text-3xl mdtext-5xl font-bold text-white mb-6Compromiso con la Calidadh2
+            p class=text-slate-300 text-lg max-w-2xl mx-auto mb-10
                 Acompañamos a nuestros clientes desde la fase conceptual hasta la ejecución final, asegurando datos confiables para la toma de decisiones.
-            </p>
-            <div class="flex flex-wrap justify-center gap-12 text-white">
-                <div class="text-center">
-                    <span class="block text-4xl font-bold text-secondary mb-2">+150</span>
-                    <span class="text-sm uppercase tracking-wide opacity-80">Proyectos Realizados</span>
-                </div>
-                <div class="text-center">
-                    <span class="block text-4xl font-bold text-secondary mb-2">100%</span>
-                    <span class="text-sm uppercase tracking-wide opacity-80">Satisfacción Cliente</span>
-                </div>
-                <div class="text-center">
-                    <span class="block text-4xl font-bold text-secondary mb-2">+40</span>
-                    <span class="text-sm uppercase tracking-wide opacity-80">Años de Experiencia</span>
-                </div>
-            </div>
-        </div>
-    </section>
+            p
+            div class=flex flex-wrap justify-center gap-12 text-white
+                div class=text-center
+                    span class=block text-4xl font-bold text-secondary mb-2+150span
+                    span class=text-sm uppercase tracking-wide opacity-80Proyectos Realizadosspan
+                div
+                div class=text-center
+                    span class=block text-4xl font-bold text-secondary mb-2100%span
+                    span class=text-sm uppercase tracking-wide opacity-80Satisfacción Clientespan
+                div
+                div class=text-center
+                    span class=block text-4xl font-bold text-secondary mb-2+40span
+                    span class=text-sm uppercase tracking-wide opacity-80Años de Experienciaspan
+                div
+            div
+        div
+    section
 
-    <!-- Projects Section (Horizontal Slider Update) -->
-    <section id="proyectos" class="py-20 bg-slate-50 overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-8">
-                <div>
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Nuestro Portfolio</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2">Proyectos Recientes</h2>
-                </div>
-                <div class="hidden md:flex gap-2 text-primary opacity-50">
-                    <i class="fas fa-arrow-left"></i>
-                    <span class="text-xs uppercase font-bold tracking-widest">Deslizar</span>
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
+    !-- Projects Section (Updated Static Grid on PC, Slider on Mobile) --
+    section id=proyectos class=py-20 bg-slate-50 overflow-hidden
+        div class=container mx-auto px-6
+            div class=flex flex-col mdflex-row justify-between items-end mb-8
+                div
+                    span class=text-secondary font-bold uppercase tracking-wider text-smNuestro Portfoliospan
+                    h2 class=text-3xl mdtext-4xl font-bold text-primary mt-2Proyectos Recientesh2
+                div
+                !-- Only show slide hint on mobile --
+                div class=flex mdhidden gap-2 text-primary opacity-50
+                    i class=fas fa-arrow-lefti
+                    span class=text-xs uppercase font-bold tracking-widestDeslizarspan
+                    i class=fas fa-arrow-righti
+                div
+            div
 
-            <!-- Horizontal Slider Container -->
-            <!-- pb-8 ensures space for potential scrollbar interaction if visible on some devices -->
-            <div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory no-scrollbar">
+            !-- 
+               Responsive Layout Logic
+               Mobile flex overflow-x-auto (horizontal scroll)
+               Desktop (md) grid grid-cols-3 (static grid)
+            --
+            div class=flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory no-scrollbar mdgrid mdgrid-cols-3 mdoverflow-visible mdpb-0 mdgap-8 mdsnap-none
                 
-                <!-- Project 1 -->
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer shrink-0">
-                    <img src="images/proyecto-mineria.jpg" alt="Proyecto Minero" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Proyecto+Mineria'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <span class="text-secondary text-xs font-bold uppercase mb-2 block">Minería</span>
-                        <h3 class="text-white text-xl font-bold">Relevamiento Topográfico Minero</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                !-- Project 1 --
+                div class=min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[43] cursor-pointer mdmin-w-0 mdsnap-align-none mdshrink
+                    img src=imagesmineria.jpg alt=Proyecto Minero class=w-full h-full object-cover transition-transform duration-500 group-hoverscale-110 onerror=this.src='httpsvia.placeholder.com600x400text=Proyecto+Mineria'
+                    div class=absolute inset-0 bg-gradient-to-t from-black80 via-black20 to-transparent opacity-90 transition-opacity duration-300div
+                    div class=absolute bottom-0 left-0 p-6 translate-y-2 group-hovertranslate-y-0 transition-transform duration-300
+                        span class=text-secondary text-xs font-bold uppercase mb-2 blockMineríaspan
+                        h3 class=text-white text-xl font-boldRelevamiento Topográfico Mineroh3
+                        p class=text-slate-300 text-sm mt-2 opacity-0 group-hoveropacity-100 transition-opacity duration-300
                             Vuelos fotogramétricos y topografía de detalle en zonas de alta sensibilidad.
-                        </p>
-                    </div>
-                </div>
+                        p
+                    div
+                div
 
-                <!-- Project 2 -->
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer shrink-0">
-                    <img src="images/proyecto-industria.jpg" alt="Proyecto Industrial" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Proyecto+Industria'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <span class="text-secondary text-xs font-bold uppercase mb-2 block">Industria</span>
-                        <h3 class="text-white text-xl font-bold">Nave Industrial y Estructuras</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                !-- Project 2 --
+                div class=min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[43] cursor-pointer mdmin-w-0 mdsnap-align-none mdshrink
+                    img src=imagesnave.jpg alt=Proyecto Industrial class=w-full h-full object-cover transition-transform duration-500 group-hoverscale-110 onerror=this.src='httpsvia.placeholder.com600x400text=Proyecto+Industria'
+                    div class=absolute inset-0 bg-gradient-to-t from-black80 via-black20 to-transparent opacity-90 transition-opacity duration-300div
+                    div class=absolute bottom-0 left-0 p-6 translate-y-2 group-hovertranslate-y-0 transition-transform duration-300
+                        span class=text-secondary text-xs font-bold uppercase mb-2 blockIndustriaspan
+                        h3 class=text-white text-xl font-boldNave Industrial y Estructurash3
+                        p class=text-slate-300 text-sm mt-2 opacity-0 group-hoveropacity-100 transition-opacity duration-300
                             Replanteo integral e implantación de fundaciones y estructuras metálicas.
-                        </p>
-                    </div>
-                </div>
+                        p
+                    div
+                div
 
-                <!-- Project 3 -->
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer shrink-0">
-                    <img src="images/proyecto-urbanismo.jpg" alt="Proyecto Catastro" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Proyecto+Urbanismo'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <span class="text-secondary text-xs font-bold uppercase mb-2 block">Urbanismo</span>
-                        <h3 class="text-white text-xl font-bold">Diseño de Loteo Urbano</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                !-- Project 3 --
+                div class=min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[43] cursor-pointer mdmin-w-0 mdsnap-align-none mdshrink
+                    img src=imagesloteo.jpg alt=Proyecto Catastro class=w-full h-full object-cover transition-transform duration-500 group-hoverscale-110 onerror=this.src='httpsvia.placeholder.com600x400text=Proyecto+Urbanismo'
+                    div class=absolute inset-0 bg-gradient-to-t from-black80 via-black20 to-transparent opacity-90 transition-opacity duration-300div
+                    div class=absolute bottom-0 left-0 p-6 translate-y-2 group-hovertranslate-y-0 transition-transform duration-300
+                        span class=text-secondary text-xs font-bold uppercase mb-2 blockUrbanismospan
+                        h3 class=text-white text-xl font-boldDiseño de Loteo Urbanoh3
+                        p class=text-slate-300 text-sm mt-2 opacity-0 group-hoveropacity-100 transition-opacity duration-300
                             Planificación, trazado de calles y división de parcelas para nuevo desarrollo.
-                        </p>
-                    </div>
-                </div>
+                        p
+                    div
+                div
 
-                <!-- Project 4 (New) -->
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer shrink-0">
-                    <img src="images/proyecto-edificios.jpg" alt="Control Verticalidad" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Control+Verticalidad'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <span class="text-secondary text-xs font-bold uppercase mb-2 block">Control de Obra</span>
-                        <h3 class="text-white text-xl font-bold">Control de Verticalidad</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                !-- Project 4 --
+                div class=min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[43] cursor-pointer mdmin-w-0 mdsnap-align-none mdshrink
+                    img src=imagesproyecto-edificios.jpg alt=Control Verticalidad class=w-full h-full object-cover transition-transform duration-500 group-hoverscale-110 onerror=this.src='httpsvia.placeholder.com600x400text=Control+Verticalidad'
+                    div class=absolute inset-0 bg-gradient-to-t from-black80 via-black20 to-transparent opacity-90 transition-opacity duration-300div
+                    div class=absolute bottom-0 left-0 p-6 translate-y-2 group-hovertranslate-y-0 transition-transform duration-300
+                        span class=text-secondary text-xs font-bold uppercase mb-2 blockControl de Obraspan
+                        h3 class=text-white text-xl font-boldControl de Verticalidadh3
+                        p class=text-slate-300 text-sm mt-2 opacity-0 group-hoveropacity-100 transition-opacity duration-300
                             Verificación de desplomes en edificios de gran altura con Estación Total Robótica.
-                        </p>
-                    </div>
-                </div>
+                        p
+                    div
+                div
 
-                <!-- Project 5 (New) -->
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer shrink-0">
-                    <img src="images/proyecto-gasoducto.jpg" alt="Gasoducto" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Gasoducto'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <span class="text-secondary text-xs font-bold uppercase mb-2 block">Infraestructura</span>
-                        <h3 class="text-white text-xl font-bold">Replanteo de Gasoducto</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                !-- Project 5 --
+                div class=min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[43] cursor-pointer mdmin-w-0 mdsnap-align-none mdshrink
+                    img src=imagesproyecto-gasoducto.jpg alt=Gasoducto class=w-full h-full object-cover transition-transform duration-500 group-hoverscale-110 onerror=this.src='httpsvia.placeholder.com600x400text=Gasoducto'
+                    div class=absolute inset-0 bg-gradient-to-t from-black80 via-black20 to-transparent opacity-90 transition-opacity duration-300div
+                    div class=absolute bottom-0 left-0 p-6 translate-y-2 group-hovertranslate-y-0 transition-transform duration-300
+                        span class=text-secondary text-xs font-bold uppercase mb-2 blockInfraestructuraspan
+                        h3 class=text-white text-xl font-boldReplanteo de Gasoductoh3
+                        p class=text-slate-300 text-sm mt-2 opacity-0 group-hoveropacity-100 transition-opacity duration-300
                             Seguimiento lineal y cálculo de movimiento de suelos en obras lineales.
-                        </p>
-                    </div>
-                </div>
+                        p
+                    div
+                div
 
-                <!-- Project 6 (New) -->
-                <div class="min-w-[85vw] md:min-w-[400px] snap-center group relative overflow-hidden rounded-lg shadow-lg aspect-[4/3] cursor-pointer shrink-0">
-                    <img src="images/proyecto-georef.jpg" alt="Georreferenciacion" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Georreferenciacion'">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity duration-300"></div>
-                    <div class="absolute bottom-0 left-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                        <span class="text-secondary text-xs font-bold uppercase mb-2 block">Catastro</span>
-                        <h3 class="text-white text-xl font-bold">Georreferenciación Rural</h3>
-                        <p class="text-slate-300 text-sm mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                !-- Project 6 --
+                div class=min-w-[85vw] snap-center shrink-0 group relative overflow-hidden rounded-lg shadow-lg aspect-[43] cursor-pointer mdmin-w-0 mdsnap-align-none mdshrink
+                    img src=imagesproyecto-georef.jpg alt=Georreferenciacion class=w-full h-full object-cover transition-transform duration-500 group-hoverscale-110 onerror=this.src='httpsvia.placeholder.com600x400text=Georreferenciacion'
+                    div class=absolute inset-0 bg-gradient-to-t from-black80 via-black20 to-transparent opacity-90 transition-opacity duration-300div
+                    div class=absolute bottom-0 left-0 p-6 translate-y-2 group-hovertranslate-y-0 transition-transform duration-300
+                        span class=text-secondary text-xs font-bold uppercase mb-2 blockCatastrospan
+                        h3 class=text-white text-xl font-boldGeorreferenciación Ruralh3
+                        p class=text-slate-300 text-sm mt-2 opacity-0 group-hoveropacity-100 transition-opacity duration-300
                             Vinculación de mensuras a la red oficial POSGAR 07 para saneamiento de títulos.
-                        </p>
-                    </div>
-                </div>
+                        p
+                    div
+                div
 
-            </div>
-        </div>
-    </section>
+            div
+        div
+    section
 
-    <!-- Clients / Tech Strip (Optional, adds credibility) -->
-    <section class="py-10 bg-white border-y border-slate-200">
-        <div class="container mx-auto px-6 text-center">
-             <p class="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8">Nuestros Clientes</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-                <!-- Placeholders for Client Logos -->
-                <div class="h-16 flex items-center justify-center">
-                    <img src="images/cliente1.png" alt="Cliente 1" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+1'">
-                </div>
-                <div class="h-16 flex items-center justify-center">
-                    <img src="images/cliente2.png" alt="Cliente 2" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+2'">
-                </div>
-                <div class="h-16 flex items-center justify-center">
-                    <img src="images/cliente3.png" alt="Cliente 3" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+3'">
-                </div>
-                <div class="h-16 flex items-center justify-center">
-                    <img src="images/cliente4.png" alt="Cliente 4" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+4'">
-                </div>
-                <div class="h-16 flex items-center justify-center">
-                    <img src="images/cliente5.png" alt="Cliente 5" class="max-h-full max-w-[150px] object-contain" onerror="this.src='https://via.placeholder.com/150x80?text=Cliente+5'">
-                </div>
-            </div>
-        </div>
-    </section>
+    !-- Clients  Tech Strip (Optional, adds credibility) --
+    section class=py-10 bg-white border-y border-slate-200
+        div class=container mx-auto px-6 text-center
+             p class=text-sm font-semibold text-slate-400 uppercase tracking-widest mb-8Nuestros Clientesp
+            div class=flex flex-wrap justify-center items-center gap-8 mdgap-16 opacity-70 grayscale hovergrayscale-0 transition-all duration-500
+                !-- Placeholders for Client Logos --
+                div class=h-16 flex items-center justify-center
+                    img src=imagescliente1.png alt=Cliente 1 class=max-h-full max-w-[150px] object-contain onerror=this.src='httpsvia.placeholder.com150x80text=Cliente+1'
+                div
+                div class=h-16 flex items-center justify-center
+                    img src=imagescliente2.png alt=Cliente 2 class=max-h-full max-w-[150px] object-contain onerror=this.src='httpsvia.placeholder.com150x80text=Cliente+2'
+                div
+                div class=h-16 flex items-center justify-center
+                    img src=imagescliente3.png alt=Cliente 3 class=max-h-full max-w-[150px] object-contain onerror=this.src='httpsvia.placeholder.com150x80text=Cliente+3'
+                div
+                div class=h-16 flex items-center justify-center
+                    img src=imagescliente4.png alt=Cliente 4 class=max-h-full max-w-[150px] object-contain onerror=this.src='httpsvia.placeholder.com150x80text=Cliente+4'
+                div
+                div class=h-16 flex items-center justify-center
+                    img src=imagescliente5.png alt=Cliente 5 class=max-h-full max-w-[150px] object-contain onerror=this.src='httpsvia.placeholder.com150x80text=Cliente+5'
+                div
+            div
+        div
+    section
 
-    <!-- Contact Section -->
-    <section id="contacto" class="py-20 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Contact Info -->
-                <div>
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Contáctanos</span>
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mt-2 mb-6">Hablemos de tu Proyecto</h2>
-                    <p class="text-slate-600 mb-8">
+    !-- Contact Section --
+    section id=contacto class=py-20 bg-slate-50
+        div class=container mx-auto px-6
+            div class=grid mdgrid-cols-2 gap-12
+                !-- Contact Info --
+                div
+                    span class=text-secondary font-bold uppercase tracking-wider text-smContáctanosspan
+                    h2 class=text-3xl mdtext-4xl font-bold text-primary mt-2 mb-6Hablemos de tu Proyectoh2
+                    p class=text-slate-600 mb-8
                         Estamos listos para asesorarte. Contáctanos para solicitar un presupuesto o coordinar una visita técnica a tu obra o terreno.
-                    </p>
+                    p
 
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-white shadow-sm rounded flex items-center justify-center text-secondary shrink-0">
-                                <i class="fas fa-map-marker-alt text-lg"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-primary">Oficina Central</h4>
-                                <p class="text-slate-500">Catamarca, Argentina</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-white shadow-sm rounded flex items-center justify-center text-secondary shrink-0">
-                                <i class="fas fa-phone text-lg"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-primary">Teléfono</h4>
-                                <p class="text-slate-500">+54 9 383 xxxx-xxxx</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start">
-                            <div class="w-10 h-10 bg-white shadow-sm rounded flex items-center justify-center text-secondary shrink-0">
-                                <i class="fas fa-envelope text-lg"></i>
-                            </div>
-                            <div class="ml-4">
-                                <h4 class="font-bold text-primary">Email</h4>
-                                <p class="text-slate-500">topo4darg@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    div class=space-y-6
+                        div class=flex items-start
+                            div class=w-10 h-10 bg-white shadow-sm rounded flex items-center justify-center text-secondary shrink-0
+                                i class=fas fa-map-marker-alt text-lgi
+                            div
+                            div class=ml-4
+                                h4 class=font-bold text-primaryOficina Centralh4
+                                p class=text-slate-500Catamarca, Argentinap
+                            div
+                        div
+                        div class=flex items-start
+                            div class=w-10 h-10 bg-white shadow-sm rounded flex items-center justify-center text-secondary shrink-0
+                                i class=fas fa-phone text-lgi
+                            div
+                            div class=ml-4
+                                h4 class=font-bold text-primaryTeléfonoh4
+                                p class=text-slate-500+54 9 383 xxxx-xxxxp
+                            div
+                        div
+                        div class=flex items-start
+                            div class=w-10 h-10 bg-white shadow-sm rounded flex items-center justify-center text-secondary shrink-0
+                                i class=fas fa-envelope text-lgi
+                            div
+                            div class=ml-4
+                                h4 class=font-bold text-primaryEmailh4
+                                p class=text-slate-500topo4darg@gmail.comp
+                            div
+                        div
+                    div
+                div
 
-                <!-- Form -->
-                <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-secondary">
-                    <form onsubmit="event.preventDefault(); alert('Mensaje simulado enviado correctamente.');">
-                        <div class="grid grid-cols-2 gap-4 mb-4">
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Nombre</label>
-                                <input type="text" class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-secondary transition" placeholder="Tu nombre">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-bold text-slate-700 mb-2">Apellido</label>
-                                <input type="text" class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-secondary transition" placeholder="Tu apellido">
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-secondary transition" placeholder="tu@email.com">
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Asunto</label>
-                            <select class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-secondary transition bg-white">
-                                <option>Consulta General</option>
-                                <option>Presupuesto Topografía</option>
-                                <option>Servicio con Drones</option>
-                                <option>Mensuras y Catastro</option>
-                            </select>
-                        </div>
-                        <div class="mb-6">
-                            <label class="block text-sm font-bold text-slate-700 mb-2">Mensaje</label>
-                            <textarea rows="4" class="w-full px-4 py-2 border border-slate-300 rounded focus:outline-none focus:border-secondary transition" placeholder="Describe tu proyecto..."></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-secondary text-white font-bold py-3 rounded hover:bg-sky-700 transition shadow-lg">
+                !-- Form --
+                div class=bg-white p-8 rounded-lg shadow-lg border-t-4 border-secondary
+                    form onsubmit=event.preventDefault(); alert('Mensaje simulado enviado correctamente.');
+                        div class=grid grid-cols-2 gap-4 mb-4
+                            div
+                                label class=block text-sm font-bold text-slate-700 mb-2Nombrelabel
+                                input type=text class=w-full px-4 py-2 border border-slate-300 rounded focusoutline-none focusborder-secondary transition placeholder=Tu nombre
+                            div
+                            div
+                                label class=block text-sm font-bold text-slate-700 mb-2Apellidolabel
+                                input type=text class=w-full px-4 py-2 border border-slate-300 rounded focusoutline-none focusborder-secondary transition placeholder=Tu apellido
+                            div
+                        div
+                        div class=mb-4
+                            label class=block text-sm font-bold text-slate-700 mb-2Emaillabel
+                            input type=email class=w-full px-4 py-2 border border-slate-300 rounded focusoutline-none focusborder-secondary transition placeholder=tu@email.com
+                        div
+                        div class=mb-4
+                            label class=block text-sm font-bold text-slate-700 mb-2Asuntolabel
+                            select class=w-full px-4 py-2 border border-slate-300 rounded focusoutline-none focusborder-secondary transition bg-white
+                                optionConsulta Generaloption
+                                optionPresupuesto Topografíaoption
+                                optionServicio con Dronesoption
+                                optionMensuras y Catastrooption
+                            select
+                        div
+                        div class=mb-6
+                            label class=block text-sm font-bold text-slate-700 mb-2Mensajelabel
+                            textarea rows=4 class=w-full px-4 py-2 border border-slate-300 rounded focusoutline-none focusborder-secondary transition placeholder=Describe tu proyecto...textarea
+                        div
+                        button type=submit class=w-full bg-secondary text-white font-bold py-3 rounded hoverbg-sky-700 transition shadow-lg
                             Enviar Mensaje
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+                        button
+                    form
+                div
+            div
+        div
+    section
 
-    <!-- Footer -->
-    <footer class="bg-primary text-slate-400 py-12 border-t border-slate-800">
-        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 mb-8">
-            <div class="col-span-1 md:col-span-2">
-                 <div class="flex items-center gap-2 mb-4">
-                    <!-- Footer Logo -->
-                    <span class="text-xl font-bold text-white tracking-tighter">TOPO<span class="text-secondary">4D</span></span>
-                </div>
-                <p class="text-sm leading-relaxed max-w-sm">
+    !-- Footer --
+    footer class=bg-primary text-slate-400 py-12 border-t border-slate-800
+        div class=container mx-auto px-6 grid mdgrid-cols-4 gap-8 mb-8
+            div class=col-span-1 mdcol-span-2
+                 div class=flex items-center gap-2 mb-4
+                    !-- Footer Logo --
+                    span class=text-xl font-bold text-white tracking-tighterTOPOspan class=text-secondary4Dspanspan
+                div
+                p class=text-sm leading-relaxed max-w-sm
                     Empresa dedicada a brindar soluciones integrales en agrimensura y topografía de alta precisión. Combinamos experiencia profesional con la última tecnología disponible.
-                </p>
-            </div>
+                p
+            div
             
-            <div>
-                <h4 class="text-white font-bold mb-4">Enlaces Rápidos</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#inicio" class="hover:text-secondary transition">Inicio</a></li>
-                    <li><a href="#nosotros" class="hover:text-secondary transition">Sobre Nosotros</a></li>
-                    <li><a href="#servicios" class="hover:text-secondary transition">Servicios</a></li>
-                    <li><a href="#proyectos" class="hover:text-secondary transition">Proyectos</a></li>
-                </ul>
-            </div>
+            div
+                h4 class=text-white font-bold mb-4Enlaces Rápidosh4
+                ul class=space-y-2 text-sm
+                    lia href=#inicio class=hovertext-secondary transitionInicioali
+                    lia href=#nosotros class=hovertext-secondary transitionSobre Nosotrosali
+                    lia href=#servicios class=hovertext-secondary transitionServiciosali
+                    lia href=#proyectos class=hovertext-secondary transitionProyectosali
+                ul
+            div
 
-            <div>
-                <h4 class="text-white font-bold mb-4">Servicios</h4>
-                <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-secondary transition">Topografía</a></li>
-                    <li><a href="#" class="hover:text-secondary transition">Fotogrametría</a></li>
-                    <li><a href="#" class="hover:text-secondary transition">Mensuras</a></li>
-                    <li><a href="#" class="hover:text-secondary transition">Escaneo 3D</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container mx-auto px-6 pt-8 border-t border-slate-800 text-center text-xs">
-            <p>&copy; 2024 Topo4D. Todos los derechos reservados. | Diseño inspirado en estándares de ingeniería.</p>
-        </div>
-    </footer>
+            div
+                h4 class=text-white font-bold mb-4Serviciosh4
+                ul class=space-y-2 text-sm
+                    lia href=# class=hovertext-secondary transitionTopografíaali
+                    lia href=# class=hovertext-secondary transitionFotogrametríaali
+                    lia href=# class=hovertext-secondary transitionMensurasali
+                    lia href=# class=hovertext-secondary transitionEscaneo 3Dali
+                ul
+            div
+        div
+        div class=container mx-auto px-6 pt-8 border-t border-slate-800 text-center text-xs
+            p&copy; 2024 Topo4D. Todos los derechos reservados.  Diseño inspirado en estándares de ingeniería.p
+        div
+    footer
 
-    <!-- JS Logic for Header Scroll & Carousel -->
-    <script>
-        // Header Scroll Logic
+    !-- JS Logic for Header Scroll & Carousel --
+    script
+         Header Scroll Logic
         const header = document.getElementById('main-header');
         const navMenu = document.getElementById('nav-menu');
         const mobileBtn = document.getElementById('mobile-btn');
         const logoImg = header.querySelector('img');
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                // Scrolled state: White background, dark text
-                header.classList.remove('bg-transparent', 'text-white', 'md:top-[37px]');
+        window.addEventListener('scroll', () = {
+            if (window.scrollY  50) {
+                 Scrolled state White background, dark text
+                header.classList.remove('bg-transparent', 'text-white', 'mdtop-[37px]');
                 header.classList.add('bg-white', 'text-slate-700', 'shadow-md', 'top-0');
             } else {
-                // Top state: Transparent background, white text
-                header.classList.add('bg-transparent', 'text-white', 'md:top-[37px]');
+                 Top state Transparent background, white text
+                header.classList.add('bg-transparent', 'text-white', 'mdtop-[37px]');
                 header.classList.remove('bg-white', 'text-slate-700', 'shadow-md', 'top-0');
             }
         });
@@ -646,26 +650,25 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // Carousel Logic
+         Carousel Logic
         const images = document.querySelectorAll('.carousel-image');
         let currentImageIndex = 0;
 
         function rotateImages() {
-            // Remove active from current
+             Remove active from current
             images[currentImageIndex].classList.remove('active');
             images[currentImageIndex].classList.add('inactive');
 
-            // Calculate next index
+             Calculate next index
             currentImageIndex = (currentImageIndex + 1) % images.length;
 
-            // Add active to next
+             Add active to next
             images[currentImageIndex].classList.remove('inactive');
             images[currentImageIndex].classList.add('active');
         }
 
-        // Start carousel every 3 seconds
+         Start carousel every 3 seconds
         setInterval(rotateImages, 3000);
-    </script>
-</body>
-
-</html>
+    script
+body
+html
