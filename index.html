@@ -140,14 +140,15 @@
         </div>
     </section>
 
-    <!-- Intro / About Section -->
-    <section id="nosotros" class="py-24 bg-white relative">
+    <!-- Intro / About Section (MODIFIED: Split Screen Layout) -->
+    <section id="nosotros" class="bg-white relative w-full overflow-hidden">
         <div class="absolute inset-0 bg-topo-pattern opacity-40 pointer-events-none"></div>
         
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <!-- Columna Texto (Izquierda) -->
-                <div class="order-2 md:order-1">
+        <div class="flex flex-col md:flex-row min-h-[600px] items-stretch">
+            
+            <!-- Columna Texto (Izquierda - 50%) -->
+            <div class="w-full md:w-1/2 relative z-10 flex items-center justify-center py-20 px-6 md:pl-24 md:pr-12 bg-white/95 md:bg-white/80">
+                <div class="max-w-xl w-full">
                     <h4 class="text-secondary font-bold uppercase tracking-wide mb-2">Sobre Topo4D</h4>
                     <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mb-6">Experiencia, Formación y Tecnología.</h2>
                     <p class="text-slate-600 mb-6 leading-relaxed text-lg">
@@ -188,17 +189,19 @@
                         </div>
                     </div>
                 </div>
-                
-                <!-- Columna Imagen (Derecha) -->
-                <div class="order-1 md:order-2 h-[500px] w-full relative">
-                    <div id="carousel-container" class="relative w-full h-full">
-                        <img src="images/trabajo.jpg" alt="Trabajo en Campo" class="carousel-image active absolute inset-0 w-full h-full object-cover rounded-sm" onerror="this.style.display='none'">
-                        <img src="images/trabajo1.jpg" alt="Trabajo con Drones" class="carousel-image inactive absolute inset-0 w-full h-full object-cover rounded-sm">
-                        <img src="images/trabajo2.jpg" alt="Trabajo de Oficina" class="carousel-image inactive absolute inset-0 w-full h-full object-cover rounded-sm">
-                        <img src="images/trabajo3.jpg" alt="Equipos de Medición" class="carousel-image inactive absolute inset-0 w-full h-full object-cover rounded-sm">
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 bg-secondary w-24 h-24 -z-10 rounded-full opacity-20"></div>
-                    <div class="absolute -top-6 -right-6 bg-primary w-32 h-32 -z-10 rounded-full opacity-10"></div>
+            </div>
+            
+            <!-- Columna Imagen (Derecha - 50% - Ocupa todo el bloque) -->
+            <div class="w-full md:w-1/2 relative min-h-[500px] h-auto">
+                <div id="carousel-container" class="absolute inset-0 w-full h-full">
+                    <!-- 7 Imágenes solicitadas, ocupando todo el contenedor con object-cover -->
+                    <img src="images/trabajo.jpg" alt="Trabajo 1" class="carousel-image active absolute inset-0 w-full h-full object-cover" onerror="this.style.display='none'">
+                    <img src="images/trabajo1.jpg" alt="Trabajo 2" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
+                    <img src="images/trabajo2.jpg" alt="Trabajo 3" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
+                    <img src="images/trabajo3.jpg" alt="Trabajo 4" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
+                    <img src="images/trabajo4.jpg" alt="Trabajo 5" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
+                    <img src="images/trabajo5.jpg" alt="Trabajo 6" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
+                    <img src="images/trabajo6.jpg" alt="Trabajo 7" class="carousel-image inactive absolute inset-0 w-full h-full object-cover">
                 </div>
             </div>
         </div>
