@@ -71,11 +71,17 @@
         .delay-2 { animation-delay: 0.2s; }
         .delay-3 { animation-delay: 0.35s; }
     </style>
+    <!-- URL: muestra topo4d.com.ar/proyectos en la barra del navegador -->
+    <script>
+        if (window.location.pathname === '/proyectos.html') {
+            window.history.replaceState(null, '', '/proyectos');
+        }
+    </script>
 </head>
 <body class="font-sans text-slate-700 bg-white antialiased">
 
     <!-- ===== HEADER (idéntico al index) ===== -->
-    <header id="main-header" class="fixed w-full top-0 z-40 transition-all duration-300 bg-black/70 backdrop-blur-md shadow-md py-2 text-white">
+    <header id="main-header" class="fixed w-full top-0 z-40 transition-all duration-300 bg-transparent text-white py-4">
         <div class="container mx-auto px-6">
             <div class="flex justify-between items-center">
                 <a href="index.html" class="flex items-center gap-2">
@@ -529,6 +535,18 @@
 
     <!-- ===== JS ===== -->
     <script>
+        // Header scroll logic
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('bg-transparent', 'py-4');
+                header.classList.add('bg-black/70', 'backdrop-blur-md', 'shadow-md', 'py-2');
+            } else {
+                header.classList.add('bg-transparent', 'py-4');
+                header.classList.remove('bg-black/70', 'backdrop-blur-md', 'shadow-md', 'py-2');
+            }
+        });
+
         // Year
         document.getElementById('current-year').textContent = new Date().getFullYear();
 

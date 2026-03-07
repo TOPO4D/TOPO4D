@@ -1,111 +1,145 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gracias por tu consulta</title>
-    <!-- Incluir Tailwind CSS para un estilo moderno y responsivo -->
+    <title>¡Gracias por tu consulta! | Topo4D</title>
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fuente Inter de Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Fonts: Inter & Bai Jamjuree -->
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Bai Jamjuree', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1b4332',
+                        secondary: '#4CAF50',
+                        dark: '#0f291e',
+                        light: '#f0f4f0',
+                    },
+                }
+            }
+        }
+    </script>
+
     <style>
+        /* WhatsApp pulse */
+        @keyframes pulse-green {
+            0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70%  { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .whatsapp-float { animation: pulse-green 2s infinite; }
+
+        /* Check bounce */
+        @keyframes bounceIn {
+            0%   { transform: scale(0); opacity: 0; }
+            60%  { transform: scale(1.15); opacity: 1; }
+            80%  { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+        .bounce-in { animation: bounceIn 0.7s ease both; }
+
+        /* Fade up */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up   { animation: fadeUp 0.6s ease both; }
+        .delay-1   { animation-delay: 0.3s; }
+        .delay-2   { animation-delay: 0.5s; }
+        .delay-3   { animation-delay: 0.7s; }
+        .delay-4   { animation-delay: 0.9s; }
+
+        /* Topo pattern */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Color de fondo claro */
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Asegura que la página ocupe al menos toda la altura de la vista */
-        }
-        /* Estilo para el contenedor del encabezado con imagen de fondo */
-        .header-bg {
-            background-image: url('images/aaa.jpg'); /* Ruta de la imagen de fondo del header */
-            background-size: cover; /* Cubrir todo el área */
-            background-position: center; /* Centrar la imagen */
-            height: 300px; /* Altura fija para el header */
-            position: relative; /* Necesario para posicionar el logo dentro */
-            display: flex; /* Usar flexbox para centrar contenido */
-            align-items: center; /* Centrar verticalmente */
-            justify-content: center; /* Centrar horizontalmente */
-            overflow: hidden; /* Oculta cualquier parte del logo que se desborde */
-            border-bottom-left-radius: 1.5rem; /* Esquinas redondeadas en la parte inferior izquierda */
-            border-bottom-right-radius: 1.5rem; /* Esquinas redondeadas en la parte inferior derecha */
-        }
-        /* Capa oscura sobre el header */
-        .header-bg::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-color: rgba(0, 0, 0, 0.4); /* Sombra oscura */
-            z-index: 1; /* Asegura que la sombra esté sobre la imagen pero debajo del logo */
-        }
-        /* Estilos para el logo dentro del header */
-        .logo-header {
-            width: 468px; /* Ancho original escritorio */
-            height: auto;
-            position: relative; /* Para que esté sobre la capa oscura */
-            z-index: 2; /* Mayor z-index para que se vea sobre la sombra */
-            background-color: transparent; /* Fondo transparente para el logo */
-            max-width: 80%; /* Asegura que el logo sea responsivo */
-        }
-        /* Media queries para ajustar la altura del header en pantallas más pequeñas */
-        @media (max-width: 768px) {
-            .header-bg {
-                height: 200px; /* Menor altura para pantallas medianas */
-            }
-            .logo-header {
-                width: 300px; /* Tamaño más pequeño para el logo en móvil */
-            }
-        }
-        @media (max-width: 480px) {
-            .header-bg {
-                height: 150px; /* Aún menor altura para pantallas pequeñas */
-            }
-            .logo-header {
-                width: 250px; /* Tamaño aún más pequeño para el logo en móvil */
-            }
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231b4332' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
     </style>
 </head>
-<body class="antialiased">
-    <!-- Contenedor del encabezado con imagen de fondo y logo -->
-    <header class="header-bg shadow-lg">
-        <img src="images/logo.png" alt="Logo TOPO4D" class="logo-header">
+<body class="font-sans text-slate-700 bg-light antialiased min-h-screen flex flex-col">
+
+    <!-- HEADER -->
+    <header class="w-full bg-primary shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Topo4D Logo" class="h-12 object-contain filter drop-shadow-lg">
+            </a>
+            <a href="index.html#contacto" class="hidden md:inline-block text-sm text-white/70 hover:text-secondary transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i>Volver al inicio
+            </a>
+        </div>
     </header>
 
-    <!-- Contenido principal de la página -->
-    <main class="flex-grow flex items-center justify-center py-12 px-4">
-        <div class="bg-white p-8 rounded-2xl shadow-xl max-w-lg w-full text-center border border-gray-200">
-            <!-- Título "Gracias por tu consulta" movido aquí, con estilos de la temática verde -->
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-green-800 mb-6 select-none">
-                Gracias por tu consulta.
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow flex items-center justify-center py-16 px-4">
+        <div class="w-full max-w-lg text-center">
+
+            <!-- Check icon -->
+            <div class="bounce-in flex items-center justify-center mx-auto mb-8 w-24 h-24 rounded-full bg-secondary shadow-xl shadow-secondary/30">
+                <i class="fas fa-check text-4xl text-white"></i>
+            </div>
+
+            <!-- Title -->
+            <h1 class="font-heading text-4xl md:text-5xl font-extrabold text-primary mb-4 fade-up delay-1">
+                ¡Mensaje enviado!
             </h1>
-            <!-- Saludo del equipo -->
-            <p class="text-xl sm:text-2xl font-medium text-gray-700 select-none">
-                Te saluda el equipo de TOPO4D
+
+            <!-- Subtitle -->
+            <p class="text-lg text-slate-600 mb-2 fade-up delay-2">
+                Gracias por contactarte con <span class="font-bold text-primary">TOPO4D</span>.
             </p>
-            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-                <!-- Botón "Volver al inicio" ahora en verde -->
-                <a href="/" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-150 ease-in-out shadow-md">
-                    Volver al inicio
+            <p class="text-slate-500 mb-10 fade-up delay-2">
+                Nos pondremos en contacto con vos a la brevedad para asesorarte.
+            </p>
+
+            <!-- Divider -->
+            <div class="w-16 h-1 bg-secondary mx-auto mb-10 rounded fade-up delay-2"></div>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 fade-up delay-3">
+                <a href="index.html"
+                   class="px-8 py-3 bg-primary hover:bg-dark text-white font-semibold rounded shadow-lg transition text-center flex items-center justify-center gap-2">
+                    <i class="fas fa-home"></i> Volver al inicio
                 </a>
-                <!-- Nuevo botón de WhatsApp con el mismo href que el botón flotante del Index original -->
-                <a href="https://wa.me/5493834612365?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." target="_blank" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 transition duration-150 ease-in-out shadow-md">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.54 3.4 1.48 4.81l-1.53 5.61 5.7-.56c1.37.7 2.92 1.07 4.54 1.07 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm3.62 14.73c-.27.46-.57.4-.95.21-.4-.2-.84-.31-1.32-.4-.44-.09-.94-.03-1.4.24-.71.4-1.25.33-2.15-.35-.74-.56-1.23-1.42-1.63-2.26-.4-.84-.04-1.29.35-1.7.3-.34.6-.39.8-.62.2-.23.1-.42-.08-.66-.18-.24-.26-.35-.49-.57-.23-.22-.49-.24-.69-.24h-.35c-.2 0-.49.07-.74.34-.24.27-.92.9-.92 2.22 0 1.32.95 2.58 1.08 2.76.14.18 1.8 2.75 4.38 3.86 2.58 1.1 3.1 1.05 3.65.92.56-.13.88-.57 1.05-.85.17-.28.17-.5.12-.85-.06-.35-.23-.5-.49-.66z"/>
-                    </svg>
-                    WhatsApp
+                <a href="https://wa.me/5493834612365?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." target="_blank"
+                   class="px-8 py-3 bg-[#25d366] hover:bg-[#1ebe5d] text-white font-semibold rounded shadow-lg transition text-center flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-lg"></i> WhatsApp
                 </a>
             </div>
+
+            <!-- Footer note -->
+            <p class="mt-12 text-xs text-slate-400 fade-up delay-4">
+                San F. del Valle de Catamarca, Argentina &nbsp;·&nbsp; Lunes a Viernes 8:00 – 18:00 hs
+            </p>
+
         </div>
     </main>
 
-    <!-- Script para cambiar la imagen del header si la URL de la imagen falla -->
+    <!-- FOOTER -->
+    <footer class="bg-primary text-slate-400 py-8 border-t border-slate-800 text-center text-xs">
+        <p>&copy; <span id="current-year"></span> TOPO4D. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5493834612365?text=Hola%20TOPO4D%2C%20quisiera%20hacer%20una%20consulta." target="_blank"
+       class="fixed bottom-6 right-6 z-50 whatsapp-float bg-[#25d366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 transition-transform duration-300">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script>
-        document.querySelector('.header-bg').onerror = function() {
-            this.style.backgroundImage = 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'; /* Un gradiente de respaldo */
-        };
+        document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

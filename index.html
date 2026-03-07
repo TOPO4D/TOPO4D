@@ -14,6 +14,7 @@
     </script>
     -->
 
+    <link rel="canonical" href="https://topo4d.com.ar/inicio">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Topo4D | Agrimensura, Topografía y Fotogrametría</title>
     <meta name="description" content="Servicios de alta precisión en Agrimensura, Topografía y Fotogrametría en Catamarca. Tecnología de vanguardia para minería, industria y catastro.">
@@ -74,6 +75,12 @@
             animation: pulse-green 2s infinite;
         }
     </style>
+    <!-- URL: muestra topo4d.com.ar/inicio en la barra del navegador -->
+    <script>
+        if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+            window.history.replaceState(null, '', '/inicio');
+        }
+    </script>
 </head>
 <body class="font-sans text-slate-700 bg-white antialiased">
 
@@ -572,7 +579,7 @@
         <div class="container mx-auto px-6 grid md:grid-cols-4 gap-8 mb-8">
             <div class="col-span-1 md:col-span-2">
                  <div class="flex items-center gap-2 mb-4">
-                    <img src="images/logo.png" alt="Topo4D Logo" class="h-10 object-contain brightness-0 invert opacity-80">
+                    <img src="images/logo.png" alt="Topo4D Logo" class="h-10 object-contain">
                 </div>
                 <p class="text-sm leading-relaxed max-w-sm">
                     Empresa dedicada a brindar soluciones integrales en agrimensura y topografía de alta precisión en Catamarca y la Región NOA.
