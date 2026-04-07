@@ -398,11 +398,7 @@
             <!-- Tabs -->
             <div class="tabs-scroll mb-8">
                 <div class="flex gap-2 md:justify-center min-w-max mx-auto px-1 pb-1">
-                    <button class="sector-tab active" onclick="showSector('aec', this)">
-                        <i class="tab-icon fas fa-building"></i>
-                        <span>AEC</span>
-                    </button>
-                    <button class="sector-tab" onclick="showSector('agro', this)">
+                    <button class="sector-tab active" onclick="showSector('agro', this)">
                         <i class="tab-icon fas fa-seedling"></i>
                         <span>Agro</span>
                     </button>
@@ -425,62 +421,8 @@
                 </div>
             </div>
 
-            <!-- ===================== PANEL: AEC ===================== -->
-            <div id="panel-aec" class="sector-panel active">
-                <div class="sector-banner" style="background: linear-gradient(135deg, #0f291e 0%, #1b4332 100%);">
-                    <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(15,41,30,0.85) 40%, transparent 100%);"></div>
-                    <div class="sector-banner-content">
-                        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-1">Architecture · Engineering · Construction</span>
-                        <h3 class="text-white font-heading text-2xl md:text-3xl font-bold">AEC &amp; Construcción</h3>
-                        <p class="text-slate-300 text-sm mt-1 max-w-xl">Captura de realidad, documentación As-Built y soporte técnico para obras civiles e industria.</p>
-                    </div>
-                </div>
-                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-cube"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Scan to BIM</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Escaneo láser 3D de estructuras existentes y conversión a modelos BIM para proyectos de renovación o ampliación.</p>
-                    </div>
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-clipboard-check"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Documentación As-Built</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Registro planimétrico y altimétrico de lo construido para verificación, certificación y entrega de obra.</p>
-                    </div>
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-cloud"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Nube de Puntos</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Generación de nubes de puntos densas mediante escáner terrestre o drone para modelado de alta fidelidad.</p>
-                    </div>
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-project-diagram"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Poligonales de Precisión</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Redes de apoyo planimétricas y altimétric​as para control de obras, replanteo y certificación de avances.</p>
-                    </div>
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-ruler-combined"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Replanteo de Obras</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Materialización en campo de los ejes, cotas y alineaciones definidas en proyecto con tolerancias de ingeniería.</p>
-                    </div>
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-layer-group"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Modelos Digitales de Terreno</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">DTM/DSM de alta resolución para movimiento de suelos, volumetrías y diseño de plataformas.</p>
-                    </div>
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-satellite-dish"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Redes GNSS de Control</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Establecimiento de bases y vértices de control georreferenciados al sistema POSGAR / RAMSAC.</p>
-                    </div>
-                    <div class="svc-card">
-                        <div class="svc-card-icon"><i class="fas fa-image"></i></div>
-                        <h4 class="font-bold text-primary text-sm">Ortomosaicos y Planos</h4>
-                        <p class="text-slate-500 text-xs leading-relaxed">Ortofotografía georreferenciada y cartografía base para proyectos de arquitectura, paisajismo e infraestructura.</p>
-                    </div>
-                </div>
-            </div>
-
             <!-- ===================== PANEL: AGRO ===================== -->
-            <div id="panel-agro" class="sector-panel">
+            <div id="panel-agro" class="sector-panel active">
                 <div class="sector-banner" style="background: linear-gradient(135deg, #14532d 0%, #166534 100%);">
                     <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(20,83,45,0.85) 40%, transparent 100%);"></div>
                     <div class="sector-banner-content">
@@ -989,7 +931,7 @@
                             </div>
                             <div class="flex items-center space-x-4">
                                 <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-lg"><i class="fas fa-envelope"></i></div>
-                                <a href="/cdn-cgi/l/email-protection#94e0fbe4fba0f0f5e6f3d4f3f9f5fdf8baf7fbf9" class="hover:text-secondary transition font-medium"><span class="__cf_email__" data-cfemail="eb9f849b84df8f8a998cab8c868a8287c5888486">[email&#160;protected]</span></a>
+                                <a href="mailto:topo4darg@gmail.com" class="hover:text-secondary transition font-medium">topo4darg@gmail.com</a>
                             </div>
                             <div class="flex items-center space-x-4">
                                 <div class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center flex-shrink-0 shadow-lg"><i class="fas fa-map-marker-alt"></i></div>
