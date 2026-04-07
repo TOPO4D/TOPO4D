@@ -133,12 +133,12 @@
             </p>
             <!-- Index nav pills -->
             <div class="flex flex-wrap justify-center gap-3 mt-8 delay-3 fade-up">
-                <a href="#industria"  class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Industria</a>
-                <a href="#vialidad"   class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Vialidad</a>
-                <a href="#mineria"    class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Minería</a>
-                <a href="#superficies" class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Grandes Superficies</a>
-                <a href="#catastro"   class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Catastro</a>
-                <a href="#loteo"      class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Loteos</a>
+                <a href="#" onclick="showArea('topografia', document.querySelector('.area-tab')); return false;" class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Topografía</a>
+                <a href="#" onclick="showArea('mineria', document.querySelectorAll('.area-tab')[1]); return false;" class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Minería</a>
+                <a href="#" onclick="showArea('agrimensura', document.querySelectorAll('.area-tab')[2]); return false;" class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Agrimensura</a>
+                <a href="#" onclick="showArea('agro', document.querySelectorAll('.area-tab')[3]); return false;" class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Agro</a>
+                <a href="#" onclick="showArea('vialidad', document.querySelectorAll('.area-tab')[4]); return false;" class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Vialidad</a>
+                <a href="#" onclick="showArea('industria', document.querySelectorAll('.area-tab')[5]); return false;" class="px-4 py-2 text-sm border border-white/30 rounded-full hover:bg-secondary hover:border-secondary transition backdrop-blur-sm">Industria</a>
             </div>
         </div>
     </section>
@@ -146,337 +146,455 @@
     <!-- ===== DIVIDER LINE ===== -->
     <div class="h-1 bg-gradient-to-r from-transparent via-secondary to-transparent"></div>
 
-    <!-- ===================================================
-         PROJECT 1 — INDUSTRIA
-    ==================================================== -->
-    <section id="industria" class="project-section py-20 bg-white relative">
+    <!-- ===== MAIN PORTFOLIO SECTION ===== -->
+    <section class="py-20 bg-white relative">
         <div class="absolute inset-0 bg-topo-pattern opacity-30 pointer-events-none"></div>
+
+        <style>
+            /* ---- Tab buttons ---- */
+            .area-tab {
+                display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+                padding: 0.8rem 1rem; border-radius: 0.5rem;
+                font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+                color: #64748b; background: transparent; border: 2px solid transparent;
+                cursor: pointer; transition: all 0.22s ease; white-space: nowrap;
+            }
+            .area-tab:hover  { color: #1b4332; background: #f0f4f0; }
+            .area-tab.active { color: #fff; background: #1b4332; border-color: #1b4332; box-shadow: 0 4px 14px rgba(27,67,50,0.22); }
+            .area-tab .tab-icon { font-size: 1.2rem; }
+
+            /* ---- Panels ---- */
+            .area-panel { display: none; }
+            .area-panel.active { display: block; }
+
+            /* ---- Photo grid ---- */
+            .photo-grid { display: grid; gap: 0.75rem; }
+            .photo-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .photo-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+            .photo-item {
+                position: relative; overflow: hidden; border-radius: 0.6rem;
+                background: #e2e8e4; aspect-ratio: 4/3; cursor: pointer;
+            }
+            .photo-item img {
+                width: 100%; height: 100%; object-fit: cover;
+                transition: transform 0.4s ease;
+            }
+            .photo-item:hover img { transform: scale(1.05); }
+            .photo-item .photo-overlay {
+                position: absolute; inset: 0;
+                background: linear-gradient(to top, rgba(15,41,30,0.7) 0%, transparent 60%);
+                opacity: 0; transition: opacity 0.3s ease;
+                display: flex; align-items: flex-end; padding: 0.75rem;
+            }
+            .photo-item:hover .photo-overlay { opacity: 1; }
+            .photo-item .photo-label {
+                color: #fff; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
+            }
+
+            /* Placeholder styling para fotos pendientes */
+            .photo-placeholder {
+                width: 100%; height: 100%; display: flex; flex-direction: column;
+                align-items: center; justify-content: center; gap: 0.5rem;
+                background: #e8ede9; color: #6b8f74;
+            }
+            .photo-placeholder i { font-size: 1.5rem; opacity: 0.5; }
+            .photo-placeholder span { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.6; text-align: center; padding: 0 0.5rem; }
+
+            /* Tabs scroll mobile */
+            .tabs-scroll-proj { overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+            .tabs-scroll-proj::-webkit-scrollbar { display: none; }
+        </style>
+
         <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row gap-12 items-center">
 
-                <!-- Slider -->
-                <div class="w-full lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-100">
-                        <div class="slider" data-id="s1">
-                            <img src="images/nave.jpg"  alt="Nave industrial 1" class="slide fade-transition opacity-100 absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+1'">
-                            <img src="images/nave2.jpg" alt="Nave industrial 2" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+2'">
-                            <img src="images/nave3.jpg" alt="Nave industrial 3" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+3'">
-                        </div>
-                        <!-- Controls -->
-                        <button onclick="prevSlide('s1')" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="nextSlide('s1')" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <!-- Dots -->
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="dots-s1"></div>
-                    </div>
+            <!-- Tabs -->
+            <div class="tabs-scroll-proj mb-10">
+                <div class="flex gap-2 md:justify-center min-w-max mx-auto px-1 pb-1">
+                    <button class="area-tab active" onclick="showArea('topografia', this)">
+                        <i class="tab-icon fas fa-drafting-compass"></i><span>Topografía</span>
+                    </button>
+                    <button class="area-tab" onclick="showArea('mineria', this)">
+                        <i class="tab-icon fas fa-hard-hat"></i><span>Minería</span>
+                    </button>
+                    <button class="area-tab" onclick="showArea('agrimensura', this)">
+                        <i class="tab-icon fas fa-map-marked-alt"></i><span>Agrimensura</span>
+                    </button>
+                    <button class="area-tab" onclick="showArea('agro', this)">
+                        <i class="tab-icon fas fa-seedling"></i><span>Agro</span>
+                    </button>
+                    <button class="area-tab" onclick="showArea('vialidad', this)">
+                        <i class="tab-icon fas fa-road"></i><span>Vialidad</span>
+                    </button>
+                    <button class="area-tab" onclick="showArea('industria', this)">
+                        <i class="tab-icon fas fa-industry"></i><span>Industria</span>
+                    </button>
                 </div>
+            </div>
 
-                <!-- Description -->
-                <div class="w-full lg:w-1/2">
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Industria</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Proyecto para la Industria</h2>
-                    <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
-                    <p class="text-slate-600 leading-relaxed mb-4 text-lg">
-                        Trabajos de replanteo integral e implantación de estructuras para la construcción de nave industrial en la provincia de Catamarca.
-                    </p>
-                    <p class="text-slate-500 leading-relaxed mb-6">
-                        Se realizó levantamiento planialtimétrico previo, determinación de ejes estructurales y control geométrico durante las distintas etapas constructivas, garantizando tolerancias milimétricas en la implantación.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-light rounded-lg p-4">
-                            <i class="fas fa-map-marker-alt text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Ubicación</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Catamarca Capital</p>
+            <!-- ===================== TOPOGRAFÍA ===================== -->
+            <div id="area-topografia" class="area-panel active">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <!-- Texto general -->
+                    <div class="w-full lg:w-2/5">
+                        <span class="text-secondary font-bold uppercase tracking-wider text-sm">Topografía General</span>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Relevamientos y Replanteos</h2>
+                        <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-base">
+                            Ejecutamos relevamientos planialtimétricos de todo tipo de superficies y obras, desde predios urbanos hasta grandes extensiones rurales, con equipamiento GNSS y estaciones totales robotizadas de última generación.
+                        </p>
+                        <p class="text-slate-500 leading-relaxed mb-6 text-sm">
+                            Nuestros trabajos de replanteo abarcan implantación de estructuras, ejes viales, fundaciones, plataformas industriales y módulos habitacionales. Contamos con amplia experiencia en control de movimiento de suelos, cómputo de volúmenes, nivelaciones de precisión y perfiles longitudinales y transversales para proyectos de ingeniería civil y minería.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Relevamiento planialtimétrico</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Replanteo de obras</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Nivelación de precisión</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Cómputo de volúmenes</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">GNSS RTK</span>
                         </div>
-                        <div class="bg-light rounded-lg p-4">
-                            <i class="fas fa-tools text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Servicio</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Topografía & Replanteo</p>
+                    </div>
+                    <!-- Grilla de fotos -->
+                    <div class="w-full lg:w-3/5">
+                        <div class="photo-grid cols-3">
+                            <!-- FOTO 1: reemplazar src con tu imagen -->
+                            <div class="photo-item">
+                                <img src="images/topo1.jpg" alt="Topografía 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>topo1.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Relevamiento</span></div>
+                            </div>
+                            <!-- FOTO 2 -->
+                            <div class="photo-item">
+                                <img src="images/topo2.jpg" alt="Topografía 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>topo2.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Replanteo</span></div>
+                            </div>
+                            <!-- FOTO 3 -->
+                            <div class="photo-item">
+                                <img src="images/topo3.jpg" alt="Topografía 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>topo3.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Control de obra</span></div>
+                            </div>
+                            <!-- FOTO 4 -->
+                            <div class="photo-item">
+                                <img src="images/topo4.jpg" alt="Topografía 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>topo4.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Nivelación</span></div>
+                            </div>
+                            <!-- FOTO 5 -->
+                            <div class="photo-item">
+                                <img src="images/topo5.jpg" alt="Topografía 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>topo5.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Perfiles</span></div>
+                            </div>
+                            <!-- FOTO 6 -->
+                            <div class="photo-item">
+                                <img src="images/topo6.jpg" alt="Topografía 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>topo6.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Equipamiento</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <div class="h-px bg-slate-100 mx-auto max-w-5xl"></div>
-
-    <!-- ===================================================
-         PROJECT 2 — VIALIDAD
-    ==================================================== -->
-    <section id="vialidad" class="project-section py-20 bg-light relative">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
-
-                <!-- Slider -->
-                <div class="w-full lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-100">
-                        <div class="slider" data-id="s2">
-                            <img src="images/vial.png"  alt="Vialidad 1" class="slide fade-transition opacity-100 absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+1'">
-                            <img src="images/vial2.jpg" alt="Vialidad 2" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+2'">
-                            <img src="images/vial3.jpg" alt="Vialidad 3" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+3'">
-                        </div>
-                        <button onclick="prevSlide('s2')" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="nextSlide('s2')" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="dots-s2"></div>
-                    </div>
-                </div>
-
-                <!-- Description -->
-                <div class="w-full lg:w-1/2">
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Vialidad</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Proyectos Viales</h2>
-                    <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
-                    <p class="text-slate-600 leading-relaxed mb-4 text-lg">
-                        Diseño y replanteo de apertura de calle, carriles de aceleración y conexión a rotonda en zona urbana y periurbana de Catamarca.
-                    </p>
-                    <p class="text-slate-500 leading-relaxed mb-6">
-                        Incluye relevamiento de calzadas existentes, determinación de perfiles longitudinales y transversales, y materialización de ejes de traza para facilitar la ejecución de obra vial.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white rounded-lg p-4 shadow-sm">
-                            <i class="fas fa-road text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Tipo</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Obra Vial Urbana</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 shadow-sm">
-                            <i class="fas fa-drafting-compass text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Servicio</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Replanteo & Perfiles</p>
+            <!-- ===================== MINERÍA ===================== -->
+            <div id="area-mineria" class="area-panel">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="w-full lg:w-2/5">
+                        <span class="text-secondary font-bold uppercase tracking-wider text-sm">Sector Minero</span>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Topografía e Ingeniería Minera</h2>
+                        <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-base">
+                            Brindamos soporte topográfico y geodésico integral a operaciones mineras de la región NOA, con presencia en proyectos de litio, cobre y polimetálicos en la provincia de Catamarca y zonas aledañas.
+                        </p>
+                        <p class="text-slate-500 leading-relaxed mb-6 text-sm">
+                            Nuestros trabajos incluyen nivelaciones de alta precisión en pilas de lixiviación, redes GNSS de sitio, poligonales de apoyo para labores subterráneas y a cielo abierto, vuelos fotogramétricos para volumetrías y control de avance, georreferenciación de collars de perforación con diamantina, y replanteo de infraestructura de campamento. Acompañamos las etapas de exploración, explotación y cierre de mina.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Nivelación de pilas</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Poligonales de apoyo</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Georreferenciación de collars</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Fotogrametría UAV</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Redes GNSS de sitio</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="h-px bg-slate-200 mx-auto max-w-5xl"></div>
-
-    <!-- ===================================================
-         PROJECT 3 — MINERÍA
-    ==================================================== -->
-    <section id="mineria" class="project-section py-20 bg-white relative">
-        <div class="absolute inset-0 bg-topo-pattern opacity-30 pointer-events-none"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row gap-12 items-center">
-
-                <!-- Slider -->
-                <div class="w-full lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-100">
-                        <div class="slider" data-id="s3">
-                            <img src="images/minera.jpg"  alt="Minería 1" class="slide fade-transition opacity-100 absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+1'">
-                            <img src="images/minera2.jpg" alt="Minería 2" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+2'">
-                            <img src="images/minera3.jpg" alt="Minería 3" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+3'">
-                        </div>
-                        <button onclick="prevSlide('s3')" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="nextSlide('s3')" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="dots-s3"></div>
-                    </div>
-                </div>
-
-                <!-- Description -->
-                <div class="w-full lg:w-1/2">
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Minería</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Trabajos Sector Minero</h2>
-                    <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
-                    <p class="text-slate-600 leading-relaxed mb-4 text-lg">
-                        Vuelos fotogramétricos y topografía de detalle en zonas de alta sensibilidad ambiental y operativa del sector minero en la región NOA.
-                    </p>
-                    <p class="text-slate-500 leading-relaxed mb-6">
-                        Se utilizaron drones de alta resolución para generar ortomosaicos y modelos digitales de terreno (MDT) que permiten el cálculo de volúmenes, planificación de accesos y monitoreo de avance de obra.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-light rounded-lg p-4">
-                            <i class="fas fa-plane-departure text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Tecnología</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Fotogrametría UAV</p>
-                        </div>
-                        <div class="bg-light rounded-lg p-4">
-                            <i class="fas fa-mountain text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Sector</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Minería & Recursos</p>
+                    <div class="w-full lg:w-3/5">
+                        <div class="photo-grid cols-3">
+                            <div class="photo-item">
+                                <img src="images/minera.jpg" alt="Minería 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>minera.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Operación minera</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/minera2.jpg" alt="Minería 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>minera2.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Nivelación de pilas</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/minera3.jpg" alt="Minería 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>minera3.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Vuelo drone</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/minera4.jpg" alt="Minería 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>minera4.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Red GNSS</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/minera5.jpg" alt="Minería 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>minera5.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Collar de sondeo</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/minera6.jpg" alt="Minería 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>minera6.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Replanteo campamento</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <div class="h-px bg-slate-100 mx-auto max-w-5xl"></div>
-
-    <!-- ===================================================
-         PROJECT 4 — GRANDES SUPERFICIES
-    ==================================================== -->
-    <section id="superficies" class="project-section py-20 bg-light relative">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
-
-                <!-- Slider -->
-                <div class="w-full lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-100">
-                        <div class="slider" data-id="s4">
-                            <img src="images/eolico.jpg"  alt="Grandes Superficies 1" class="slide fade-transition opacity-100 absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+1'">
-                            <img src="images/eolico2.jpg" alt="Grandes Superficies 2" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+2'">
-                            <img src="images/eolico3.jpg" alt="Grandes Superficies 3" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+3'">
-                        </div>
-                        <button onclick="prevSlide('s4')" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="nextSlide('s4')" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="dots-s4"></div>
-                    </div>
-                </div>
-
-                <!-- Description -->
-                <div class="w-full lg:w-1/2">
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Grandes Superficies</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Estudios Industriales</h2>
-                    <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
-                    <p class="text-slate-600 leading-relaxed mb-4 text-lg">
-                        Replanteo en lotes de más de 360 ha con determinación de coordenadas precisas, estudio de títulos y elaboración de planos de mensura.
-                    </p>
-                    <p class="text-slate-500 leading-relaxed mb-6">
-                        Trabajo realizado con equipos GNSS de doble frecuencia en modo RTK y post-proceso, logrando precisiones centimétricas en superficies extensas con terreno de difícil acceso.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white rounded-lg p-4 shadow-sm">
-                            <i class="fas fa-expand-arrows-alt text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Superficie</span>
-                            <p class="font-semibold text-primary text-sm mt-1">+360 hectáreas</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 shadow-sm">
-                            <i class="fas fa-satellite text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Tecnología</span>
-                            <p class="font-semibold text-primary text-sm mt-1">GNSS RTK</p>
+            <!-- ===================== AGRIMENSURA ===================== -->
+            <div id="area-agrimensura" class="area-panel">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="w-full lg:w-2/5">
+                        <span class="text-secondary font-bold uppercase tracking-wider text-sm">Agrimensura</span>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Catastro, Mensuras y Loteos</h2>
+                        <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-base">
+                            Realizamos la gestión integral de mensuras urbanas y rurales, subdivisiones, loteos y regularizaciones dominiales en la provincia de Catamarca, con presentación ante la Dirección General de Catastro y organismos provinciales.
+                        </p>
+                        <p class="text-slate-500 leading-relaxed mb-6 text-sm">
+                            Nuestra práctica abarca desde mensuras simples y VESEP hasta loteos con apertura de calles, estudios de títulos, planos de propiedad horizontal y mensuras mineras bajo el Código de Minería. Contamos con matrícula profesional habilitante y amplia experiencia en la tramitación ante el Consejo Profesional y la Dirección General de Catastro de Catamarca.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Mensura</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">VESEP</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Loteos</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Estudio de títulos</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Mensura minera</span>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="h-px bg-slate-200 mx-auto max-w-5xl"></div>
-
-    <!-- ===================================================
-         PROJECT 5 — CATASTRO
-    ==================================================== -->
-    <section id="catastro" class="project-section py-20 bg-white relative">
-        <div class="absolute inset-0 bg-topo-pattern opacity-30 pointer-events-none"></div>
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row gap-12 items-center">
-
-                <!-- Slider -->
-                <div class="w-full lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-100">
-                        <div class="slider" data-id="s5">
-                            <img src="images/catastro.jpg"  alt="Catastro 1" class="slide fade-transition opacity-100 absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+1'">
-                            <img src="images/catastro2.jpg" alt="Catastro 2" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+2'">
-                            <img src="images/catastro3.jpg" alt="Catastro 3" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+3'">
-                        </div>
-                        <button onclick="prevSlide('s5')" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="nextSlide('s5')" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="dots-s5"></div>
-                    </div>
-                </div>
-
-                <!-- Description -->
-                <div class="w-full lg:w-1/2">
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Catastro</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Relevamiento Catastral</h2>
-                    <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
-                    <p class="text-slate-600 leading-relaxed mb-4 text-lg">
-                        Levantamiento de mejoras e inclusión en el catastro provincial. Gestión integral ante organismos públicos para regularización dominial.
-                    </p>
-                    <p class="text-slate-500 leading-relaxed mb-6">
-                        Comprende la confección de planos de mensura, verificación de medidas perimetrales, empalme con puntos de referencia catastral y presentación ante el Catastro Provincial de Catamarca.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-light rounded-lg p-4">
-                            <i class="fas fa-file-alt text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Gestión</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Catastro Provincial</p>
-                        </div>
-                        <div class="bg-light rounded-lg p-4">
-                            <i class="fas fa-map-marked-alt text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Servicio</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Mensura & Planos</p>
+                    <div class="w-full lg:w-3/5">
+                        <div class="photo-grid cols-3">
+                            <div class="photo-item">
+                                <img src="images/catastro.jpg" alt="Agrimensura 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>catastro.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Mensura</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/loteo.jpg" alt="Agrimensura 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>loteo.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Loteo</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agrim3.jpg" alt="Agrimensura 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agrim3.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Amojonamiento</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agrim4.jpg" alt="Agrimensura 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agrim4.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">VESEP</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agrim5.jpg" alt="Agrimensura 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agrim5.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Plano de subdivisión</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agrim6.jpg" alt="Agrimensura 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agrim6.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Mensura minera</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <div class="h-px bg-slate-100 mx-auto max-w-5xl"></div>
-
-    <!-- ===================================================
-         PROJECT 6 — LOTEO
-    ==================================================== -->
-    <section id="loteo" class="project-section py-20 bg-light relative">
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
-
-                <!-- Slider -->
-                <div class="w-full lg:w-1/2">
-                    <div class="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-100">
-                        <div class="slider" data-id="s6">
-                            <img src="images/loteo.jpg"  alt="Loteo 1" class="slide fade-transition opacity-100 absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+1'">
-                            <img src="images/loteo2.jpg" alt="Loteo 2" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+2'">
-                            <img src="images/loteo3.jpg" alt="Loteo 3" class="slide fade-transition opacity-0  absolute inset-0 w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/800x600/1b4332/ffffff?text=Foto+3'">
+            <!-- ===================== AGRO ===================== -->
+            <div id="area-agro" class="area-panel">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="w-full lg:w-2/5">
+                        <span class="text-secondary font-bold uppercase tracking-wider text-sm">Sector Agropecuario</span>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Fotogrametría y Agricultura de Precisión</h2>
+                        <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-base">
+                            Realizamos vuelos fotogramétricos multiespectrales sobre cultivos y predios rurales para la generación de mapas de índices de vegetación, análisis de vigor, detección de estrés hídrico y zonificación de ambientes productivos.
+                        </p>
+                        <p class="text-slate-500 leading-relaxed mb-6 text-sm">
+                            Nuestros servicios permiten al productor contar con información geoespacial precisa para la toma de decisiones agronómicas: desde el monitoreo mensual de lotes mediante NDVI y NDRE hasta la confección de planos topográficos para sistematización hídrica y diseño de riego. Complementamos con relevamientos de límites prediales y cálculo de superficies reales.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Fotogrametría multiespectral</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">NDVI / NDRE</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Vuelos periódicos</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Zonificación</span>
                         </div>
-                        <button onclick="prevSlide('s6')" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <button onclick="nextSlide('s6')" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition z-10">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 z-10" id="dots-s6"></div>
                     </div>
-                </div>
-
-                <!-- Description -->
-                <div class="w-full lg:w-1/2">
-                    <span class="text-secondary font-bold uppercase tracking-wider text-sm">Urbanismo</span>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Diseño de Loteos</h2>
-                    <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
-                    <p class="text-slate-600 leading-relaxed mb-4 text-lg">
-                        Planificación, trazado de calles y división de parcelas para desarrollos inmobiliarios y urbanísticos en Catamarca.
-                    </p>
-                    <p class="text-slate-500 leading-relaxed mb-6">
-                        Desde la concepción del proyecto hasta la confección del plano de subdivisión aprobado, incluyendo el trazado de infraestructura, nomenclatura parcelaria y materialización de vértices en campo.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="bg-white rounded-lg p-4 shadow-sm">
-                            <i class="fas fa-city text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Tipo</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Urbanización</p>
-                        </div>
-                        <div class="bg-white rounded-lg p-4 shadow-sm">
-                            <i class="fas fa-pen-ruler text-secondary mb-2 block"></i>
-                            <span class="text-xs font-bold text-slate-500 uppercase">Servicio</span>
-                            <p class="font-semibold text-primary text-sm mt-1">Subdivisión & Trazado</p>
+                    <div class="w-full lg:w-3/5">
+                        <div class="photo-grid cols-3">
+                            <div class="photo-item">
+                                <img src="images/agro1.jpg" alt="Agro 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agro1.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Vuelo multiespectral</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agro2.jpg" alt="Agro 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agro2.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Mapa NDVI</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agro3.jpg" alt="Agro 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agro3.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Ortomosaico</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agro4.jpg" alt="Agro 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agro4.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Zonificación</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agro5.jpg" alt="Agro 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agro5.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Relevamiento predial</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/agro6.jpg" alt="Agro 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>agro6.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Estrés hídrico</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- ===================== VIALIDAD ===================== -->
+            <div id="area-vialidad" class="area-panel">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="w-full lg:w-2/5">
+                        <span class="text-secondary font-bold uppercase tracking-wider text-sm">Obras Viales</span>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Vialidad y Obras Civiles</h2>
+                        <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-base">
+                            Ejecutamos relevamientos y replanteos para obras viales urbanas y rurales en Catamarca y la región, incluyendo apertura de calles, diseño de rotondas, carriles de aceleración y accesos a predios industriales y mineros.
+                        </p>
+                        <p class="text-slate-500 leading-relaxed mb-6 text-sm">
+                            Los trabajos comprenden levantamiento de calzadas existentes, determinación de perfiles longitudinales y transversales, materialización de ejes de traza, control de rasante durante la ejecución y confección de planos as-built para certificación ante organismos viales provinciales y municipales.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Apertura de calles</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Perfiles longitudinales</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Replanteo de traza</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Control de rasante</span>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-3/5">
+                        <div class="photo-grid cols-3">
+                            <div class="photo-item">
+                                <img src="images/vial.png" alt="Vialidad 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>vial.png</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Apertura de calle</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/vial2.jpg" alt="Vialidad 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>vial2.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Replanteo de traza</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/vial3.jpg" alt="Vialidad 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>vial3.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Perfiles</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/vial4.jpg" alt="Vialidad 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>vial4.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Control rasante</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/vial5.jpg" alt="Vialidad 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>vial5.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Rotonda</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/vial6.jpg" alt="Vialidad 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>vial6.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Obra terminada</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== INDUSTRIA ===================== -->
+            <div id="area-industria" class="area-panel">
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="w-full lg:w-2/5">
+                        <span class="text-secondary font-bold uppercase tracking-wider text-sm">Industria y Grandes Superficies</span>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2 mb-4">Proyectos Industriales</h2>
+                        <div class="w-12 h-1 bg-secondary mb-6 rounded"></div>
+                        <p class="text-slate-600 leading-relaxed mb-4 text-base">
+                            Proveemos soporte topográfico completo para la construcción y ampliación de naves industriales, plantas de proceso, parques eólicos y proyectos de gran escala en Catamarca y la región NOA.
+                        </p>
+                        <p class="text-slate-500 leading-relaxed mb-6 text-sm">
+                            Nuestros trabajos incluyen levantamiento planialtimétrico previo, implantación de ejes estructurales, control geométrico durante las etapas constructivas y relevamiento as-built final. Para grandes superficies, trabajamos con redes GNSS de doble frecuencia logrando precisiones centimétricas en predios de hasta 360 hectáreas con terreno de difícil acceso.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Nave industrial</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Implantación estructural</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">Grandes superficies</span>
+                            <span class="px-3 py-1 bg-light rounded-full text-xs font-semibold text-primary border border-slate-200">GNSS RTK</span>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-3/5">
+                        <div class="photo-grid cols-3">
+                            <div class="photo-item">
+                                <img src="images/nave.jpg" alt="Industria 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>nave.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Nave industrial</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/nave2.jpg" alt="Industria 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>nave2.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Replanteo estructural</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/nave3.jpg" alt="Industria 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>nave3.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Control geométrico</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/eolico.jpg" alt="Industria 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>eolico.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Grandes superficies</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/eolico2.jpg" alt="Industria 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>eolico2.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">Parque industrial</span></div>
+                            </div>
+                            <div class="photo-item">
+                                <img src="images/eolico3.jpg" alt="Industria 6" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                                <div class="photo-placeholder" style="display:none"><i class="fas fa-image"></i><span>eolico3.jpg</span></div>
+                                <div class="photo-overlay"><span class="photo-label">As-built</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <script>
+            function showArea(id, btn) {
+                document.querySelectorAll('.area-panel').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.area-tab').forEach(t => t.classList.remove('active'));
+                document.getElementById('area-' + id).classList.add('active');
+                btn.classList.add('active');
+            }
+        </script>
     </section>
 
     <!-- ===== CTA FINAL ===== -->
