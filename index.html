@@ -250,48 +250,496 @@
     </section>
 
     <!-- Services Section -->
-    <section id="servicios" class="py-20 bg-white relative">
+    <section id="servicios" class="py-20 bg-white relative overflow-hidden">
         <div class="absolute inset-0 bg-topo-pattern opacity-30 pointer-events-none"></div>
+
+        <!-- Estilos específicos de la sección -->
+        <style>
+            /* Tab buttons */
+            .sector-tab {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.85rem 1rem;
+                border-radius: 0.5rem;
+                font-weight: 600;
+                font-size: 0.78rem;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+                color: #64748b;
+                background: transparent;
+                border: 2px solid transparent;
+                cursor: pointer;
+                transition: all 0.25s ease;
+                white-space: nowrap;
+            }
+            .sector-tab:hover {
+                color: #1b4332;
+                background: #f0f4f0;
+            }
+            .sector-tab.active {
+                color: #fff;
+                background: #1b4332;
+                border-color: #1b4332;
+                box-shadow: 0 4px 14px rgba(27,67,50,0.25);
+            }
+            .sector-tab .tab-icon {
+                font-size: 1.3rem;
+            }
+            /* Panel */
+            .sector-panel {
+                display: none;
+            }
+            .sector-panel.active {
+                display: block;
+            }
+            /* Service card */
+            .svc-card {
+                background: #f0f4f0;
+                border-radius: 0.75rem;
+                padding: 1.5rem;
+                border-top: 3px solid transparent;
+                transition: all 0.25s ease;
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .svc-card:hover {
+                border-top-color: #4CAF50;
+                box-shadow: 0 8px 24px rgba(27,67,50,0.12);
+                transform: translateY(-3px);
+            }
+            .svc-card-icon {
+                width: 2.75rem;
+                height: 2.75rem;
+                background: #fff;
+                border-radius: 0.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #4CAF50;
+                font-size: 1.1rem;
+                margin-bottom: 0.25rem;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            }
+            /* Sector hero banner */
+            .sector-banner {
+                border-radius: 1rem;
+                overflow: hidden;
+                position: relative;
+                min-height: 120px;
+                display: flex;
+                align-items: flex-end;
+                padding: 1.5rem 1.75rem;
+                margin-bottom: 2rem;
+            }
+            .sector-banner-bg {
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+            }
+            .sector-banner-overlay {
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+            }
+            .sector-banner-content {
+                position: relative;
+                z-index: 2;
+            }
+            /* Tab scroll on mobile */
+            .tabs-scroll {
+                overflow-x: auto;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .tabs-scroll::-webkit-scrollbar { display: none; }
+        </style>
+
         <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16 max-w-3xl mx-auto">
-                <span class="text-secondary font-bold uppercase tracking-wider text-sm">Lo que hacemos</span>
-                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2">Soluciones Integrales</h2>
+            <!-- Header -->
+            <div class="text-center mb-12 max-w-3xl mx-auto">
+                <span class="text-secondary font-bold uppercase tracking-wider text-sm">Soluciones por Sector</span>
+                <h2 class="font-heading text-3xl md:text-4xl font-bold text-primary mt-2">Nuestros Servicios</h2>
                 <div class="w-16 h-1 bg-secondary mx-auto mt-4 rounded"></div>
+                <p class="text-slate-500 mt-4 text-sm leading-relaxed">Seleccioná el sector para ver los servicios disponibles.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-satellite-dish text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Topografía de Precisión</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Planimetría y altimetría detallada con Estaciones Totales y GNSS.</p>
-                </div>
-                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-plane-departure text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Fotogrametría con Drones</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Vuelos de alta resolución para ortomosaicos y modelos digitales.</p>
-                </div>
-                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-map-marked-alt text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Mensuras y Catastro</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Gestión completa ante catastro. Subdivisiones y unificaciones.</p>
-                </div>
-                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-balance-scale text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Asesoramiento Legal</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Consultoría experta en propiedad inmueble y títulos.</p>
-                </div>
-                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-cube text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Escaneo Láser 3D</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Captura de realidad para BIM y documentación As-Built.</p>
-                </div>
-                <div class="bg-light p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-transparent hover:border-secondary group hover-lift">
-                    <div class="w-14 h-14 bg-white rounded-lg flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm"><i class="fas fa-city text-2xl"></i></div>
-                    <h3 class="text-xl font-bold text-primary mb-3">Desarrollos Urbanísticos</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Diseño y planificación de loteos y apertura de calles.</p>
+            <!-- Tabs -->
+            <div class="tabs-scroll mb-8">
+                <div class="flex gap-2 md:justify-center min-w-max mx-auto px-1 pb-1">
+                    <button class="sector-tab active" onclick="showSector('aec', this)">
+                        <i class="tab-icon fas fa-building"></i>
+                        <span>AEC</span>
+                    </button>
+                    <button class="sector-tab" onclick="showSector('agro', this)">
+                        <i class="tab-icon fas fa-seedling"></i>
+                        <span>Agro</span>
+                    </button>
+                    <button class="sector-tab" onclick="showSector('mineria', this)">
+                        <i class="tab-icon fas fa-hard-hat"></i>
+                        <span>Minería</span>
+                    </button>
+                    <button class="sector-tab" onclick="showSector('agrimensura', this)">
+                        <i class="tab-icon fas fa-map-marked-alt"></i>
+                        <span>Agrimensura</span>
+                    </button>
+                    <button class="sector-tab" onclick="showSector('agrimineria', this)">
+                        <i class="tab-icon fas fa-mountain"></i>
+                        <span>Agrim. Minera</span>
+                    </button>
+                    <button class="sector-tab" onclick="showSector('topografia', this)">
+                        <i class="tab-icon fas fa-drafting-compass"></i>
+                        <span>Topografía</span>
+                    </button>
                 </div>
             </div>
+
+            <!-- ===================== PANEL: AEC ===================== -->
+            <div id="panel-aec" class="sector-panel active">
+                <div class="sector-banner" style="background: linear-gradient(135deg, #0f291e 0%, #1b4332 100%);">
+                    <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(15,41,30,0.85) 40%, transparent 100%);"></div>
+                    <div class="sector-banner-content">
+                        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-1">Architecture · Engineering · Construction</span>
+                        <h3 class="text-white font-heading text-2xl md:text-3xl font-bold">AEC &amp; Construcción</h3>
+                        <p class="text-slate-300 text-sm mt-1 max-w-xl">Captura de realidad, documentación As-Built y soporte técnico para obras civiles e industria.</p>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-cube"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Scan to BIM</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Escaneo láser 3D de estructuras existentes y conversión a modelos BIM para proyectos de renovación o ampliación.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Documentación As-Built</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Registro planimétrico y altimétrico de lo construido para verificación, certificación y entrega de obra.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-cloud"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Nube de Puntos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Generación de nubes de puntos densas mediante escáner terrestre o drone para modelado de alta fidelidad.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-project-diagram"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Poligonales de Precisión</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Redes de apoyo planimétricas y altimétric​as para control de obras, replanteo y certificación de avances.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-ruler-combined"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Replanteo de Obras</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Materialización en campo de los ejes, cotas y alineaciones definidas en proyecto con tolerancias de ingeniería.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-layer-group"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Modelos Digitales de Terreno</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">DTM/DSM de alta resolución para movimiento de suelos, volumetrías y diseño de plataformas.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-satellite-dish"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Redes GNSS de Control</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Establecimiento de bases y vértices de control georreferenciados al sistema POSGAR / RAMSAC.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-image"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Ortomosaicos y Planos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Ortofotografía georreferenciada y cartografía base para proyectos de arquitectura, paisajismo e infraestructura.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== PANEL: AGRO ===================== -->
+            <div id="panel-agro" class="sector-panel">
+                <div class="sector-banner" style="background: linear-gradient(135deg, #14532d 0%, #166534 100%);">
+                    <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(20,83,45,0.85) 40%, transparent 100%);"></div>
+                    <div class="sector-banner-content">
+                        <span class="text-green-300 font-bold text-xs uppercase tracking-widest block mb-1">Agricultura de Precisión</span>
+                        <h3 class="text-white font-heading text-2xl md:text-3xl font-bold">Sector Agropecuario</h3>
+                        <p class="text-slate-300 text-sm mt-1 max-w-xl">Vuelos multiespectrales, análisis de índices y monitoreo periódico de cultivos para la toma de decisiones.</p>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-film"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Fotogrametría Multiespectral</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Vuelos con sensor multiespectral para captura de bandas NIR, Red-Edge y RGB orientados al análisis vegetal.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-chart-area"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Mapas NDVI y de Reflectancia</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Generación de mapas de índices (NDVI, NDRE, SAVI) para diagnóstico de vigor, estrés hídrico y fitosanitario.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-calendar-alt"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Vuelos Periódicos de Control</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Monitoreo mensual o por etapa fenológica para seguimiento evolutivo de lotes y detección temprana de problemas.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-map"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Zonificación de Ambientes</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Identificación y delimitación de zonas homogéneas para manejo diferenciado y agricultura de precisión.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-tint"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Análisis de Estrés Hídrico</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Detección de sectores con déficit o exceso de humedad mediante índices radiométricos y termales.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-draw-polygon"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Relevamiento Topográfico Predial</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Planimetría de lotes con determinación de superficies reales, pendientes y diseño de sistematización hídrica.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-file-alt"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Informes Técnicos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Entrega de reportes detallados con mapas interpretados, recomendaciones agronómicas y series temporales.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-cubes"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Volumetrías de Acopio</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Cálculo de volúmenes de silos, pilas de granos o terraplenamientos mediante modelos de elevación de precisión.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== PANEL: MINERÍA ===================== -->
+            <div id="panel-mineria" class="sector-panel">
+                <div class="sector-banner" style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%);">
+                    <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(30,41,59,0.88) 40%, transparent 100%);"></div>
+                    <div class="sector-banner-content">
+                        <span class="text-yellow-400 font-bold text-xs uppercase tracking-widest block mb-1">Topografía e Ingeniería</span>
+                        <h3 class="text-white font-heading text-2xl md:text-3xl font-bold">Sector Minero</h3>
+                        <p class="text-slate-300 text-sm mt-1 max-w-xl">Soporte técnico integral para operaciones mineras: control de pilas, redes de apoyo y gestión territorial.</p>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-water"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Nivelación de Pilas de Lixiviación</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Control geométrico de pilas de litio y salmuera: nivelaciones de alta precisión para monitoreo de asentamientos y pendientes.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-project-diagram"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Poligonales de Apoyo</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Redes de apoyo planimétricas interiores y exteriores para operaciones mineras a cielo abierto y subterráneas.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-satellite-dish"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Redes GNSS de Sitio</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Establecimiento de marcos de referencia locales vinculados al sistema nacional (POSGAR/RAMSAC) para control de grandes superficies.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-plane-departure"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Vuelos con Drone</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Fotogrametría aérea periódica para cálculo de volumetrías, control de avance de escombreras y modelado de yacimientos.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-home"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Replanteo de Módulos Habitacionales</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Colocación de dados y replanteo geométrico para instalación de módulos y campamentos mineros en terrenos irregulares.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-chart-bar"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Volumetrías y Cubicaciones</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Cálculo de volúmenes de mineral extraído, pilas de estéril y reservorios mediante MDT de precisión.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-road"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Vías de Acarreo y Accesos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Relevamiento y diseño geométrico de caminos internos, pendientes y radio de curva para equipos de gran porte.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#eab308;"><i class="fas fa-shield-alt"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Monitoreo de Estabilidad</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Control periódico de taludes, diques de colas y estructuras de contención mediante nivelación diferencial y GNSS.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== PANEL: AGRIMENSURA ===================== -->
+            <div id="panel-agrimensura" class="sector-panel">
+                <div class="sector-banner" style="background: linear-gradient(135deg, #1b4332 0%, #15803d 100%);">
+                    <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(27,67,50,0.85) 40%, transparent 100%);"></div>
+                    <div class="sector-banner-content">
+                        <span class="text-secondary font-bold text-xs uppercase tracking-widest block mb-1">Catastro y Propiedad</span>
+                        <h3 class="text-white font-heading text-2xl md:text-3xl font-bold">Agrimensura</h3>
+                        <p class="text-slate-300 text-sm mt-1 max-w-xl">Servicios catastrales y legales para la regularización y gestión de la propiedad inmueble en Catamarca.</p>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-map-marked-alt"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Mensura</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Mensura de parcelas rurales y urbanas con verificación de antecedentes catastrales y apeo de linderos.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-search"></i></div>
+                        <h4 class="font-bold text-primary text-sm">VESEP</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Verificación, Señalización y Establecimiento de Planos: regularización de parcelas bajo el régimen provincial vigente.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-th-large"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Loteos y Fraccionamientos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Diseño y aprobación de loteos urbanos y rurales, apertura de calles y espacios verdes conforme ordenanzas municipales.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-balance-scale"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Estudio de Títulos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Análisis y dictamen técnico-legal de antecedentes dominiales para transmisiones, hipotecas y regularizaciones.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Unificación de Parcelas</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Fusión catastral de parcelas contiguas bajo un único dominio ante la Dirección General de Catastro.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Subdivisión</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">División de inmuebles para cesión, herencia o venta parcial con tramitación integral ante catastro y registro.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-file-contract"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Planos de PH</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Confección de planos de Propiedad Horizontal para edificios en construcción o existentes con afectación al régimen PH.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon"><i class="fas fa-map-signs"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Deslinde y Amojonamiento</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Determinación y materialización de límites entre propiedades contiguas con base en títulos, planos y posesión.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== PANEL: AGRIMENSURA MINERA ===================== -->
+            <div id="panel-agrimineria" class="sector-panel">
+                <div class="sector-banner" style="background: linear-gradient(135deg, #292524 0%, #44403c 100%);">
+                    <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(41,37,36,0.88) 40%, transparent 100%);"></div>
+                    <div class="sector-banner-content">
+                        <span class="text-amber-400 font-bold text-xs uppercase tracking-widest block mb-1">Código de Minería</span>
+                        <h3 class="text-white font-heading text-2xl md:text-3xl font-bold">Agrimensura Minera</h3>
+                        <p class="text-slate-300 text-sm mt-1 max-w-xl">Trámites legales y técnicos bajo el Código de Minería para la regularización y ampliación de derechos mineros.</p>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-hammer"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Mensura Minera</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Mensura oficial de pertenencias y concesiones mineras conforme al Código de Minería y normativa provincial.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-layer-group"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Demasías y Excedencias</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Gestión de demasías, excedencias y superpociones entre concesiones ante la autoridad minera jurisdiccional.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-clipboard-list"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Informes de Situación Catastral</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Análisis y confección de informes de estado catastral minero para due diligence, transferencias y financiamiento.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-sitemap"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Unificación de Pertenencias</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Trámite de unificación de concesiones adyacentes para conformación de un único título minero ante la Dirección de Minería.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-map"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Cartografía Minera</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Elaboración de planos de concesiones, distritos mineros y áreas de influencia sobre cartografía oficial georreferenciada.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-file-signature"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Presentaciones ante Autoridad Minera</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Gestión integral de expedientes técnicos y legales ante la Secretaría de Minería de la provincia de Catamarca.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-globe-americas"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Redes Geodésicas de Apoyo</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Establecimiento de marcos geodésicos de referencia local vinculados al IGN para proyectos de escala distrital.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#d97706;"><i class="fas fa-search-location"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Estudios de Cateo y Prospección</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Apoyo topográfico en campañas de exploración: posicionamiento de sondeos, transectas y áreas de muestreo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===================== PANEL: TOPOGRAFÍA GENERAL ===================== -->
+            <div id="panel-topografia" class="sector-panel">
+                <div class="sector-banner" style="background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);">
+                    <div class="sector-banner-overlay" style="background: linear-gradient(90deg, rgba(12,74,110,0.88) 40%, transparent 100%);"></div>
+                    <div class="sector-banner-content">
+                        <span class="text-sky-300 font-bold text-xs uppercase tracking-widest block mb-1">Medición y Control</span>
+                        <h3 class="text-white font-heading text-2xl md:text-3xl font-bold">Topografía General</h3>
+                        <p class="text-slate-300 text-sm mt-1 max-w-xl">Relevamientos, replanteos y controles de precisión para todo tipo de obras e infraestructura.</p>
+                    </div>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-map"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Relevamiento Planialtimétrico</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Levantamiento topográfico integral de terrenos, curvas de nivel, redes de infraestructura y mejoras.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-crosshairs"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Replanteo</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Materialización de proyectos en campo: ejes viales, fundaciones, estructuras y loteos con precisión centimétrica.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-water"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Nivelación de Precisión</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Nivelación geométrica de alta precisión para control de cotas en obras, estructuras y redes de distribución.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-road"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Perfiles y Secciones Transversales</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Toma de perfiles longitudinales y secciones transversales para diseño vial, hidráulico y de canales.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-cubes"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Cómputo de Movimiento de Suelos</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Cubicación de cortes, terraplenes y volúmenes de excavación para presupuesto y certificación de avance.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-tachometer-alt"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Control de Maquinaria</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Verificación geométrica de plataformas, taludes y rasantes durante la ejecución de obras viales e industriales.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-building"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Topografía para Estructuras</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Control geométrico de columnas, vigas y estructura metálica para verificación de verticalidad, alineaciones y aplomado.</p>
+                    </div>
+                    <div class="svc-card">
+                        <div class="svc-card-icon" style="color:#0284c7;"><i class="fas fa-satellite-dish"></i></div>
+                        <h4 class="font-bold text-primary text-sm">Posicionamiento GNSS RTK</h4>
+                        <p class="text-slate-500 text-xs leading-relaxed">Levantamientos en tiempo real con corrección diferencial NTRIP/RAMSAC para alta productividad en campo abierto.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <!-- Script de tabs -->
+        <script>
+            function showSector(id, btn) {
+                // Ocultar todos los paneles
+                document.querySelectorAll('.sector-panel').forEach(function(p) {
+                    p.classList.remove('active');
+                });
+                // Desactivar todos los tabs
+                document.querySelectorAll('.sector-tab').forEach(function(t) {
+                    t.classList.remove('active');
+                });
+                // Mostrar el panel seleccionado
+                document.getElementById('panel-' + id).classList.add('active');
+                // Activar el tab seleccionado
+                btn.classList.add('active');
+            }
+        </script>
     </section>
 
     <!-- Parallax / CTA Section -->
